@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="/adm/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="/adm/plugins/summernote/summernote-bs4.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -152,6 +153,9 @@
 <script src="/adm/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="/adm/plugins/jquery-knob/jquery.knob.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+
 <!-- daterangepicker -->
 <script src="/adm/plugins/moment/moment.min.js"></script>
 <script src="/adm/plugins/daterangepicker/daterangepicker.js"></script>

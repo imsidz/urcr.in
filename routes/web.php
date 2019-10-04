@@ -53,6 +53,20 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
     Route::post('/products/create', 'ProductController@adminPost');
 
+    //Category
+    Route::get('/category', 'CategoryController@adminIndex');
+
+    Route::get('/category/create', 'CategoryController@adminCreate');
+
+    Route::post('/category/create', 'CategoryController@adminPost');
+
+    //SubCategory
+    Route::get('/subcategory', 'SubCategoryController@adminIndex');
+
+    Route::get('/subcategory/create', 'SubCategoryController@adminCreate');
+
+    Route::post('/subcategory/create', 'SubCategoryController@adminPost');
+
 });
 Auth::routes();
 

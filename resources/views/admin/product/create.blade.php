@@ -39,6 +39,14 @@
                 </div>
 
                 <div class="form-group">
+                  <label for="">Select Sub Categories</label>
+                  <select name="subcategories[]" class="subcategories form-control" multiple>
+                    @foreach ($subcategories as $sub)
+                      <option value="{{ $sub->id }}">{{ $sub->name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+                <div class="form-group">
                   <label for="image">Select Images</label>
                   <input type="file" class="form-control-file" name="image[]" id="image" placeholder="" aria-describedby="fileHelpId" multiple>
                   <small id="fileHelpId" class="form-text text-muted">Help text</small>
@@ -54,4 +62,9 @@
 
 @push('scripts')
   <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.subcategories').select2();
+  });
+  </script>
 @endpush

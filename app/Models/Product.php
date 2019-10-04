@@ -10,4 +10,9 @@ class Product extends Model
     {
         return $this->hasMany(Photo::class, 'product_id', 'id');
     }
+
+    public function subcategories()
+    {
+        return $this->belongsToMany(SubCategory::class, 'product_sub_category', 'product_id', 'sub_category_id')->withTimestamps();
+    }
 }

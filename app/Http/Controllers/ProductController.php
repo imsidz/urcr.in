@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Photo;
 use App\Models\Product;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -29,12 +30,13 @@ class ProductController extends Controller
     }
 
     public function adminCreate()
-    {
-        return view('admin.product.create');
+    {   
+        $subcategories = SubCategory::latest()->get();
+        return view('admin.product.create', compact('subcategories'));
     }
 
     public function adminPost(Request $request)
-    {
+    {   
         $product = new Product;
         $product->title = $request->title;
         $product->slug = Str::slug($request->title, '-') . Str::random(5);
@@ -44,6 +46,8 @@ class ProductController extends Controller
         $product->short = $request->short;
         $product->full = $request->full;
         $product->save();
+
+        $product->subcategories()->attach($request->subcategories);
 
         foreach($request->image as $image){
             $photo = new Photo;
@@ -59,6 +63,6 @@ class ProductController extends Controller
             $photo->save();
         }
 
-        return back()->with('success', 'Product Added Succes');
+        return redirect('/admin/products')->with('success', 'Product Added Succes');
     }
 }

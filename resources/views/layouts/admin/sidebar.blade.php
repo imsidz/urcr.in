@@ -21,6 +21,16 @@
             </li>
 
             <li class="nav-item">
+              <a href="/admin/subcategory" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                  Sub Category
+                  <span class="right badge badge-danger"></span>
+                  </p>
+              </a>
+          </li>
+
+            <li class="nav-item">
                 <a href="/admin/products" class="nav-link">
                     <i class="nav-icon fas fa-th"></i>
                     <p>
