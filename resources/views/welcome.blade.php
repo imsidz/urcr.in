@@ -49,11 +49,14 @@
             </div>
             <div class="popcat-slider">
                 <div class="wrap-item" data-pagination="false" data-navigation="false" data-itemscustom="[[0,1],[560,2],[768,3]]">
-                    <div class="popcat-item text-center">
-                        <h3 class="mont-font title18 underline-title"><a href="#">Homeware</a></h3>
-                        <div class="popcat-thumb"><a href="#"><img src="images/photos/home1/topshop_homeware.png" alt="" /></a></div>
-                    </div>
-                    <div class="popcat-item text-center">
+                    @foreach ($subcategories as $sub)
+                        <div class="popcat-item text-center">
+                            <h3 class="mont-font title18 underline-title"><a href="#">{{ $sub->name }}</a></h3>
+                            <div class="popcat-thumb"><a href="#"><img src="{{ $sub->image }}" alt="" /></a></div>
+                        </div>
+                    @endforeach
+                    
+                    {{-- <div class="popcat-item text-center">
                         <h3 class="mont-font title18 underline-title"><a href="#">Cosmetics</a></h3>
                         <div class="popcat-thumb"><a href="#"><img src="images/photos/home1/topshop_cosmetics.png" alt="" /></a></div>
                     </div>
@@ -64,7 +67,7 @@
                     <div class="popcat-item text-center">
                         <h3 class="mont-font title18 underline-title"><a href="#">Shop Cup</a></h3>
                         <div class="popcat-thumb"><a href="#"><img src="images/photos/home1/topshop_food.png" alt="" /></a></div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -82,28 +85,41 @@
                     <div class="list-collection">
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <div class="item-collection text-center wow fadeInLeft">
+                                @foreach ($collection1 as $col1)
+                                    <div class="item-collection text-center wow fadeInLeft">
+                                        <div class="banner-adv zoom-rotate overlay-image">
+                                            <a href="#" class="adv-thumb-link"><img src="{{ $col1->photos->first()['link'] }}" alt=""></a>
+                                        </div>
+                                        <h3 class="mont-font title18 underline-title"><a href="#">{{ $col1->title }}</a></h3>
+                                        {{-- <h2 class="vibes-font">Lorem ipsum dolor sit amet</h2> --}}
+                                        <a href="/product/{{ $col1->slug }}" class="shop-button">Shop Now</a>
+                                    </div>
+                                @endforeach
+                                {{-- <div class="item-collection text-center wow fadeInLeft">
                                     <div class="banner-adv zoom-rotate overlay-image">
                                         <a href="#" class="adv-thumb-link"><img src="images/photos/collection/collection_01.jpg" alt=""></a>
                                     </div>
                                     <h3 class="mont-font title18 underline-title"><a href="#">Devices</a></h3>
                                     <h2 class="vibes-font">Lorem ipsum dolor sit amet</h2>
                                     <a href="#" class="shop-button">Shop Now</a>
-                                </div>
-                                <div class="item-collection text-center wow fadeInLeft">
-                                    <div class="banner-adv zoom-rotate overlay-image">
-                                        <a href="#" class="adv-thumb-link"><img src="images/photos/collection/collection_03.jpg" alt=""></a>
+                                </div> --}}
+                                @foreach ($collection2 as $col2)
+                                    <div class="item-collection text-center wow fadeInLeft">
+                                        <div class="banner-adv zoom-rotate overlay-image">
+                                            <a href="#" class="adv-thumb-link"><img src="{{ $col2->photos->first()['link'] }}" alt=""></a>
+                                        </div>
+                                        <h3 class="mont-font title18 underline-title"><a href="#">{{ $col2->title }}</a></h3>
+                                        <h2 class="vibes-font">Lorem ipsum dolor sit amet</h2>
+                                        <a href="#" class="shop-button">Shop Now</a>
                                     </div>
-                                    <h3 class="mont-font title18 underline-title"><a href="#">skincare night</a></h3>
-                                    <h2 class="vibes-font">Lorem ipsum dolor sit amet</h2>
-                                    <a href="#" class="shop-button">Shop Now</a>
-                                </div>
+                                @endforeach
+                                
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="intro-collection wow fadeInRight">
                                     <p>Praesent vestibu lum molestie lacus. Aenean nonummyendre rit mauris. Fusce suscipit varius lorem ipsum dolor sit amet consec tetuer adipi scing elit.</p>
                                     <div class="text-center">
-                                        <a href="#" class="viewall-button">View all Products <i class="fa fa-arrow-circle-down" aria-hidden="true"></i></a>
+                                        <a href="/products" class="viewall-button">View all Products <i class="fa fa-arrow-circle-down" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                                 <div class="item-collection text-center wow fadeInRight">

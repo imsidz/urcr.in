@@ -53,7 +53,7 @@
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-12">
 							<div class="detail-info">
-								<h2 class="title-product-detail">Topshop Name Product</h2>
+								<h2 class="title-product-detail">{{ $product->title }}</h2>
 								<ul class="list-inline-block review-rating">
 									<li>
 										<div class="product-rate rate-counter">

@@ -9,6 +9,7 @@ class CartController extends Controller
 {
     public function index()
     {
+    // {   $carts = \Cart::get();
         return view('cart.index');
     }
 

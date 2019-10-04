@@ -9,43 +9,31 @@
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="mega-menu-box">
-                                <h2 class="title14 mont-font color">CATEGORY PAGE</h2>
+                                <h2 class="title14 mont-font color">Categories</h2>
                                 <ul class="list-none">
-                                    <li><a href="#">Off-Canvas Filtering</a></li>
-                                    <li><a href="#">Full Width Layout</a></li>
-                                    <li><a href="#">List layout</a></li>
-                                    <li><a href="#">Masonry layout</a></li>
-                                    <li><a href="#">Top Content</a></li>
-                                    <li><a href="#">Transparent Header</a></li>
-                                    <li><a href="#">Dark Style</a></li>
+                                    @foreach ($categories as $category)
+                                        <li><a href="#">{{ $category->name }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="mega-menu-box">
-                                <h2 class="title14 mont-font color">product PAGE</h2>
+                                <h2 class="title14 mont-font color">Sub Categories</h2>
                                 <ul class="list-none">
-                                    <li><a href="#">Left Column</a></li>
-                                    <li><a href="#">Right Column</a></li>
-                                    <li><a href="#">Full Width Gallery</a></li>
-                                    <li><a href="#">Vertical Gallery</a></li>
-                                    <li><a href="#">Variations</a></li>
-                                    <li><a href="#">Transparent Header</a></li>
-                                    <li><a href="#">Affiliat</a></li>
+                                    @foreach ($subcategories as $sub)
+                                        <li><a href="#">{{ $sub->name }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="mega-menu-box">
-                                <h2 class="title14 mont-font color">more...</h2>
+                                <h2 class="title14 mont-font color">Products</h2>
                                 <ul class="list-none">
-                                    <li><a href="#">Accordion Style</a></li>
-                                    <li><a href="#">Section Style</a></li>
-                                    <li><a href="#">Vertical Tabs</a></li>
-                                    <li><a href="#">Normal Tabs</a></li>
-                                    <li><a href="#">Dark Style</a></li>
-                                    <li><a href="#">Image Zoom</a></li>
-                                    <li><a href="#">Product Examples</a></li>
+                                    @foreach ($products as $product)
+                                        <li><a href="#">{{ $product->title }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

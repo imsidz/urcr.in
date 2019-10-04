@@ -32,54 +32,34 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr class="cart_item">
-										<td class="product-remove">
-											<a class="remove" href="#"><i class="fa fa-times"></i></a>
-										</td>
-										<td class="product-thumbnail">
-											<a href="#"><img  src="images/photos/topshop_product_01.jpg" alt=""/></a>					
-										</td>
-										<td class="product-name" data-title="Product">
-											<a href="#">Luphen Caunoiteng kug </a>					
-										</td>
-										<td class="product-price" data-title="Price">
-											<span class="amount">$68.00</span>					
-										</td>
-										<td class="product-quantity" data-title="Quantity">
-											<div class="detail-qty">
-												<a href="#" class="qty-down"><i class="fa fa-angle-left"></i></a>
-												<span class="qty-val">1</span>
-												<a href="#" class="qty-up"><i class="fa fa-angle-right"></i></a>
-											</div>			
-										</td>
-										<td class="product-subtotal" data-title="Total">
-											<span class="amount">$68.00</span>					
-										</td>
-									</tr>
-									<tr class="cart_item">
-										<td class="product-remove">
-											<a class="remove" href="#"><i class="fa fa-times"></i></a>					
-										</td>
-										<td class="product-thumbnail">
-											<a href="#"><img src="images/photos/topshop_product_01.jpg" alt=""/></a>					
-										</td>
-										<td class="product-name" data-title="Product">
-											<a href="#">Cooc Huyinh Phale </a>					
-										</td>
-										<td class="product-price" data-title="Price">
-											<span class="amount">$19.00</span>					
-										</td>
-										<td class="product-quantity" data-title="Quantity">
-											<div class="detail-qty">
-												<a href="#" class="qty-down"><i class="fa fa-angle-left"></i></a>
-												<span class="qty-val">1</span>
-												<a href="#" class="qty-up"><i class="fa fa-angle-right"></i></a>
-											</div>				
-										</td>
-										<td class="product-subtotal" data-title="Total">
-											<span class="amount">$38.00</span>					
-										</td>
-									</tr>
+									@foreach (Cart::getContent() as $cart)
+										<tr class="cart_item">
+											<td class="product-remove">
+												<a class="remove" href="#"><i class="fa fa-times"></i></a>
+											</td>
+											<td class="product-thumbnail">
+												<a href="#"><img  src="{{ $cart->attributes->image }}" alt=""/></a>					
+											</td>
+											<td class="product-name" data-title="Product">
+												<a href="#">{{ $cart->name }} </a>					
+											</td>
+											<td class="product-price" data-title="Price">
+												<span class="amount">Rs. {{ $cart->price }}</span>					
+											</td>
+											<td class="product-quantity" data-title="Quantity">
+												<div class="detail-qty">
+													<a href="#" class="qty-down"><i class="fa fa-angle-left"></i></a>
+													<span class="qty-val">{{ $cart->quantity }}</span>
+													<a href="#" class="qty-up"><i class="fa fa-angle-right"></i></a>
+												</div>			
+											</td>
+											<td class="product-subtotal" data-title="Total">
+												<span class="amount">Rs. {{ $cart->price }}</span>					
+											</td>
+										</tr>
+									@endforeach
+									
+									
 									<tr>
 										<td class="actions" colspan="6">
 											<div class="coupon">
@@ -102,9 +82,9 @@
 									<tbody>
 										<tr class="cart-subtotal">
 											<th>Subtotal</th>
-											<td><strong class="amount">$106.00</strong></td>
+											<td><strong class="amount">Rs. {{ Cart::getSubTotal() }}</strong></td>
 										</tr>
-										<tr class="shipping">
+										{{-- <tr class="shipping">
 											<th>Shipping</th>
 											<td>
 												<ul class="list-none" id="shipping_method">
@@ -122,10 +102,10 @@
 													</li>
 												</ul>
 											</td>
-										</tr>
+										</tr> --}}
 										<tr class="order-total">
 											<th>Total</th>
-											<td><strong><span class="amount">$106.00</span></strong> </td>
+											<td><strong><span class="amount">Rs. {{ Cart::getTotal() }}</span></strong> </td>
 										</tr>
 									</tbody>
 								</table>
