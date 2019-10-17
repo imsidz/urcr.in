@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ChildCategory;
 use App\Models\Photo;
 use App\Models\Product;
 use App\Models\SubCategory;
@@ -31,8 +32,8 @@ class ProductController extends Controller
 
     public function adminCreate()
     {   
-        $subcategories = SubCategory::latest()->get();
-        return view('admin.product.create', compact('subcategories'));
+        $categories = ChildCategory::latest()->get();
+        return view('admin.product.create', compact('categories'));
     }
 
     public function adminPost(Request $request)
@@ -47,7 +48,7 @@ class ProductController extends Controller
         $product->full = $request->full;
         $product->save();
 
-        $product->subcategories()->attach($request->subcategories);
+        $product->categories()->attach($request->categories);
 
         foreach($request->image as $image){
             $photo = new Photo;
@@ -64,5 +65,15 @@ class ProductController extends Controller
         }
 
         return redirect('/admin/products')->with('success', 'Product Added Succes');
+    }
+
+    public function adminDelete($slug)
+    {
+        $product = Product::where('slug', $slug)->firstorfail();
+
+        $product->categories()->detach();
+        $product->delete();
+
+        return back()->with('status', 'Product Deleted Success');
     }
 }

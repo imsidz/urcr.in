@@ -23,17 +23,7 @@ class CreateSubCategoriesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('product_sub_category', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->on('products')->references('id')->onUpdate('cascade')->onDelete('cascade');
-
-            $table->unsignedBigInteger('sub_category_id');
-            $table->foreign('sub_category_id')->on('sub_categories')->references('id')->onUpdate('cascade')->onDelete('cascade');
-            
-            $table->timestamps();
-        });
+        
     }
 
     /**

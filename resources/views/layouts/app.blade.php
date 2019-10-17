@@ -40,7 +40,7 @@
 							<div class="header-phone">
 								<span class="header-phone-icon color"><i class="fa fa-phone" aria-hidden="true"></i></span>
 								<span class="color">Call today:</span>
-								<strong>+1 800 555–123–2323</strong>
+								<strong>+91 9540333815</strong>
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-4 col-xs-6">
