@@ -28,7 +28,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-4 col-xs-12">
-                    <div class="sidebar-left sidebar-shop">
+                    {{-- <div class="sidebar-left sidebar-shop">
                         <div class="widget widget-product-cat">
                             <h2 class="widget-title title14 active">cosmetics</h2>
                             <div class="widget-content" style="display:block">
@@ -212,12 +212,12 @@
                             </div>
                         </div>
                         <!-- End Widget -->
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-md-9 col-sm-8 col-xs-12">
                     <div class="content-shop">
                         <div class="sort-pagi-bar clearfix">
-                            <h2 class="title18 mont-font pull-left">Skincare</h2>
+                            <h2 class="title18 mont-font pull-left">All Products</h2>
                             <div class="sort-view pull-right">
                                 <div class="view-type pull-left">
                                     <a href="grid-with-sidebar.html" class="grid-view active"><i class="fa fa-th-large" aria-hidden="true"></i></a>
