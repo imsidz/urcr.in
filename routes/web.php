@@ -60,6 +60,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
     Route::post('/category/create', 'CategoryController@adminPost');
 
+    Route::delete('/category/{slug}/delete', 'CategoryController@adminDelete');
+
     //SubCategory
     Route::get('/subcategory', 'SubCategoryController@adminIndex');
 
@@ -67,12 +69,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
     Route::post('/subcategory/create', 'SubCategoryController@adminPost');
 
+    Route::delete('/subcategory/{slug}/delete', 'SubCategoryController@adminDelete');
+
     //Child Category
     Route::get('/childcategory', 'ChildCategoryController@adminIndex');
 
     Route::get('/childcategory/create', 'ChildCategoryController@adminCreate');
 
     Route::post('/childcategory/create', 'ChildCategoryController@adminPost');
+
+    Route::delete('/childcategory/{slug}/delete', 'ChildCategoryController@adminDelete');
+
 
 });
 Auth::routes();

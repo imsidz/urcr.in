@@ -22,7 +22,13 @@
                                 <td scope="row">{{ $index }}</td>
                                 <td>{{ $category->name }}</td>
                                 <td><a href="/admin/category/{{ $category->slug }}/edit" class="btn btn-warning btn-sm">Edit</a></td>
-                                <td><a href="/admin/category/{{ $category->slug }}/edit" class="btn btn-danger btn-sm">Delete</a></td>
+                                <td>
+                                    <form action="/admin/category/{{ $category->slug }}/delete" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>   
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                         

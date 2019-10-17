@@ -39,4 +39,12 @@ class ChildCategoryController extends Controller
 
         return redirect('/admin/childcategory')->with('status', 'Added Success');
     }
+
+    public function adminDelete($slug)
+    {
+        $child = ChildCategory::where('slug', $slug)->first();
+        $child->delete();
+
+        return back();
+    }
 }

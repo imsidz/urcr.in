@@ -18,13 +18,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($childs as $index => $sub)
+                        @foreach ($childs as $index => $child)
                             <tr>
                                 <td scope="row">{{ $index + 1 }}</td>
-                                <td>{{ $sub->name }}</td>
-                                <td><img src="{{ $sub->image }}" width="150"></td>
-                                <td><a href="/admin/category/{{ $sub->slug }}/edit" class="btn btn-warning btn-sm">Edit</a></td>
-                                <td><a href="/admin/category/{{ $sub->slug }}/edit" class="btn btn-danger btn-sm">Delete</a></td>
+                                <td>{{ $child->name }}</td>
+                                <td><img src="{{ $child->image }}" width="150"></td>
+                                <td><a href="/admin/category/{{ $child->slug }}/edit" class="btn btn-warning btn-sm">Edit</a></td>
+                                <td>
+                                    <form action="/admin/childcategory/{{ $child->slug }}/delete" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>   
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                         

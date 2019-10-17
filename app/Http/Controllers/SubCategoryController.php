@@ -39,4 +39,12 @@ class SubCategoryController extends Controller
 
         return redirect('/admin/subcategory')->with('status', 'SubCategory Added Success');
     }
+
+    public function adminDelete($slug)
+    {
+        $sub = SubCategory::where('slug', $slug)->first();
+        $sub->delete();
+
+        return back();
+    }
 }

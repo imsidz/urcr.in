@@ -28,4 +28,12 @@ class CategoryController extends Controller
 
         return redirect('/admin/category')->with('status', 'Category Added Success');
     }
+
+    public function adminDelete($slug)
+    {
+        $category = Category::where('slug', $slug)->first();
+        $category->delete();
+
+        return back()->with('status', 'Deleted Successs');
+    }
 }
