@@ -66,4 +66,14 @@ class ProductController extends Controller
 
         return redirect('/admin/products')->with('success', 'Product Added Succes');
     }
+
+    public function adminDelete($slug)
+    {
+        $product = Product::where('slug', $slug)->firstorfail();
+
+        $product->categories()->detach();
+        $product->delete();
+
+        return back()->with('status', 'Product Deleted Success');
+    }
 }

@@ -39,10 +39,10 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="">Select Sub Categories</label>
-                  <select name="subcategories[]" class="subcategories form-control" multiple>
-                    @foreach ($subcategories as $sub)
-                      <option value="{{ $sub->id }}">{{ $sub->name }}</option>
+                  <label for="">Select Child Category Categories</label>
+                  <select name="categories[]" class="subcategories form-control" multiple>
+                    @foreach ($categories as $category)
+                      <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                   </select>
                 </div>

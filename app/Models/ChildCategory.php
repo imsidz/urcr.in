@@ -8,6 +8,6 @@ class ChildCategory extends Model
 {
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'child_category_product', 'child_category_id', 'product_id');
+        return $this->belongsToMany(Product::class, 'child_category_product', 'product_id', 'child_category_id')->withTimestamps();
     }
 }

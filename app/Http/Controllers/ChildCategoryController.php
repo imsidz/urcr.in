@@ -10,13 +10,13 @@ use Illuminate\Support\Str;
 class ChildCategoryController extends Controller
 {
     public function adminIndex()
-    {   
+    {
         $childs = ChildCategory::latest()->paginate(20);
         return view('admin.childcategory.index', compact('childs'));
     }
 
     public function adminCreate()
-    {   
+    {
         $subcategories = SubCategory::latest()->get();
         return view('admin.childcategory.create', compact('subcategories'));
     }
@@ -27,16 +27,23 @@ class ChildCategoryController extends Controller
         $sub->name = $request->name;
         $sub->slug = Str::slug($request->name, '-');
         $sub->sub_category_id = $request->category;
-        if($request->file('image'))
-        {
+        if ($request->file('image')) {
             $image = $request->file('image');
-            $name = time().$image->getClientOriginalName();
-            $image->move(public_path().'/images/', $name);
+            $name = time() . $image->getClientOriginalName();
+            $image->move(public_path() . '/images/', $name);
             $url = url('/images/' . $name);
             $sub->image = $url;
         }
         $sub->save();
 
         return redirect('/admin/childcategory')->with('status', 'Added Success');
+    }
+
+    public function adminDelete($slug)
+    {
+        $child = ChildCategory::where('slug', $slug)->first();
+        $child->delete();
+
+        return back();
     }
 }
