@@ -37,7 +37,63 @@
     </div>
 </div>
 </div>
-
+<div class="popular-category">
+    <div class="container-fluid">
+        <div class="title-box text-uppercase text-center">
+            <strong class="first-letter vibes-font">p</strong>
+            <span class="color">01</span>
+            <h2 class="title30 mont-font inline-block">Latest <strong class="hot-label"><span>Hot</span></strong></h2>
+            <h2 class="title30 mont-font">Products</h2>
+        </div>
+        @foreach ($latests as $pro)
+        
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="item-product">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="product-thumb product-thumb-gallery">
+                                    <a href="#" class="product-thumb-link"><img src="{{ $pro->photos->first()['link'] }}" alt="" /></a>
+                                    <a href="quick-view.html" class="quickview-link fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                    <div class="thumb-gallery">
+                                        @foreach ($pro->photos as $pic)
+                                            <a href="#"><img src="{{ $pic->link }}" alt="{{ $pic->link }}" /></a>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="product-info">
+                                    <h3 class="product-title"><a href="#" class="shop-button">{{ $pro->title }}</a></h3>
+                                    <div class="product-rate">
+                                        <div class="product-rating" style="width:100%"></div>
+                                    </div>
+                                    <div class="product-price">
+                                        <ins><span>Rs.{{ $pro->price }}</span></ins>
+                                        <del><span>Rs.{{ $pro->mrp }}</span></del>
+                                        <span class="sale-label">-20<sup>%</sup></span>
+                                    </div>
+                                    <p class="desc">Fusce suscipit varius lorem ipsum dolor sit amet consec tetuer </p>
+                                    <div class="product-extra-link">
+                                        <a href="#" class="addcart-link"><i class="fa fa-shopping-basket" aria-hidden="true"></i><span>Add to cart</span></a>
+                                        <a href="#" class="wishlist-link"><i class="fa fa-heart" aria-hidden="true"></i><span>Wishlist</span></a>
+                                        <a href="#" class="compare-link"><i class="fa fa-stumbleupon" aria-hidden="true"></i><span>Compare</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              
+        </div>
+        @endforeach
+        
+        
+        
+    </div>
+</div>
 
 <div class="popular-category">
         <div class="container">

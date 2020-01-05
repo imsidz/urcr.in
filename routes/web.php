@@ -65,6 +65,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
     Route::post('/subcategory/create', 'SubCategoryController@adminPost');
 
+    //Child Category
+    Route::get('/childcategory', 'ChildCategoryController@adminIndex');
+
+    Route::get('/childcategory/create', 'ChildCategoryController@adminCreate');
+
+    Route::post('/childcategory/create', 'ChildCategoryController@adminPost');
+
 });
 Auth::routes();
 

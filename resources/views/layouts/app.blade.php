@@ -33,6 +33,45 @@
 <div class="wrap">
 	<div id="header">
 		<div class="header header1">
+			<div class="container-fluid">
+				<div class="row " style="    padding-top: 25px;
+				">
+
+					<div class="col-md-4">
+						<a href="/" class="pull-right"><img src="/images/logo.png" alt="" width="275"></a>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<input type="text" class="form-control" name="search" id="" aria-describedby="helpId" placeholder="Search">
+							{{-- <button class="btn btn-success float-right pull-right">Search</button> --}}
+						  {{-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
+						</div>
+						
+						
+					</div>
+					<div class="col-md-4">
+						<div class="pull-left">
+
+							@include('layouts.app.cart')
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<nav class="navbar">
+						<div class="container">
+						 
+						  <ul class="nav navbar-nav">
+							<li class="active"><a href="#">Category 0</a></li>
+							<li><a href="#">Category 1</a></li>
+							<li><a href="#">Category 2</a></li>
+							<li><a href="#">Category 3</a></li>
+						  </ul>
+						</div>
+					  </nav>
+				</div>
+				
+		</div>
+		{{-- <div class="header header1">
 			<div class="container">
 				<div class="header-main">
 					<div class="row">
@@ -40,12 +79,11 @@
 							<div class="header-phone">
 								<span class="header-phone-icon color"><i class="fa fa-phone" aria-hidden="true"></i></span>
 								<span class="color">Call today:</span>
-								<strong>+1 800 555–123–2323</strong>
+								<strong>+91 9540333815</strong>
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-4 col-xs-6">
 							<div class="logo logo1">
-								<h1 class="hidden">topshop wordpress theme</h1>
 								<a href="/"><img src="/images/logo.png" alt=""></a>
 							</div>
 						</div>
@@ -60,8 +98,8 @@
 				</div>
 				<!-- End Header Nav -->
 			</div>
-		</div>
-		<div class="menu-ontop bg-white header-ontop">
+		</div> --}}
+		{{-- <div class="menu-ontop bg-white header-ontop">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4 col-sm-4 col-xs-12">
@@ -134,7 +172,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 		<!-- End Menu On Top -->
 	</div>
 	<!-- End Header -->

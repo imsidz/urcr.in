@@ -20,7 +20,7 @@
                             <tr>
                                 <td scope="row">{{ $index }}</td>
                                 <td>{{ $product->title }}</td>
-                                <td><img src="{{ $product->photos->first()['link'] }}" alt="{{ $product->title }}"></td>
+                                <td><img src="{{ $product->photos->first()['link'] }}" alt="{{ $product->title }}" width="150"></td>
                             </tr>
                         @endforeach
                         
