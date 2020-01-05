@@ -32,8 +32,8 @@ class ProductController extends Controller
 
     public function adminCreate()
     {
-        $subcategories = ChildCategory::latest()->get();
-        return view('admin.product.create', compact('subcategories'));
+        $categories = ChildCategory::latest()->get();
+        return view('admin.product.create', compact('categories'));
     }
 
     public function adminPost(Request $request)
