@@ -41,13 +41,14 @@
 						<a href="/" class="pull-right"><img src="/images/logo.png" alt="" width="275"></a>
 					</div>
 					<div class="col-md-4">
-						<div class="form-group">
-							<input type="text" class="form-control" name="search" id="" aria-describedby="helpId" placeholder="Search">
-							{{-- <button class="btn btn-success float-right pull-right">Search</button> --}}
-						  {{-- <small id="helpId" class="form-text text-muted">Help text</small> --}}
+						<div class="newsletter-form">
+							<form>
+								<input onblur="if (this.value=='') this.value = this.defaultValue" onfocus="if (this.value==this.defaultValue) this.value = ''" value="Search" type="text">
+								<div class="submit-form">
+									<input value="" type="submit">
+								</div>
+							</form>
 						</div>
-						
-						
 					</div>
 					<div class="col-md-4">
 						<div class="pull-left">

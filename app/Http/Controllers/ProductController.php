@@ -71,7 +71,7 @@ class ProductController extends Controller
     {
         $product = Product::where('slug', $slug)->firstorfail();
 
-        $product->categories()->detach();
+        $product->childcategories()->detach();
         $product->delete();
 
         return back()->with('status', 'Product Deleted Success');
