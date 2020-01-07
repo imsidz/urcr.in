@@ -1977,7 +1977,8 @@ li.menu-item-has-children:hover > .sub-menu {
   z-index: 9;
 }
 .submit-form::after {
-  content: "";
+  content: 🔍;
+  /* content: ""; */
   font-family: fontawesome;
   font-size: 30px;
   left: 0;

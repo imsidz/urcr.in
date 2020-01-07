@@ -4,11 +4,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<meta name="description" content="Topshop is new Wordpress theme that we have designed to help you transform your store into a beautiful online showroom. This is a fully responsive Wordpress theme, with multiple versions for homepage and multiple templates for sub pages as well" />
-	<meta name="keywords" content="Topshop,7uptheme" />
+	<meta name="description" content="Smile 4 Miles" />
+	<meta name="keywords" content="Smile 4 Miles" />
 	<meta name="robots" content="noodp,index,follow" />
 	<meta name='revisit-after' content='1 days' />
-	<title>Topshop | Home Style 1</title>
+	<title>Smile 4 Miles</title>
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates" rel="stylesheet">
@@ -28,6 +28,77 @@
 	<link rel="stylesheet" type="text/css" href="/css/theme.css" media="all"/>
 	<link rel="stylesheet" type="text/css" href="/css/responsive.css" media="all"/>
 	<link rel="stylesheet" type="text/css" href="/css/browser.css" media="all"/>
+	<style>
+	@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+body{
+  font-family: 'Lato', sans-serif;
+  font-weight:300;
+}
+.dropdown-large {
+  position: static !important;
+}
+.dropdown-menu-large {
+  margin-left: 16px;
+  margin-right: 16px;
+  padding: 20px 0px;
+}
+.dropdown-menu-large > li > ul {
+  padding: 0;
+  margin: 0;
+}
+.dropdown-menu-large > li > ul > li {
+  list-style: none;
+}
+.dropdown-menu-large > li > ul > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight:300;
+  line-height: 1.428571429;
+  color: #333333;
+  white-space: normal;
+}
+.dropdown-menu-large > li ul > li > a:hover,
+.dropdown-menu-large > li ul > li > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+.dropdown-menu-large .disabled > a,
+.dropdown-menu-large .disabled > a:hover,
+.dropdown-menu-large .disabled > a:focus {
+  color: #999999;
+}
+.dropdown-menu-large .disabled > a:hover,
+.dropdown-menu-large .disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  cursor: not-allowed;
+}
+.dropdown-menu-large .dropdown-header {
+  color: #428bca;
+  font-size: 18px;
+}
+@media (max-width: 768px) {
+  .dropdown-menu-large {
+    margin-left: 0 ;
+    margin-right: 0 ;
+  }
+  .dropdown-menu-large > li {
+    margin-bottom: 30px;
+  }
+  .dropdown-menu-large > li:last-child {
+    margin-bottom: 0;
+  }
+  .dropdown-menu-large .dropdown-header {
+    padding: 3px 15px !important;
+  }
+}
+
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -50,25 +121,29 @@
 							</form>
 						</div>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4" style="margin-top: 10px;">
 						<div class="pull-left">
 
 							@include('layouts.app.cart')
+							<div class="pull-right list-inline" style="margin-top: 15px;">
+								<li class="menu-item-has-children">
+									<a href="/login">Login</a>
+									
+								</li>
+								<li class="menu-item-has-children">
+									<a href="/register">Register</a>
+									
+								</li>
+							</div>
+							
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<nav class="navbar">
-						<div class="container">
-						 
-						  <ul class="nav navbar-nav">
-							<li class="active"><a href="#">Category 0</a></li>
-							<li><a href="#">Category 1</a></li>
-							<li><a href="#">Category 2</a></li>
-							<li><a href="#">Category 3</a></li>
-						  </ul>
-						</div>
-					  </nav>
+					
+					@include('layouts.app.topmenu')
+
+
 				</div>
 				
 		</div>

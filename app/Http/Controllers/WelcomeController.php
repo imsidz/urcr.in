@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
@@ -11,6 +12,7 @@ class WelcomeController extends Controller
     public function index()
     {
         $latests = Product::latest()->paginate('8');
+
         $subcategories = SubCategory::latest()->get();
         $collection1 = Product::inRandomOrder()->paginate(2);
         $collection2 = Product::inRandomOrder()->paginate(2);
