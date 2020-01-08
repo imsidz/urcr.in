@@ -39,6 +39,9 @@ Route::post('/register', 'Auth\RegisterController@register')->name('register')->
 
 Route::post('/logout', 'Auth\LogoutController@logout')->name('logout')->middleware('auth');
 
+Route::get('/auth/{provider}', 'SocialloginController@login')->middleware('guest');
+
+Route::get('/auth/{provider}/callback', 'SocialloginController@callback')->middleware('guest');
 
 
 //Admin Panel

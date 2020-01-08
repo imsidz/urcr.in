@@ -1,95 +1,50 @@
-<nav class="navbar navbar-static container">
-    <div class="navbar-header">
-		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-	
-	</div>
-	
-	<div class="collapse navbar-collapse js-navbar-collapse">
-		<ul class="nav navbar-nav">
-      
-			
-      {{-- <li class="dropdown dropdown-large">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Category 2 <b class="caret"></b></a>
-				
-				<ul class="dropdown-menu dropdown-menu-large row">
-					<li class="col-sm-6">
-						<ul>
-							<li class="dropdown-header">Sword of Truths</li>
-							<li><a href="#">Example</a></li>
-							<li><a href="#">Example</a></li>
-							<li><a href="#">Example</a></li>
-							<li><a href="#">Example</a></li>
-							<li><a href="#">Example</a></li>
-							<li><a href="#">Example</a></li>
-              <li class="divider"></li>
-              <li class="dropdown-header">Theme/Character</li>
-							<li><a href="#">Example</a></li>
-							<li><a href="#">Example</a></li>
-							<li><a href="#">Example</a></li>
-							<li><a href="#">Example</a></li>
-					
-						</ul>
-					</li>
-					<li class="col-sm-6">
-						<ul>
-							<li class="dropdown-header">by brand</li>
-							<li><a href="#">Example</a></li>
-							<li><a href="#">Example</a></li>
-							<li><a href="#">Example</a></li>
-							<li><a href="#">Example</a></li>
-							<li><a href="#">Example</a></li>
-							<li><a href="#">Example</a></li>
-							<li class="divider"></li>
-              <li><img class"img-responsive" src="http://placehold.it/200x150"/></li>
-						</ul>
-					</li>
-
-					
-				</ul>
-				
-			</li> --}}
-			
-      
-      {{-- <li class="dropdown dropdown-large">
-				<a href="#">Some link</a>
-      </li>
-      <li class="dropdown dropdown-large">
-				<a href="#">Some link</a>
-      </li> --}}
-	  @foreach ($categories as $category)
-          
-	  <li class="dropdown dropdown-large">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ $category->name }}<b class="caret"></b></a>
+<div class="header-nav text-center">
+	<nav class="main-nav main-nav1">
+<ul>
+{{-- <li class="menu-item-has-children">
+<a href="/">Home </a>
+</li> --}}
+@foreach ($categories as $category)
+<li class="has-mega-menu">
+<a href="#">{{ ucfirst($category->name) }}</a>
+<div class="mega-menu">
+	@foreach ($category->subcategories->chunk(3) as $subchunk)
 		
-            
-        
-		<ul class="dropdown-menu dropdown-menu-large row">
-            @foreach ($category->subcategories as $subcat)
-			<li class="col-sm-3">
-				<ul>
-                    <li class="dropdown-header">{{ $subcat->name }}</li>
-                    @foreach ($subcat->childcategories as $childcat)
-                        
+	<div class="row">
+		@foreach ($subchunk as $subcat)
+			
+		
+		<div class="col-sm-3">
+			<div class="mega-menu-box">
+				<h2 class="title14 mont-font color">{{ ucfirst($subcat->name) }}</h2>
+				<ul class="list-none">
+					@foreach ($subcat->childcategories as $childcat)
+						
 					<li><a href="#">{{ $childcat->name }}</a></li>
-                    @endforeach
+					@endforeach
 				</ul>
-			</li>
-			
-            @endforeach
-        </ul>
+			</div>
+		</div>
+		@endforeach
 		
-	</li>
-      @endforeach
+		{{-- <div class="col-sm-3">
+			<div class="mega-menu-thumb"><img src="images/home/mega-menu.png" alt=""></div>
+		</div> --}}
+	</div>
+	@endforeach
 
-	
-      
-      
-		</ul>
+</div>
+</li>
+@endforeach
+
+{{-- <li class="menu-item-has-children">
+<a href="/products">Products</a>
+
+</li> --}}
 		
-	</div><!-- /.nav-collapse -->
-</nav>
+</ul>
+<a href="#" class="toggle-mobile-menu"><span></span></a>
+</nav>				</div>
+
+
+

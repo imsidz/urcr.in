@@ -74,12 +74,12 @@
 									<h2 class="title14">Product Features</h2>
 									{!! $product->short !!}
 								</div>
-								<div class="detail-qty info-qty border radius">
+								<div class="detail-qty info-qty border radius pull-left">
 									<a href="#" class="qty-down"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
 									<span class="qty-val">1</span>
 									<a href="#" class="qty-up"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
 								</div>
-								<form action="/add-to-cart/{{ $product->slug }}" method="POST">
+								<form action="/add-to-cart/{{ $product->slug }}" method="POST" style="pull-right">
 									@csrf
 									<button type="submit" class="addcart-link add-cart-detail">Add to Cart</button>
 								</form>
@@ -92,12 +92,11 @@
 									<p class="desc product-code">SUK: <span>tem009</span></p>
 									<p class="desc product-available">Available: <span class="avail-instock">instock</span></p>
 									<p class="desc tags-detail">
-										<span>Tags:</span> 
-										<a href="#">Homeware</a>
-										<a href="#">Furniture</a>
-										<a href="#">Living room</a>
-										<a href="#">Gift</a>
-										<a href="#">Flower</a>
+										<span>Tags:</span>
+										@foreach ($product->childcategories as $childcat)
+											
+										<a href="#">{{ ucfirst($childcat->name) }}</a>
+										@endforeach 
 									</p>
 								</div>
 							</div>

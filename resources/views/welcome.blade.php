@@ -45,8 +45,58 @@
             <h2 class="title30 mont-font inline-block">Latest <strong class="hot-label"><span>Hot</span></strong></h2>
             <h2 class="title30 mont-font">Products</h2>
         </div>
-        @foreach ($latests as $pro)
+        @foreach ($latests->chunk(6) as $chunk)
+        <div class="row">
+            @foreach ($chunk as $pro)
+                
+            
+        <div class="col-md-2 col-sm-6 col-xs-12">
+            <div class="panel">
+
+            
+            <div class="item-product item-product-grid panel-default">
+                <div class="product-thumb box-hover-dir">
+                <a href="/products/{{ $pro->slug }}">
+                    <img src="{{ $pro->photos->first()['link'] }}" alt="">
+                </a>
+                    {{-- <div class="info-product-hover-dir">
+                        <div class="inner-product-hover-dir">
+                            <div class="content-product-hover-dir">
+                                <a href="/products/{{ $product->slug }}" class="quickview-link fancybox.iframe">Quick view <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                                <span class="product-total-sale">154</span>
+                                <div class="product-extra-link">
+                                    <a href="#" class="addcart-link"><i class="fa fa-shopping-basket" aria-hidden="true"></i><span>Add to cart</span></a>
+                                    <a href="#" class="wishlist-link"><i class="fa fa-heart" aria-hidden="true"></i><span>Wishlist</span></a>
+                                    <a href="#" class="compare-link"><i class="fa fa-stumbleupon" aria-hidden="true"></i><span>Compare</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+                </div>
+                <div class="product-info" style="padding:15px;">
+                    <h3 class="product-title"><a href="/products/{{ $pro->slug }}">{{ $pro->title }}</a></h3>
+                    <div class="product-rate">
+                        <div class="product-rating" style="width:100%"></div>
+                    </div>
+                    <div class="product-price">
+                        <ins><span>{{ $pro->price }}</span></ins>
+                        <del><span>{{ $pro->mrp }}</span></del>
+                        {{-- <span class="sale-label">-20<sup>%</sup></span> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        @endforeach
+        </div>
         
+        @endforeach
+
+        @foreach ($latests->chunk(4) as $chunk)
+        <div class="row">
+
+        @foreach ($chunk as $pro)
+            
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -55,7 +105,7 @@
                             <div class="col-md-6 col-sm-12">
                                 <div class="product-thumb product-thumb-gallery">
                                     <a href="#" class="product-thumb-link"><img src="{{ $pro->photos->first()['link'] }}" alt="" /></a>
-                                    <a href="quick-view.html" class="quickview-link fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                    <a href="/products/{{ $pro->slug }}" class="quickview-link fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
                                     <div class="thumb-gallery">
                                         @foreach ($pro->photos as $pic)
                                             <a href="#"><img src="{{ $pic->link }}" alt="{{ $pic->link }}" /></a>
@@ -65,7 +115,7 @@
                             </div>
                             <div class="col-md-6 col-sm-12">
                                 <div class="product-info">
-                                    <h3 class="product-title"><a href="#" class="shop-button">{{ $pro->title }}</a></h3>
+                                    <h3 class="product-title"><a href="/products/{{ $pro->slug }}" class="shop-button">{{ $pro->title }}</a></h3>
                                     <div class="product-rate">
                                         <div class="product-rating" style="width:100%"></div>
                                     </div>
@@ -89,10 +139,12 @@
               
         </div>
         @endforeach
-        
-        
+
+    </div>
+        @endforeach
         
     </div>
+    <center> <a href="/products" class="btn btn-primary">View All</a>
 </div>
 <div class="view-collection">
     <div class="container">
@@ -107,7 +159,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="item-collection text-center wow fadeInLeft">
                             <div class="banner-adv zoom-rotate overlay-image">
-                                <a href="#" class="adv-thumb-link"><img src="https://miro.medium.com/max/800/1*y264sVVzkJh1Awhw4SOjAw.jpeg" alt="alt"></a>
+                                <a href="#" class="adv-thumb-link"><img src="tps://miro.medium.com/max/800/1*y264sVVzkJh1Awhw4SOjAw.jpeg" alt="alt"></a>
                             </div>
                             <h3 class="mont-font title18 underline-title"><a href="#">20% Discount</a></h3>
                             <h2 class="vibes-font">Lorem ipsum dolor sit amet</h2>

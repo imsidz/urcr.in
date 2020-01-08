@@ -28,8 +28,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-4 col-xs-12">
-                    {{-- <div class="sidebar-left sidebar-shop">
-                        <div class="widget widget-product-cat">
+                    <div class="sidebar-left sidebar-shop">
+                        {{-- <div class="widget widget-product-cat">
                             <h2 class="widget-title title14 active">cosmetics</h2>
                             <div class="widget-content" style="display:block">
                                 <ul class="list-none filter-default">
@@ -62,7 +62,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- End Widget -->
                         <div class="widget widget-filter-price">
                             <h2 class="widget-title title14 active">Price Per Item</h2>
@@ -97,7 +97,7 @@
                             </div>
                         </div>
                         <!-- End Widget -->
-                        <div class="widget widget-filter-attr">
+                        {{-- <div class="widget widget-filter-attr">
                             <h2 class="widget-title title14">Size</h2>
                             <div class="widget-content">
                                 <ul class="list-none filter-default">
@@ -108,9 +108,9 @@
                                     <li><a href="#">California King <span>(43)</span></a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- End Widget -->
-                        <div class="widget widget-filter-attr widget-filter-color">
+                        {{-- <div class="widget widget-filter-attr widget-filter-color">
                             <h2 class="widget-title title14 active">Color</h2>
                             <div class="widget-content custom-scroll" style="display:block">
                                 <ul class="list-inline-block filter-color">
@@ -146,9 +146,9 @@
                                     <li><a href="#"><span style="background:linear-gradient(#045e1b,#e31128);background:-webkit-linear-gradient(#045e1b,#e31128)"></span></a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- End Widget -->
-                        <div class="widget widget-filter-attr">
+                        {{-- <div class="widget widget-filter-attr">
                             <h2 class="widget-title title14">Brands</h2>
                             <div class="widget-content">
                                 <ul class="list-none filter-default">
@@ -160,7 +160,7 @@
                                     <li><a href="#">American Drew<span>(9)</span></a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- End Widget -->
                         <div class="widget widget-filter-attr">
                             <h2 class="widget-title title14">Base Metarial</h2>
@@ -212,13 +212,13 @@
                             </div>
                         </div>
                         <!-- End Widget -->
-                    </div> --}}
+                    </div>
                 </div>
                 <div class="col-md-9 col-sm-8 col-xs-12">
                     <div class="content-shop">
                         <div class="sort-pagi-bar clearfix">
-                            <h2 class="title18 mont-font pull-left">All Products</h2>
-                            <div class="sort-view pull-right">
+                            <h2 class="title18 mont-font pull-left">Latest Products</h2>
+                            {{-- <div class="sort-view pull-right">
                                 <div class="view-type pull-left">
                                     <a href="grid-with-sidebar.html" class="grid-view active"><i class="fa fa-th-large" aria-hidden="true"></i></a>
                                     <a href="list-with-sidebar.html" class="list-view"><i class="fa fa-th-list" aria-hidden="true"></i></a>
@@ -231,16 +231,20 @@
                                         <option value="">price</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="content-grid-sidebar">
+                            @foreach($products->chunk(3) as $chunk)
+                                
                             <div class="row">
-                                @foreach ($products as $product)
+                                @foreach ($chunk as $product)
                                 <div class="col-md-4 col-sm-6 col-xs-12">
                                     <div class="item-product item-product-grid">
                                         <div class="product-thumb box-hover-dir">
+                                        <a href="/products/{{ $product->slug }}">
                                             <img src="{{ $product->photos->first()['link'] }}" alt="">
-                                            <div class="info-product-hover-dir">
+                                        </a>
+                                            {{-- <div class="info-product-hover-dir">
                                                 <div class="inner-product-hover-dir">
                                                     <div class="content-product-hover-dir">
                                                         <a href="/products/{{ $product->slug }}" class="quickview-link fancybox.iframe">Quick view <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
@@ -252,7 +256,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                         <div class="product-info">
                                             <h3 class="product-title"><a href="/products/{{ $product->slug }}">{{ $product->title }}</a></h3>
@@ -270,6 +274,8 @@
                                 @endforeach
                                 
                             </div>
+                            @endforeach
+
                         </div>
                         <div class="pagi-nav-bar text-center radius">
                             {!! $products->render() !!}

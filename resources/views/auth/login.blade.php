@@ -46,7 +46,7 @@
                                             <h2 class="title18 social-login-title">Or login with</h2>
                                             <div class="social-login-block table-custom text-center">
                                                 <div class="social-login-btn">
-                                                    <a href="#" class="login-fb-link">Facebook</a>
+                                                    <a href="/auth/facebook" class="login-fb-link">Facebook</a>
                                                 </div>
                                                 <div class="social-login-btn">
                                                     <a href="#" class="login-goo-link">Google</a>
