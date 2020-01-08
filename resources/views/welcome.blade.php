@@ -159,7 +159,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="item-collection text-center wow fadeInLeft">
                             <div class="banner-adv zoom-rotate overlay-image">
-                                <a href="#" class="adv-thumb-link"><img src="tps://miro.medium.com/max/800/1*y264sVVzkJh1Awhw4SOjAw.jpeg" alt="alt"></a>
+                                <a href="#" class="adv-thumb-link"><img src="https://miro.medium.com/max/800/1*y264sVVzkJh1Awhw4SOjAw.jpeg" alt="alt"></a>
                             </div>
                             <h3 class="mont-font title18 underline-title"><a href="#">20% Discount</a></h3>
                             <h2 class="vibes-font">Lorem ipsum dolor sit amet</h2>
