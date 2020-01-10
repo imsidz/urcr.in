@@ -1,15 +1,6 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Auth::routes();
 
 Route::get('/home', function () {
     return redirect('/');
@@ -29,15 +20,17 @@ Route::get('/cart', 'CartController@index');
 
 Route::post('/add-to-cart/{slug}', 'CartController@addToCart');
 
-Route::get('/checkout', 'CheckoutController@index');
+Route::get('/cat/{category}/{subcategory}/{childcategory}', 'ProductController@showChildCategories');
 
-Route::get('/login', 'Auth\LoginController@index')->name('login')->middleware('guest');
+Route::get('/checkout', 'CheckoutController@index')->middleware('auth');
+
+// Route::get('/login', 'Auth\LoginController@index')->name('login')->middleware('guest');
 
 Route::post('/login', 'Auth\LoginController@login')->name('login')->middleware('guest');
 
 Route::post('/register', 'Auth\RegisterController@register')->name('register')->middleware('guest');
 
-Route::post('/logout', 'Auth\LogoutController@logout')->name('logout')->middleware('auth');
+Route::get('/logout', 'Auth\LogoutController@logout')->name('logout')->middleware('auth');
 
 Route::get('/auth/{provider}', 'SocialloginController@login')->middleware('guest');
 
@@ -83,6 +76,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
     Route::delete('/childcategory/{slug}/delete', 'ChildCategoryController@adminDelete');
 });
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

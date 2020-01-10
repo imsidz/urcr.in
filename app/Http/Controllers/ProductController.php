@@ -76,4 +76,13 @@ class ProductController extends Controller
 
         return back()->with('status', 'Product Deleted Success');
     }
+
+    public function showChildCategories($categroy, $subcategory, $childcategory)
+    {
+        $products = Product::whereHas('childcategories', function ($query) use($childcategory) {
+            $query->where('slug', $childcategory);
+        })->paginate(20);
+
+        return view('products.index', compact('products'));
+    }
 }

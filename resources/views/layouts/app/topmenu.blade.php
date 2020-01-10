@@ -20,7 +20,7 @@
 				<ul class="list-none">
 					@foreach ($subcat->childcategories as $childcat)
 						
-					<li><a href="#">{{ $childcat->name }}</a></li>
+				<li><a href="/cat/{{ $childcat->subcategory->category->slug }}/{{ $childcat->subcategory->slug }}/{{ $childcat->slug }}">{{ $childcat->name }}</a></li>
 					@endforeach
 				</ul>
 			</div>
