@@ -23,8 +23,8 @@ class CreateProductsTable extends Migration
             $table->text('short');
             $table->text('full');
 
-            $table->unsignedBigInteger('style_id');
-            $table->foreign('style_id')->references('id')->on('styles')->onUpdate('cascade')->onDelete('cascade');
+            // $table->unsignedBigInteger('style_id');
+            // $table->foreign('style_id')->references('id')->on('styles')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });
