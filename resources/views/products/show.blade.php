@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+	.mid{
+		height: 400px; width: 100%; overflow: hidden;
+	}
+	.mid img {
+		position: absolute; right: 0; bottom: 0;
+	}
+	</style>
     <div class="banner-slider banner-shop-slider bg-slider">
         <div class="wrap-item" data-pagination="false" data-autoplay="true" data-transition="fade" data-navigation="false" data-itemscustom="[[0,1]]">
             <div class="item-slider">

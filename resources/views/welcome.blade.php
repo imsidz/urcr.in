@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+.p-img{
+    height: 150px; width: 100%; overflow: hidden;
+}
+.p-img img{
+    position: absolute; right: 0; bottom: 0;
+}
+</style>
 <div class="banner-slider banner-slider1 bg-slider">
 <div class="wrap-item" data-pagination="true" data-autoplay="true" data-transition="fade" data-navigation="false" data-itemscustom="[[0,1]]">
     <div class="item-slider">
@@ -55,7 +63,7 @@
 
             
             <div class="item-product item-product-grid panel-default">
-                <div class="product-thumb box-hover-dir">
+                <div class="product-thumb box-hover-dir p-img">
                 <a href="/products/{{ $pro->slug }}">
                     <img src="{{ $pro->photos->first()['link'] }}" alt="">
                 </a>
@@ -91,57 +99,7 @@
         </div>
         
         @endforeach
-
-        @foreach ($latests->chunk(4) as $chunk)
-        <div class="row">
-
-        @foreach ($chunk as $pro)
-            
-        <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="item-product">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-12">
-                                <div class="product-thumb product-thumb-gallery">
-                                    <a href="#" class="product-thumb-link"><img src="{{ $pro->photos->first()['link'] }}" alt="" /></a>
-                                    <a href="/products/{{ $pro->slug }}" class="quickview-link fancybox.iframe"><i class="fa fa-search" aria-hidden="true"></i></a>
-                                    <div class="thumb-gallery">
-                                        @foreach ($pro->photos as $pic)
-                                            <a href="#"><img src="{{ $pic->link }}" alt="{{ $pic->link }}" /></a>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <div class="product-info">
-                                    <h3 class="product-title"><a href="/products/{{ $pro->slug }}" class="shop-button">{{ $pro->title }}</a></h3>
-                                    <div class="product-rate">
-                                        <div class="product-rating" style="width:100%"></div>
-                                    </div>
-                                    <div class="product-price">
-                                        <ins><span>Rs.{{ $pro->price }}</span></ins>
-                                        <del><span>Rs.{{ $pro->mrp }}</span></del>
-                                        <span class="sale-label">-20<sup>%</sup></span>
-                                    </div>
-                                    <p class="desc">Fusce suscipit varius lorem ipsum dolor sit amet consec tetuer </p>
-                                    <div class="product-extra-link">
-                                        <a href="#" class="addcart-link"><i class="fa fa-shopping-basket" aria-hidden="true"></i><span>Add to cart</span></a>
-                                        <a href="#" class="wishlist-link"><i class="fa fa-heart" aria-hidden="true"></i><span>Wishlist</span></a>
-                                        <a href="#" class="compare-link"><i class="fa fa-stumbleupon" aria-hidden="true"></i><span>Compare</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-              </div>
-              
-        </div>
-        @endforeach
-
-    </div>
-        @endforeach
+        
         
     </div>
     <center> <a href="/products" class="btn btn-primary">View All</a>

@@ -24,6 +24,10 @@ Route::get('/cat/{category}/{subcategory}/{childcategory}', 'ProductController@s
 
 Route::get('/checkout', 'CheckoutController@index')->middleware('auth');
 
+Route::post('/checkout', 'CheckoutController@checout')->middleware('auth');
+
+Route::get('/checkout/{orderid}', 'CheckOutController@success');
+
 // Route::get('/login', 'Auth\LoginController@index')->name('login')->middleware('guest');
 
 Route::post('/login', 'Auth\LoginController@login')->name('login')->middleware('guest');
