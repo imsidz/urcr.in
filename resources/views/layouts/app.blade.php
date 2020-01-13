@@ -62,7 +62,17 @@
 								</li>
 								@else
 								<li class="menu-item-has-children">
-									<a href="#">{{ Auth::user()->name }}</a>
+									<div class="dropdown">
+										<a href="#"  type="button" data-toggle="dropdown">{{ Auth::user()->name }}</a>
+										<span class="caret"></span></button>
+										<ul class="dropdown-menu">
+										  <li><a href="#">Orders</a></li>
+										  <li><a href="#">My Profile</a></li>
+										  <li role="separator" class="divider"></li>
+										  <li><a href="/logout">Logout</a></li>
+										</ul>
+									  </div>
+									
 								</li>
 								@endguest
 								{{-- <li class="menu-item-has-children">
