@@ -120,7 +120,7 @@
                                 <a href="#" class="adv-thumb-link"><img src="https://miro.medium.com/max/800/1*y264sVVzkJh1Awhw4SOjAw.jpeg" alt="alt"></a>
                             </div>
                             <h3 class="mont-font title18 underline-title"><a href="#">20% Discount</a></h3>
-                            <h2 class="vibes-font">Lorem ipsum dolor sit amet</h2>
+                            {{-- <h2 class="vibes-font">Lorem ipsum dolor sit amet</h2> --}}
                             <a href="#" class="shop-button">Shop Now</a>
                         </div>
                     
@@ -137,24 +137,24 @@
                                 <a href="#" class="adv-thumb-link"><img src="https://thumbs.dreamstime.com/z/red-thirty-percent-off-discount-d-illustration-39298635.jpg" alt=""></a>
                             </div>
                             <h3 class="mont-font title18 underline-title"><a href="#">30% Discount</a></h3>
-                            <h2 class="vibes-font">Lorem ipsum dolor sit amet</h2>
+                            {{-- <h2 class="vibes-font">Lorem ipsum dolor sit amet</h2> --}}
                             <a href="#" class="shop-button">Shop Now</a>
                         </div>
                     
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div class="intro-collection wow fadeInRight">
+                    {{-- <div class="intro-collection wow fadeInRight">
                         <p>Praesent vestibu lum molestie lacus. Aenean nonummyendre rit mauris. Fusce suscipit varius lorem ipsum dolor sit amet consec tetuer adipi scing elit.</p>
                         <div class="text-center">
                             <a href="#" class="viewall-button">View all Offers <i class="fa fa-arrow-circle-down" aria-hidden="true"></i></a>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="item-collection text-center wow fadeInRight">
                         <div class="banner-adv zoom-rotate overlay-image">
                             <a href="#" class="adv-thumb-link"><img src="/images/photos/collection/collection_02.jpg" alt=""></a>
                         </div>
                         <h3 class="mont-font title18 underline-title"><a href="#">15% Discounts</a></h3>
-                        <h2 class="vibes-font">Lorem ipsum dolor sit amet</h2>
+                        {{-- <h2 class="vibes-font">Lorem ipsum dolor sit amet</h2> --}}
                         <a href="#" class="shop-button">Shop Now</a>
                     </div>
                     <div class="banner-collection banner-adv zoom-image fade-out-in  wow fadeInRight">

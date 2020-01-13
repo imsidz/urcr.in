@@ -2,6 +2,8 @@
 @extends('layouts.admin')
 
 @section('content')
+<link rel="stylesheet" href="https://unpkg.com/dropzone/dist/dropzone.css">
+<link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css">
     <div class="">
         <div class="card">
             <div class="card-body">
@@ -48,7 +50,8 @@
                 </div>
                 <div class="form-group">
                   <label for="image">Select Images</label>
-                  <input type="file" class="form-control-file" name="image[]" id="image" placeholder="" aria-describedby="fileHelpId" multiple>
+                  <div class="dropzone" id="myDropzone"></div>
+                  {{-- <input type="file" class="form-control-file" name="image[]" id="image" placeholder="" aria-describedby="fileHelpId" multiple> --}}
                   <small id="fileHelpId" class="form-text text-muted">Help text</small>
                 </div>
 
@@ -67,4 +70,82 @@
       $('.subcategories').select2();
   });
   </script>
+  <script src="https://unpkg.com/dropzone"></script>
+  <script src="https://unpkg.com/cropperjs"></script>
+  <script>
+  Dropzone.options.myDropzone = {
+	url: '/api/images',
+	transformFile: function(file, done) {
+
+		var myDropZone = this;
+
+		// Create the image editor overlay
+		var editor = document.createElement('div');
+		editor.style.position = 'fixed';
+		editor.style.left = 0;
+		editor.style.right = 0;
+		editor.style.top = 0;
+		editor.style.bottom = 0;
+		editor.style.zIndex = 9999;
+		editor.style.backgroundColor = '#000';
+
+		// Create the confirm button
+		var confirm = document.createElement('button');
+		confirm.style.position = 'absolute';
+		confirm.style.left = '10px';
+		confirm.style.top = '10px';
+		confirm.style.zIndex = 9999;
+		confirm.textContent = 'Confirm';
+		confirm.addEventListener('click', function() {
+
+			// Get the canvas with image data from Cropper.js
+			var canvas = cropper.getCroppedCanvas({
+				width: 600,
+				height: 600
+			});
+
+			// Turn the canvas into a Blob (file object without a name)
+			canvas.toBlob(function(blob) {
+
+				// Update the image thumbnail with the new image data
+				myDropZone.createThumbnail(
+					blob,
+					myDropZone.options.thumbnailWidth,
+					myDropZone.options.thumbnailHeight,
+					myDropZone.options.thumbnailMethod,
+					false, 
+					function(dataURL) {
+
+						// Update the Dropzone file thumbnail
+						myDropZone.emit('thumbnail', file, dataURL);
+
+						// Return modified file to dropzone
+						done(blob);
+					}
+				);
+
+			});
+
+			// Remove the editor from view
+			editor.parentNode.removeChild(editor);
+
+		});
+		editor.appendChild(confirm);
+
+		// Load the image
+		var image = new Image();
+		image.src = URL.createObjectURL(file);
+		editor.appendChild(image);
+
+		// Append the editor to the page
+		document.body.appendChild(editor);
+
+		// Create Cropper.js and pass image
+		var cropper = new Cropper(image, {
+			aspectRatio: 1
+		});
+
+	}
+};
+</script>
 @endpush

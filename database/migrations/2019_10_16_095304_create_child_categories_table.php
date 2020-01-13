@@ -19,19 +19,19 @@ class CreateChildCategoriesTable extends Migration
             $table->string('slug')->unique();
             $table->unsignedBigInteger('sub_category_id');
             $table->foreign('sub_category_id')->on('sub_categories')->references('id')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
 
         Schema::create('child_category_product', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
+
             $table->unsignedBigInteger('child_category_id');
             $table->foreign('child_category_id')->on('child_categories')->references('id')->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->on('products')->references('id')->onUpdate('cascade')->onDelete('cascade');
-            
+
             $table->timestamps();
         });
     }

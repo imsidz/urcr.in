@@ -14,7 +14,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::latest()->paginate(20);
+        $products = Product::latest()->store()->paginate(20);
         return view('products.index', compact('products'));
     }
 
@@ -26,19 +26,21 @@ class ProductController extends Controller
 
     public function adminIndex()
     {
-        $products = Product::latest()->paginate(20);
+        $products = Product::latest()->store()->paginate(20);
         return view('admin.product.index', compact('products'));
     }
 
     public function adminCreate()
     {
         $categories = ChildCategory::latest()->get();
+        $product = new Product;
+        $product->save();
         return view('admin.product.create', compact('categories'));
     }
 
     public function adminPost(Request $request)
     {
-        $product = new Product;
+        $product = Product::latest()->first();
         $product->title = $request->title;
         $product->slug = Str::slug($request->title, '-') . Str::random(5);
         $product->price = $request->price;
@@ -46,23 +48,11 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->short = $request->short;
         $product->full = $request->full;
+        $product->store = true;
+        $product->active = true;
         $product->save();
 
         $product->childcategories()->attach($request->subcategories);
-
-        foreach ($request->image as $image) {
-            $photo = new Photo;
-            $name = time() . Str::random(10);
-            $image = Image::make($image)->save(public_path() . '/images/' . $name, 60);
-
-            // $image->move(public_path().'/images/', $name);
-            $url = url('/images/' . $name);
-
-            $photo->link = $url;
-
-            $photo->product_id = $product->id;
-            $photo->save();
-        }
 
         return redirect('/admin/products')->with('success', 'Product Added Succes');
     }
@@ -79,7 +69,7 @@ class ProductController extends Controller
 
     public function showChildCategories($categroy, $subcategory, $childcategory)
     {
-        $products = Product::whereHas('childcategories', function ($query) use($childcategory) {
+        $products = Product::whereHas('childcategories', function ($query) use ($childcategory) {
             $query->where('slug', $childcategory);
         })->paginate(20);
 
