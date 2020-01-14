@@ -85,6 +85,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/style/create', 'StyleController@adminCreate');
 
     Route::post('/style/create', 'StyleController@adminStore');
+
+    Route::get('/style/{slug}/edit', 'StyleController@adminEdit');
+
+    Route::put('/style/{slug}/edit', 'StyleController@adminPut');
+
+    Route::delete('/style/{slug}/delete', 'StyleController@adminDelete');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
