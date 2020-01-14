@@ -19,6 +19,11 @@ class CreateStylesTable extends Migration
             $table->string('slug')->unique();
             $table->timestamps();
         });
+
+        Schema::table('products', function (Blueprint $table) {
+            $table->unsignedBigInteger('style_id')->nullable();
+            $table->foreign('style_id')->references('id')->on('styles')->onUpdate('cascade')->onDelete('cascade');
+        });
     }
 
     /**

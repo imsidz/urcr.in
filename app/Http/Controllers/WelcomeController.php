@@ -13,7 +13,7 @@ class WelcomeController extends Controller
     {
         $latests = Product::latest()->store()->paginate('8');
 
-        $subcategories = SubCategory::latest()->whereNotNull('image')->get();
+        $subcategories = SubCategory::latest()->whereNotNull('image')->paginate(6);
         $collection1 = Product::inRandomOrder()->store()->paginate(2);
         $collection2 = Product::inRandomOrder()->store()->paginate(2);
         return view('welcome', compact('subcategories', 'collection1', 'collection2', 'latests'));

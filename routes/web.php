@@ -79,6 +79,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::post('/childcategory/create', 'ChildCategoryController@adminPost');
 
     Route::delete('/childcategory/{slug}/delete', 'ChildCategoryController@adminDelete');
+
+    Route::get('/style', 'StyleController@adminIndex');
+
+    Route::get('/style/create', 'StyleController@adminCreate');
+
+    Route::post('/style/create', 'StyleController@adminStore');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

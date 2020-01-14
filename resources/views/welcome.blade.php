@@ -87,8 +87,8 @@
                         <div class="product-rating" style="width:100%"></div>
                     </div>
                     <div class="product-price">
-                        <ins><span>{{ $pro->price }}</span></ins>
-                        <del><span>{{ $pro->mrp }}</span></del>
+                        <ins><span>Rs {{ $pro->price }}</span></ins>
+                        <del><span>Rs {{ $pro->mrp }}</span></del>
                         {{-- <span class="sale-label">-20<sup>%</sup></span> --}}
                     </div>
                 </div>

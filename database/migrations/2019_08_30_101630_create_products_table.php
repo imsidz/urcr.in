@@ -24,9 +24,6 @@ class CreateProductsTable extends Migration
             $table->text('full')->nullable();
             $table->boolean('store')->default(false);
             $table->boolean('active')->default(false);
-            // $table->unsignedBigInteger('style_id');
-            // $table->foreign('style_id')->references('id')->on('styles')->onUpdate('cascade')->onDelete('cascade');
-
             $table->timestamps();
         });
     }

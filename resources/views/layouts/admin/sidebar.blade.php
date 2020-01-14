@@ -38,6 +38,36 @@
                 </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="/admin/style" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                Styles
+                <span class="right badge badge-danger"></span>
+                </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/admin/material" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                Materials
+                <span class="right badge badge-danger"></span>
+                </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/admin/variant" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                Variants
+                <span class="right badge badge-danger"></span>
+                </p>
+            </a>
+          </li>
             <li class="nav-item">
                 <a href="/admin/products" class="nav-link">
                     <i class="nav-icon fas fa-th"></i>
