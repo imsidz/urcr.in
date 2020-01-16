@@ -91,6 +91,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::put('/style/{slug}/edit', 'StyleController@adminPut');
 
     Route::delete('/style/{slug}/delete', 'StyleController@adminDelete');
+
+    Route::get('/material', 'MaterialController@adminIndex');
+
+    Route::get('/material/create', 'MaterialController@adminCreate');
+
+    Route::post('/material/create', 'MaterialController@adminStore');
+
+    Route::get('/material/{slug}/edit', 'MaterialController@adminEdit');
+
+    Route::put('/material/{slug}/edit', 'MaterialController@adminUpdate');
+
+    Route::delete('/material/{slug}/delete', 'MaterialController@adminDelete');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
