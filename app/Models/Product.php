@@ -26,4 +26,8 @@ class Product extends Model
         return $query->where('store', true);
     }
 
+    public function materials()
+    {
+        return $this->belongsToMany(Material::class, 'material_product', 'product_id', 'material_id');
+    }
 }

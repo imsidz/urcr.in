@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\ChildCategory;
+use App\Models\Material;
 use App\Models\Photo;
 use App\Models\Product;
+use App\Models\Style;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -33,14 +35,18 @@ class ProductController extends Controller
     public function adminCreate()
     {
         $categories = ChildCategory::latest()->get();
+        $styles = Style::latest()->get();
+        $materials = Material::latest()->get();
         $product = new Product;
         $product->save();
-        return view('admin.product.create', compact('categories'));
+        session(['product_id' => $product->id]);
+        return view('admin.product.create', compact('categories', 'styles', 'materials'));
     }
 
     public function adminPost(Request $request)
     {
-        $product = Product::latest()->first();
+
+        $product = Product::find(session('product_id'));
         $product->title = $request->title;
         $product->slug = Str::slug($request->title, '-') . Str::random(5);
         $product->price = $request->price;
@@ -50,9 +56,11 @@ class ProductController extends Controller
         $product->full = $request->full;
         $product->store = true;
         $product->active = true;
+        $product->style_id = $request->style;
         $product->save();
 
         $product->childcategories()->attach($request->subcategories);
+        $product->materials()->attach($request->materials);
 
         return redirect('/admin/products')->with('success', 'Product Added Succes');
     }

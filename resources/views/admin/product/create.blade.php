@@ -41,10 +41,28 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="">Select Child Category Categories</label>
+                  <label for="">Select Child Categories</label>
                   <select name="categories[]" class="subcategories form-control" multiple>
                     @foreach ($categories as $category)
                       <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="">Select Materials</label>
+                  <select name="materials[]" class="subcategories form-control" multiple>
+                    @foreach ($materials as $material)
+                      <option value="{{ $material->id }}">{{ $material->name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="">Select Style</label>
+                  <select name="style" class="subcategories form-control">
+                    @foreach ($styles as $style)
+                      <option value="{{ $style->id }}">{{ $style->name }}</option>
                     @endforeach
                   </select>
                 </div>
