@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\Seller;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -19,5 +20,15 @@ class UsersTableSeeder extends Seeder
         $user->password = Hash::make('admin');
         $user->email = 'admin@admin.com';
         $user->save();
+    
+        $seller = new Seller;
+        $seller->name = 'admin';
+        $seller->company = 'smile4miles';
+        $seller->email = 'seller@admin.com';
+        $seller->email_verified_at = now();
+        $seller->verify = true;
+        $seller->password = Hash::make('seller');
+        $seller->save();
+        
     }
 }
