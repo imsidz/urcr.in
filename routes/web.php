@@ -103,6 +103,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::put('/material/{slug}/edit', 'MaterialController@adminUpdate');
 
     Route::delete('/material/{slug}/delete', 'MaterialController@adminDelete');
+
+    Route::get('/banners', 'BannerController@adminIndex');
+
+    Route::get('/banners/create', 'BannerController@adminCreate');
+
+    Route::post('/banners/create', 'BannerController@adminStore');
+
+    Route::get('/banners/{id}/edit', 'BannerController@adminEdit');
+
+    Route::put('/banners/{id}/edit', 'BannerController@adminUpdate');
+
+    Route::delete('/banners/{id}/delete', 'BannerController@adminDelete');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -2,37 +2,28 @@
 
 @section('content')
 <style>
-.p-img{
-    height: 150px; width: 100%; overflow: hidden;
-}
-.p-img img{
-    position: absolute; right: 0; bottom: 0;
-}
+
 </style>
 <div class="banner-slider banner-slider1 bg-slider">
 <div class="wrap-item" data-pagination="true" data-autoplay="true" data-transition="fade" data-navigation="false" data-itemscustom="[[0,1]]">
+    @forelse ($banners as $banner)
+        
     <div class="item-slider">
-        <div class="banner-thumb"><a href="#"><img src="images/home/slide1-1.jpg" alt="" /></a></div>
+        <div class="banner-thumb"><a href="#"><img src="{{ $banner->image }}" alt="{{ $banner->title }}" /></a></div>
         <div class="banner-info">
             <div class="container">
                 <div class="banner-content-text white text-center">
-                    <h2 class="banner-title vibes-font animated" data-animated="flash">New Arrivals</h2>
-                    <a href="#" class="banner-button bg-color animated" data-animated="bounceIn"><span>Shop Now</span></a>
+                    <h2 class="banner-title vibes-font animated" data-animated="flash">{{ $banner->title }}</h2>
+                    @if($banner->url)
+                    <a href="{{ $banner->url }}" class="banner-button bg-color animated" data-animated="bounceIn"><span>Shop Now</span></a>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
+
+    @empty
     <div class="item-slider">
-        <div class="banner-thumb"><a href="#"><img src="images/home/slide1-2.jpg" alt="" /></a></div>
-        <div class="banner-info">
-            <div class="container">
-                <div class="banner-content-text white text-center">
-                    <h2 class="banner-title vibes-font animated" data-animated="flash"><span class="color">-60%</span>Off</h2>
-                    <a href="#" class="banner-button bg-color animated" data-animated="bounceIn"><span>Shop Now</span></a>
-                </div>
-            </div>
-        </div>
-    </div><div class="item-slider">
         <div class="banner-thumb"><a href="#"><img src="images/home/slide1-3.jpg" alt="" /></a></div>
         <div class="banner-info">
             <div class="container">
@@ -43,6 +34,9 @@
             </div>
         </div>
     </div>
+    @endforelse
+    
+    
 </div>
 </div>
 <div class="popular-category">

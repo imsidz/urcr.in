@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\SubCategory;
@@ -12,10 +13,10 @@ class WelcomeController extends Controller
     public function index()
     {
         $latests = Product::latest()->store()->paginate('8');
-
+        $banners = Banner::where('active', true)->latest()->paginate(5);
         $subcategories = SubCategory::latest()->whereNotNull('image')->paginate(6);
         $collection1 = Product::inRandomOrder()->store()->paginate(2);
         $collection2 = Product::inRandomOrder()->store()->paginate(2);
-        return view('welcome', compact('subcategories', 'collection1', 'collection2', 'latests'));
+        return view('welcome', compact('subcategories', 'collection1', 'collection2', 'latests', 'banners'));
     }
 }

@@ -86,13 +86,10 @@
                             <h2 class="widget-title title14">Style</h2>
                             <div class="widget-content">
                                 <ul class="list-none filter-default">
-                                    <li><a href="#">Contemporary</a></li>
-                                    <li><a href="#">Rustic</a></li>
-                                    <li><a href="#">Traditional</a></li>
-                                    <li><a href="#">Country/Cottage</a></li>
-                                    <li><a href="#">Modern</a></li>
-                                    <li><a href="#">Coastal</a></li>
-                                    <li><a href="#">Glam</a></li>
+                                    @foreach ($styles as $style)
+                                        
+                                    <li><a href="#">{{ $style->name }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -166,16 +163,10 @@
                             <h2 class="widget-title title14">Base Metarial</h2>
                             <div class="widget-content">
                                 <ul class="list-none filter-default">
-                                    <li><a href="#">Solid Wood<span>(323)</span></a></li>
-                                    <li><a href="#">Glass<span>(114)</span></a></li>
-                                    <li><a href="#">Manufactured Wood <span>(994)</span></a></li>
-                                    <li><a href="#">Metal<span>(184)</span></a></li>
-                                    <li><a href="#">Marble<span>(87)</span></a></li>
-                                    <li><a href="#">Laminate<span>(74)</span></a></li>
-                                    <li><a href="#">Slate<span>(14)</span></a></li>
-                                    <li><a href="#">Granite<span>(12)</span></a></li>
-                                    <li><a href="#">Tile<span>(5)</span></a></li>
-                                    <li><a href="#">Plastic<span>(3)</span></a></li>
+                                    @foreach ($materials as $material)
+                                        
+                                    <li><a href="#">{{ $material->name }}<span>({{ $material->products->count() }})</span></a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

@@ -2,12 +2,7 @@
 
 @section('content')
 <style>
-	.mid{
-		height: 400px; width: 100%; overflow: hidden;
-	}
-	.mid img {
-		position: absolute; right: 0; bottom: 0;
-	}
+	
 	</style>
     <div class="banner-slider banner-shop-slider bg-slider">
         <div class="wrap-item" data-pagination="false" data-autoplay="true" data-transition="fade" data-navigation="false" data-itemscustom="[[0,1]]">
@@ -170,10 +165,13 @@
 					<h2 class="title14 text-center">Customers Also Viewed</h2>
 					<div class="product-related-slider">
 						<div class="wrap-item" data-pagination="false" data-navigation="true" data-itemscustom="[[0,1],[480,2],[768,3],[980,4]]">
+							
+							@foreach ($relateds as $related)
+								
 							<div class="item-product item-product-grid">
 								<div class="product-thumb box-hover-dir">
-									<img src="/images/photos/topshop_product_13.jpg" alt="">
-									<div class="info-product-hover-dir">
+									<img src="{{ $product->photos->first()['link'] }}" alt="">
+									{{-- <div class="info-product-hover-dir">
 										<div class="inner-product-hover-dir">
 											<div class="content-product-hover-dir">
 												<a href="quick-view.html" class="quickview-link fancybox.iframe">Quick view <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
@@ -185,138 +183,25 @@
 												</div>
 											</div>
 										</div>
-									</div>
+									</div> --}}
 								</div>
 								<div class="product-info">
-									<h3 class="product-title"><a href="#">{{ $product->title }}</a></h3>
+									<h3 class="product-title"><a href="#">{{ $related->title }}</a></h3>
 									<div class="product-rate">
 										<div class="product-rating" style="width:100%"></div>
 									</div>
 									<div class="product-price">
-										<ins><span>$400.00</span></ins>
-										<del><span>$480.00</span></del>
+										<ins><span>Rs {{ $related->price }}</span></ins>
+										<del><span>Rs {{ $related->mrp }}</span></del>
 										<span class="sale-label">-20<sup>%</sup></span>
 									</div>
 								</div>
 							</div>
-							<div class="item-product item-product-grid">
-								<div class="product-thumb box-hover-dir">
-									<img src="/images/photos/topshop_product_14.jpg" alt="">
-									<div class="info-product-hover-dir">
-										<div class="inner-product-hover-dir">
-											<div class="content-product-hover-dir">
-												<a href="quick-view.html" class="quickview-link fancybox.iframe">Quick view <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-												<span class="product-total-sale">( 10 Sales )</span>
-												<div class="product-extra-link">
-													<a href="#" class="addcart-link"><i class="fa fa-shopping-basket" aria-hidden="true"></i><span>Add to cart</span></a>
-													<a href="#" class="wishlist-link"><i class="fa fa-heart" aria-hidden="true"></i><span>Wishlist</span></a>
-													<a href="#" class="compare-link"><i class="fa fa-stumbleupon" aria-hidden="true"></i><span>Compare</span></a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="product-info">
-									<h3 class="product-title"><a href="#">topshop Name Product</a></h3>
-									<div class="product-rate">
-										<div class="product-rating" style="width:100%"></div>
-									</div>
-									<div class="product-price">
-										<ins><span>$400.00</span></ins>
-										<del><span>$480.00</span></del>
-										<span class="sale-label">-20<sup>%</sup></span>
-									</div>
-								</div>
-							</div>
-							<div class="item-product item-product-grid">
-								<div class="product-thumb box-hover-dir">
-									<img src="/images/photos/topshop_product_15.jpg" alt="">
-									<div class="info-product-hover-dir">
-										<div class="inner-product-hover-dir">
-											<div class="content-product-hover-dir">
-												<a href="quick-view.html" class="quickview-link fancybox.iframe">Quick view <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-												<span class="product-total-sale">( 10 Sales )</span>
-												<div class="product-extra-link">
-													<a href="#" class="addcart-link"><i class="fa fa-shopping-basket" aria-hidden="true"></i><span>Add to cart</span></a>
-													<a href="#" class="wishlist-link"><i class="fa fa-heart" aria-hidden="true"></i><span>Wishlist</span></a>
-													<a href="#" class="compare-link"><i class="fa fa-stumbleupon" aria-hidden="true"></i><span>Compare</span></a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="product-info">
-									<h3 class="product-title"><a href="#">topshop Name Product</a></h3>
-									<div class="product-rate">
-										<div class="product-rating" style="width:100%"></div>
-									</div>
-									<div class="product-price">
-										<ins><span>$400.00</span></ins>
-										<del><span>$480.00</span></del>
-										<span class="sale-label">-20<sup>%</sup></span>
-									</div>
-								</div>
-							</div>
-							<div class="item-product item-product-grid">
-								<div class="product-thumb box-hover-dir">
-									<img src="/images/photos/topshop_product_16.jpg" alt="">
-									<div class="info-product-hover-dir">
-										<div class="inner-product-hover-dir">
-											<div class="content-product-hover-dir">
-												<a href="quick-view.html" class="quickview-link fancybox.iframe">Quick view <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-												<span class="product-total-sale">( 10 Sales )</span>
-												<div class="product-extra-link">
-													<a href="#" class="addcart-link"><i class="fa fa-shopping-basket" aria-hidden="true"></i><span>Add to cart</span></a>
-													<a href="#" class="wishlist-link"><i class="fa fa-heart" aria-hidden="true"></i><span>Wishlist</span></a>
-													<a href="#" class="compare-link"><i class="fa fa-stumbleupon" aria-hidden="true"></i><span>Compare</span></a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<span class="product-new-label">new</span>
-								</div>
-								<div class="product-info">
-									<h3 class="product-title"><a href="#">topshop Name Product</a></h3>
-									<div class="product-rate">
-										<div class="product-rating" style="width:100%"></div>
-									</div>
-									<div class="product-price">
-										<ins><span>$400.00</span></ins>
-										<del><span>$480.00</span></del>
-										<span class="sale-label">-20<sup>%</sup></span>
-									</div>
-								</div>
-							</div>
-							<div class="item-product item-product-grid">
-								<div class="product-thumb box-hover-dir">
-									<img src="/images/photos/topshop_product_17.jpg" alt="">
-									<div class="info-product-hover-dir">
-										<div class="inner-product-hover-dir">
-											<div class="content-product-hover-dir">
-												<a href="quick-view.html" class="quickview-link fancybox.iframe">Quick view <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-												<span class="product-total-sale">( 10 Sales )</span>
-												<div class="product-extra-link">
-													<a href="#" class="addcart-link"><i class="fa fa-shopping-basket" aria-hidden="true"></i><span>Add to cart</span></a>
-													<a href="#" class="wishlist-link"><i class="fa fa-heart" aria-hidden="true"></i><span>Wishlist</span></a>
-													<a href="#" class="compare-link"><i class="fa fa-stumbleupon" aria-hidden="true"></i><span>Compare</span></a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="product-info">
-									<h3 class="product-title"><a href="#">topshop Name Product</a></h3>
-									<div class="product-rate">
-										<div class="product-rating" style="width:100%"></div>
-									</div>
-									<div class="product-price">
-										<ins><span>$400.00</span></ins>
-										<del><span>$480.00</span></del>
-										<span class="sale-label">-20<sup>%</sup></span>
-									</div>
-								</div>
-							</div>
-							<div class="item-product item-product-grid">
+							@endforeach
+							
+							
+							
+							{{-- <div class="item-product item-product-grid">
 								<div class="product-thumb box-hover-dir">
 									<img src="/images/photos/topshop_product_18.jpg" alt="">
 									<div class="info-product-hover-dir">
@@ -345,7 +230,7 @@
 										<span class="sale-label">-20<sup>%</sup></span>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 						</div>
 					</div>
 				</div>

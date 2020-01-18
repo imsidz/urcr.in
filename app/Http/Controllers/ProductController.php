@@ -16,14 +16,19 @@ class ProductController extends Controller
 {
     public function index()
     {
+        $styles = Style::latest()->get();
+        $materials = Material::latest()->get();
         $products = Product::latest()->store()->paginate(20);
-        return view('products.index', compact('products'));
+        return view('products.index', compact('products', 'styles', 'materials'));
     }
 
     public function show($slug)
-    {
+    {   
         $product = Product::where('slug', $slug)->firstorfail();
-        return view('products.show', compact('product'));
+
+        $relateds = Product::whereNotIn('id', [$product->id])->store()->inRandomOrder()->paginate(10);
+
+        return view('products.show', compact('product', 'relateds'));
     }
 
     public function adminIndex()
