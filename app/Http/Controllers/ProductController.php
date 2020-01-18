@@ -66,7 +66,7 @@ class ProductController extends Controller
 
         $product->childcategories()->attach($request->subcategories);
         $product->materials()->attach($request->materials);
-
+        $request->session()->forget('product_id');
         return redirect('/admin/products')->with('success', 'Product Added Succes');
     }
 
