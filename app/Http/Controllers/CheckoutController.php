@@ -20,14 +20,13 @@ class CheckoutController extends Controller
         $order = new Order;
         $order->orderId = strtoupper(uniqid());
         $order->total = \Cart::getTotal();
-        if ($request->payment_method == 'cod'){
+        if ($request->payment_method == 'cod') {
 
             $order->order_status = true;
         }
-
         $address = Address::where('address', $request->address)->where('user_id', Auth::user()->id)->first();
 
-        if (!$address){
+        if (!$address) {
 
             $address = new Address;
             $address->address = $request->address;
@@ -43,7 +42,8 @@ class CheckoutController extends Controller
         }
         $order->address_id = $address->id;
         $order->save();
-
+        $productId = \Cart::getContent()->pluck('id');
+        $order->products()->attach($productId);
         \Cart::clear();
         return redirect('/checkout/' . $order->orderId);
     }

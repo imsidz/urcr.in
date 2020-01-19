@@ -2261,10 +2261,10 @@ li.menu-item-has-children:hover > .sub-menu {
   margin: 20px 0;
 }
 .item-product-grid .product-thumb {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 .item-product-grid {
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 .item-product-grid .product-rate {
   margin: 10px 0;

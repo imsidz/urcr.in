@@ -92,7 +92,7 @@
 									<a href="#" class="compare-link"><i class="fa fa-stumbleupon" aria-hidden="true"></i><span>Compare</span></a>
 								</div>
 								<div class="detail-extra">
-									<p class="desc product-code">SUK: <span>tem009</span></p>
+									<p class="desc product-code">Sold By: <span>{{ $product->seller->company }}</span></p>
 									<p class="desc product-available">Available: <span class="avail-instock">instock</span></p>
 									<p class="desc tags-detail">
 										<span>Tags:</span>

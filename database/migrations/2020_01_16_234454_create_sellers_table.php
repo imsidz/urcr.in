@@ -24,6 +24,11 @@ class CreateSellersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        Schema::table('products', function (Blueprint $table) {
+            $table->unsignedBigInteger('seller_id')->nullable();
+            $table->foreign('seller_id')->on('sellers')->references('id')->onUpdate('cascade')->onDelete('cascade');
+        });
     }
 
     /**
