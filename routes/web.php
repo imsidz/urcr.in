@@ -115,6 +115,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::put('/banners/{id}/edit', 'BannerController@adminUpdate');
 
     Route::delete('/banners/{id}/delete', 'BannerController@adminDelete');
+
+    Route::get('/sellers', 'SellerController@index');
+
+    Route::get('/seller-requests', 'SellerController@getRequests');
+
+    Route::post('/seller-request/approve', 'SellerController@sellerApprove');
+
+    Route::post('/seller-request/decline', 'SellerController@sellerDecline');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

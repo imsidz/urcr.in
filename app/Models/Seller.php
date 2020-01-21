@@ -10,4 +10,14 @@ class Seller extends Model
     {
         return $this->hasMany(Product::class, 'seller_id', 'id');
     }
+
+    public function scopeApproved($query)
+    {
+        return $query->where('verify', true);
+    }
+
+    public function scopeDisapproved($query)
+    {
+        return $query->where('verify', false);
+    }
 }

@@ -98,6 +98,30 @@
                 </a>
             </li>
 
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  Sellers
+                  <i class="fas fa-angle-left right"></i>
+                  <span class="badge badge-info right"></span>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/admin/sellers" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Seller Lists</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/admin/seller-requests" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>New Seller Requests</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
