@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductsTable extends Migration
+class CreateOrderedProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,22 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('ordered_products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title')->nullable();
             $table->string('slug')->unique()->nullable();
             $table->float('price')->nullable();
             $table->float('mrp')->nullable();
             $table->text('description')->nullable();
-            $table->boolean('store')->default(false);
-            $table->boolean('active')->default(false);
+            $table->string('image')->nullable();
+            $table->unsignedBigInteger('seller_id')->nullable();
+            $table->foreign('seller_id')->on('sellers')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('status')->default('Pending');
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('order_id')->on('orders')->references('id')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -33,6 +38,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('ordered_products');
     }
 }

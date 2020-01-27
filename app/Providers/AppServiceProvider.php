@@ -27,6 +27,10 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('layouts.app.topmenu', function($view) {
             $view->with('products', Product::inRandomOrder()->paginate(7));
         });
+
+        if ($this->app->environment() !== 'production') {
+            $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+        }
     }
 
     /**

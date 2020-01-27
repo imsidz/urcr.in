@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CheckOutRequest;
 use App\Models\Address;
 use App\Models\Order;
+use App\Models\OrderedProduct;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class CheckoutController extends Controller
 {
@@ -42,8 +45,20 @@ class CheckoutController extends Controller
         }
         $order->address_id = $address->id;
         $order->save();
-        $productId = \Cart::getContent()->pluck('id');
-        $order->products()->attach($productId);
+        $productIds = \Cart::getContent()->pluck('id');
+        foreach ($productIds as $index => $productid) {
+            $pro = Product::find($productid);
+            $product = new OrderedProduct;
+            $product->title = $pro->title;
+            $product->slug = $pro->slug;
+            $product->price = $pro->price;
+            $product->mrp = $pro->mrp;
+            $product->description = $pro->description;
+            $product->seller_id = $pro->seller_id;
+            $product->order_id = $order->id;
+            $product->image = $pro->photos->first()['link'];
+            $product->save();
+        }
         \Cart::clear();
         return redirect('/checkout/' . $order->orderId);
     }

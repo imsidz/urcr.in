@@ -22,17 +22,7 @@ class CreateOrdersTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('order_product', function (Blueprint $table) {
-            $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->on('orders')->references('id')->onDelete('cascade')->onUpdate('cascade');
-
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->on('products')->references('id')->onDelete('cascade')->onUpdate('cascade');
-
-            $table->timestamps();
-        });
     }
 
     /**
