@@ -28,7 +28,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/theme.css" media="all"/>
 	<link rel="stylesheet" type="text/css" href="/css/responsive.css" media="all"/>
 	<link rel="stylesheet" type="text/css" href="/css/browser.css" media="all"/>
-	
+
 </head>
 <body>
 <div class="wrap">
@@ -43,8 +43,8 @@
 					</div>
 					<div class="col-md-4">
 						<div class="newsletter-form">
-							<form>
-								<input onblur="if (this.value=='') this.value = this.defaultValue" onfocus="if (this.value==this.defaultValue) this.value = ''" value="Search" type="text">
+                            <form action="/search" method="GET">
+								<input name="search" onblur="if (this.value=='') this.value = this.defaultValue" onfocus="if (this.value==this.defaultValue) this.value = ''" value="{{Request::get('search')}}" type="text">
 								<div class="submit-form">
 									<input value="" type="submit">
 								</div>
@@ -72,25 +72,25 @@
 										  <li><a href="/logout">Logout</a></li>
 										</ul>
 									  </div>
-									
+
 								</li>
 								@endguest
 								{{-- <li class="menu-item-has-children">
 									<a href="/register">Register</a>
-									
+
 								</li> --}}
 							</div>
-							
+
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					
+
 					@include('layouts.app.topmenu')
 
 
 				</div>
-				
+
 		</div>
 		{{-- <div class="header header1">
 			<div class="container">
@@ -130,7 +130,7 @@
 									<a href="/"><img src="/images/logo-ontop.png" alt="" /></a>
 								</div>
 							</li>
-						
+
 						</ul>
 					</div>
 					<div class="col-md-8 col-sm-8 col-xs-12">
@@ -176,7 +176,7 @@
 												</div>
 											</div>
 											@endforeach
-										
+
 										</div>
 										<div class="mini-cart-total mont-font  clearfix">
 											<strong class="pull-left">TOTAL</strong>
@@ -199,11 +199,11 @@
 	<!-- End Header -->
 	<div id="content">
         @yield('content')
-		
-		
+
+
 		<!-- End View Collection -->
-		
-		
+
+
 		<!-- End Our Services -->
 	</div>
 	@include('layouts.app.footer')

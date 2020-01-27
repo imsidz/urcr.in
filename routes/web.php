@@ -40,6 +40,15 @@ Route::get('/auth/{provider}', 'SocialloginController@login')->middleware('guest
 
 Route::get('/auth/{provider}/callback', 'SocialloginController@callback')->middleware('guest');
 
+Route::get('/privacy', function(){
+    return view('privacy.index');
+});
+
+Route::get('terms', function(){
+    return view('terms.index');
+});
+
+Route::get('/search', 'SearchController@search');
 
 //Admin Panel
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {

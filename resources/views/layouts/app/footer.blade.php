@@ -62,15 +62,15 @@
 							<div class="footer-box instagram-footer">
 								<h2 class="title18 mont-font color">instagram</h2>
 								<div class="list-instagram clearfix">
-									<a href="#"><img class="grow" src="images/photos/topshop_product_09.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="images/photos/topshop_product_05.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="images/photos/topshop_product_11.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="images/photos/topshop_product_16.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="images/photos/topshop_product_31.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="images/photos/topshop_product_29.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="images/photos/topshop_product_20.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="images/photos/topshop_product_02.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="images/photos/topshop_product_03.jpg" alt="" /></a>
+									<a href="#"><img class="grow" src="/images/photos/topshop_product_09.jpg" alt="" /></a>
+									<a href="#"><img class="grow" src="/images/photos/topshop_product_05.jpg" alt="" /></a>
+									<a href="#"><img class="grow" src="/images/photos/topshop_product_11.jpg" alt="" /></a>
+									<a href="#"><img class="grow" src="/images/photos/topshop_product_16.jpg" alt="" /></a>
+									<a href="#"><img class="grow" src="/images/photos/topshop_product_31.jpg" alt="" /></a>
+									<a href="#"><img class="grow" src="/images/photos/topshop_product_29.jpg" alt="" /></a>
+									<a href="#"><img class="grow" src="/images/photos/topshop_product_20.jpg" alt="" /></a>
+									<a href="#"><img class="grow" src="/images/photos/topshop_product_02.jpg" alt="" /></a>
+									<a href="#"><img class="grow" src="/images/photos/topshop_product_03.jpg" alt="" /></a>
 								</div>
 							</div>
 						</div>
@@ -99,23 +99,22 @@
 						<div class="col-md-9 col-sm-8 col-xs-12">
 							<h2 class="logo-footer mont-font title24 inline-block"><a href="#" class="color">Topshop</a></h2>
 							<ul class="list-inline-block nav-footer">
-								<li><a href="#">About us</a></li>
-								<li><a href="#">Contact us </a></li>
-								<li><a href="#">Terms of use </a></li>
-								<li><a href="#">Privacy Policy </a></li>
-								<li><a href="#">Cookie Policy</a></li>
+								<li><a href="/about">About us</a></li>
+								<li><a href="/contact">Contact us </a></li>
+								<li><a href="/terms">Terms of use </a></li>
+								<li><a href="/privacy">Privacy Policy </a></li>
 							</ul>
 						</div>
 						<div class="col-md-3 col-sm-4 col-xs-12">
 							<div class="payment-method text-right">
-								<a href="#" class="wobble-vertical"><img src="images/icons/pay1.png" alt=""></a>
-								<a href="#" class="wobble-vertical"><img src="images/icons/pay2.png" alt=""></a>
-								<a href="#" class="wobble-vertical"><img src="images/icons/pay3.png" alt=""></a>
-								<a href="#" class="wobble-vertical"><img src="images/icons/pay4.png" alt=""></a>
+								<a href="#" class="wobble-vertical"><img src="/images/icons/pay1.png" alt=""></a>
+								<a href="#" class="wobble-vertical"><img src="/images/icons/pay2.png" alt=""></a>
+								<a href="#" class="wobble-vertical"><img src="/images/icons/pay3.png" alt=""></a>
+								<a href="#" class="wobble-vertical"><img src="/images/icons/pay4.png" alt=""></a>
 							</div>
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 			<!-- End Footer Bottom -->
