@@ -23,7 +23,7 @@
 						<div class="col-md-3 col-sm-5 col-xs-12">
 							<div class="social-footer text-right">
 								<a href="https://www.facebook.com/smile4miles.in/" target="_blank" class="round inline-block"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-								<a href="#" class="round inline-block"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+								<a href="https://twitter.com/smile4milesin" target="_blank" class="round inline-block"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 								<a href="https://www.instagram.com/smile4miles.in/" target="_blank" class="round inline-block"><i class="fa fa-instagram" aria-hidden="true"></i></a>
 							</div>
 						</div>
