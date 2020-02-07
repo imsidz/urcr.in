@@ -43,7 +43,7 @@
 								<p class="contact-livechat"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> <a href="#">Live Chat</a></p>
 							</div>
 						</div>
-						<div class="col-md-2 col-sm-6 col-xs-12">
+						<div class="col-md-3 col-sm-6 col-xs-12">
 							<div class="footer-box menu-footer">
 								<h2 class="title18 mont-font color">topshop INFO</h2>
 								<ul class="list-none">
@@ -58,12 +58,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-md-4 col-sm-6 col-xs-12">
-							<div class="footer-box instagram-footer">
-								<h2 class="title18 mont-font color">Facebook</h2>
-								<div class="fb-page" data-href="https://www.facebook.com/smile4miles.in" data-tabs="timeline" data-width="" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/smile4miles.in" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/smile4miles.in">Smile4miles</a></blockquote></div>
-							</div>
-						</div>
+
 						<div class="col-md-3 col-sm-6 col-xs-12">
 							<div class="footer-box menu-footer order-footer">
 								<h2 class="title18 mont-font color">ORDER INFO</h2>
@@ -78,6 +73,12 @@
 									<li><a href="#">Regimen & Wishlist</a></li>
 								</ul>
 							</div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+							<div class="footer-box instagram-footer">
+								<h2 class="title18 mont-font color">Facebook</h2>
+								<div class="fb-page" data-href="https://www.facebook.com/smile4miles.in" data-tabs="timeline" data-width="" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/smile4miles.in" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/smile4miles.in">Smile4miles</a></blockquote></div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -87,7 +88,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-9 col-sm-8 col-xs-12">
-							<h2 class="logo-footer mont-font title24 inline-block"><a href="#" class="color">Topshop</a></h2>
+							<h2 class="logo-footer mont-font title24 inline-block"><a href="#" class="color">Smile4Miles</a></h2>
 							<ul class="list-inline-block nav-footer">
 								<li><a href="/about">About us</a></li>
 								<li><a href="/contact">Contact us </a></li>
