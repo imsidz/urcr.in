@@ -22,7 +22,7 @@
 						</div>
 						<div class="col-md-3 col-sm-5 col-xs-12">
 							<div class="social-footer text-right">
-								<a href="#" class="round inline-block"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+								<a href="https://www.facebook.com/smile4miles.in/" class="round inline-block"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 								<a href="#" class="round inline-block"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 								<a href="#" class="round inline-block"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
 							</div>
@@ -37,13 +37,13 @@
 						<div class="col-md-3 col-sm-6 col-xs-12">
 							<div class="footer-box contact-footer">
 								<h2 class="title18 mont-font color">CONTACT US</h2>
-								<p class="contact-address"><i class="fa fa-map-marker" aria-hidden="true"></i> Our business address is 63 Freelon Street San Francisco, CA 95108</p>
-								<p class="contact-mobile"><i class="fa fa-mobile" aria-hidden="true"></i> + 020.566.6666</p>
-								<p class="contact-email"><i class="fa fa-location-arrow" aria-hidden="true"></i> <a href="mailto:support@storetopshop.com">support@storetopshop.com</a></p>
+								<p class="contact-address"><i class="fa fa-map-marker" aria-hidden="true"></i> New Delhi</p>
+								<p class="contact-mobile"><i class="fa fa-mobile" aria-hidden="true"></i> +91 9560345642</p>
+								<p class="contact-email"><i class="fa fa-location-arrow" aria-hidden="true"></i> <a href="mailto:info@smile4miles.in">info@smile4miles.in</a></p>
 								<p class="contact-livechat"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> <a href="#">Live Chat</a></p>
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-6 col-xs-12">
+						<div class="col-md-2 col-sm-6 col-xs-12">
 							<div class="footer-box menu-footer">
 								<h2 class="title18 mont-font color">topshop INFO</h2>
 								<ul class="list-none">
@@ -58,20 +58,10 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-6 col-xs-12">
+						<div class="col-md-4 col-sm-6 col-xs-12">
 							<div class="footer-box instagram-footer">
-								<h2 class="title18 mont-font color">instagram</h2>
-								<div class="list-instagram clearfix">
-									<a href="#"><img class="grow" src="/images/photos/topshop_product_09.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="/images/photos/topshop_product_05.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="/images/photos/topshop_product_11.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="/images/photos/topshop_product_16.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="/images/photos/topshop_product_31.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="/images/photos/topshop_product_29.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="/images/photos/topshop_product_20.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="/images/photos/topshop_product_02.jpg" alt="" /></a>
-									<a href="#"><img class="grow" src="/images/photos/topshop_product_03.jpg" alt="" /></a>
-								</div>
+								<h2 class="title18 mont-font color">Facebook</h2>
+								<div class="fb-page" data-href="https://www.facebook.com/smile4miles.in" data-tabs="timeline" data-width="" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/smile4miles.in" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/smile4miles.in">Smile4miles</a></blockquote></div>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-6 col-xs-12">

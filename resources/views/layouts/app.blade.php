@@ -233,7 +233,9 @@
 	s0.parentNode.insertBefore(s1,s0);
 	})();
 	</script>
-	<!--End of Tawk.to Script-->
+    <!--End of Tawk.to Script-->
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v6.0&appId=439469729970582&autoLogAppEvents=1"></script>
 @stack('scripts')
 </body>
 
