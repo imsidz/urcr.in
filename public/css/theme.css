@@ -39,7 +39,7 @@ body {
   outline: none;
 }
 img {
-  max-width: 100%;
+  max-width: 80%;
 }
 a {
   color: #555;
@@ -503,7 +503,7 @@ div.table > div {
 }
 /*End Banner Adv*/
 /*******************************************************************************************************
-										Preview	Menu				
+										Preview	Menu
 ********************************************************************************************************/
 .main-nav > ul > li .sub-menu > li.menu-item-preview {
   position: relative;
@@ -1346,11 +1346,11 @@ li.menu-item-has-children:hover > .sub-menu {
 }
 .popular-category {
   background: #fafafa none repeat scroll 0 0;
-  padding: 140px 0 150px;
+  padding: 50px 0 150px;
 }
 .view-collection {
   background: #f7f6f6 none repeat scroll 0 0;
-  padding: 140px 0 80px;
+  padding: 50px 0 80px;
 }
 .popcat-item {
   border: 15px solid #efefef;
@@ -1791,7 +1791,7 @@ li.menu-item-has-children:hover > .sub-menu {
   margin: 40px 0 90px;
 }
 .our-services {
-  padding: 150px 0;
+  padding: 50px 0;
 }
 .item-service {
   position: relative;
@@ -2106,7 +2106,7 @@ li.menu-item-has-children:hover > .sub-menu {
   display: none;
 }
 /********************************************************************************************
-									Product Shop							
+									Product Shop
 *********************************************************************************************/
 .filter-color li a {
   border: 1px solid #e5e5e5;
@@ -2537,7 +2537,7 @@ a.btn-circle:hover {
   margin-bottom: -1px;
 }
 /**********************************************************************************************************
-										Product Details			
+										Product Details
 **********************************************************************************************************/
 .detail-product {
   margin-top: 35px;
@@ -3888,7 +3888,7 @@ a.btn-circle:hover {
   margin-top: 65px;
 }
 /*************************************************************************************************
-											Home 4	
+											Home 4
 **************************************************************************************************/
 .social-email.bg-dark {
   background: #181818 none repeat scroll 0 0;
@@ -4596,7 +4596,7 @@ a.btn-circle:hover {
   display: inline-block;
 }
 /**************************************************************************************************
-											Vendor Shop	
+											Vendor Shop
 ***************************************************************************************************/
 .widget-best-seller .vendor-product .wrap-detail-gallery {
   margin-right: 0;
@@ -4750,7 +4750,7 @@ a.btn-circle:hover {
   width: 0;
 }
 /**************************************************************************************************
-											Pages	
+											Pages
 ***************************************************************************************************/
 .content-about {
   margin-top: 35px;
@@ -5309,7 +5309,7 @@ td.product-thumbnail img {
   margin-bottom: -1px;
 }
 /*************************************************************************************************
-										Login/Register 
+										Login/Register
 **************************************************************************************************/
 .content-page {
     padding: 100px 0;
@@ -5434,5 +5434,5 @@ input.register-button.save-change {
   margin: auto;
 }
 /*************************************************************************************************
-									End	Login/Register 
+									End	Login/Register
 **************************************************************************************************/
