@@ -1,7 +1,7 @@
 .color,
 a:focus,
 a:hover {
-    color: #ffc000
+    color: #062F4F
 }
 
 .color2 {
@@ -9,17 +9,17 @@ a:hover {
 }
 
 .bg-color {
-    background: #ffc000
+    background: #062F4F
 }
 
 .main-nav>ul>li:hover>a {
-    color: #ffc000
+    color: #062F4F
 }
 
 .main-nav .toggle-mobile-menu span,
 .main-nav .toggle-mobile-menu::after,
 .main-nav .toggle-mobile-menu::before {
-    background: #ffc000
+    background: #062F4F
 }
 
 .category-dropdown::after,
@@ -28,30 +28,30 @@ a:hover {
 .main-nav .sub-menu::before,
 .mini-cart-content::after,
 .mini-cart-content::before {
-    border-color: #ffc000
+    border-color: #062F4F
 }
 
 .list-category-dropdown:hover .link-cat-dropdown,
 .search-ontop:hover .search-form .submit-form::after {
-    color: #ffc000
+    color: #062F4F
 }
 
 .main-nav .mega-menu::after,
 .main-nav .mega-menu::before {
-    border-color: #ffc000
+    border-color: #062F4F
 }
 
 .product-price ins {
-    color: #ffc000
+    color: #062F4F
 }
 
 .shop-button {
-    border: 1px solid #ffc000;
-    color: #ffc000
+    border: 1px solid #062F4F;
+    color: #062F4F
 }
 
 .shop-button:hover {
-    background-color: #ffc000
+    background-color: #062F4F
 }
 
 .banner-button:hover {
@@ -59,7 +59,7 @@ a:hover {
 }
 
 .owl-theme .owl-controls .owl-page.active span::after {
-    background: #ffc000
+    background: #062F4F
 }
 
 .hot-label,
@@ -68,11 +68,11 @@ a:hover {
 }
 
 .underline-title::after {
-    background: #ffc000
+    background: #062F4F
 }
 
 .viewall-button {
-    color: #ffc000
+    color: #062F4F
 }
 
 .viewall-button:hover {
@@ -80,17 +80,17 @@ a:hover {
 }
 
 .tab-title li.active .shop-button {
-    background: #ffc000
+    background: #062F4F
 }
 
 .product-extra-link>a.addcart-link,
 .product-extra-link>a:hover {
-    color: #ffc000
+    color: #062F4F
 }
 
 .product-extra-link>a.addcart-link:hover {
-    border-color: #ffc000;
-    background-color: #ffc000
+    border-color: #062F4F;
+    background-color: #062F4F
 }
 
 .product-price .sale-label {
@@ -98,20 +98,20 @@ a:hover {
 }
 
 .product-title .shop-button:hover::before {
-    background-color: #ffc000
+    background-color: #062F4F
 }
 
 .product-title .shop-button:hover {
-    border-color: #ffc000;
-    color: #ffc000
+    border-color: #062F4F;
+    color: #062F4F
 }
 
 .thumb-gallery a {
-    border: 1px solid #ffc000
+    border: 1px solid #062F4F
 }
 
 .product-thumb>.quickview-link {
-    background: #ffc000
+    background: #062F4F
 }
 
 .product-thumb>.quickview-link:hover {
@@ -119,46 +119,46 @@ a:hover {
 }
 
 .owl-theme .owl-controls .owl-buttons div:hover {
-    background: #ffc000
+    background: #062F4F
 }
 
 .owl-theme .owl-controls .owl-buttons div {
-    color: #ffc000
+    color: #062F4F
 }
 
 .item-client {
-    border: 1px solid #ffc000
+    border: 1px solid #062F4F
 }
 
 .item-client.slick-active {
-    background: #ffc000
+    background: #062F4F
 }
 
 .content-product-hover-dir .quickview-link {
-    border: 1px dashed #ffc000;
-    color: #ffc000
+    border: 1px dashed #062F4F;
+    color: #062F4F
 }
 
 .content-product-hover-dir .quickview-link:hover {
-    background: #ffc000
+    background: #062F4F
 }
 
 .item-client.slick-active .client-thumb {
-    border-color: #ffc000
+    border-color: #062F4F
 }
 
 .slick-arrow {
-    color: #ffc000
+    color: #062F4F
 }
 
 .latest-news-intro::after,
 .slick-arrow:hover {
-    background: #ffc000
+    background: #062F4F
 }
 
 .post-comment-date i,
 .post-format>a:hover {
-    color: #ffc000
+    color: #062F4F
 }
 
 .service-icon,
@@ -188,40 +188,40 @@ a:hover {
 }
 
 .item-service.bottom-right:hover::after {
-    border-right: 70px solid #ffc000
+    border-right: 70px solid #062F4F
 }
 
 .item-service.bottom-left:hover::after {
-    border-left: 70px solid #ffc000
+    border-left: 70px solid #062F4F
 }
 
 .item-service.top-right:hover::after {
-    border-right: 70px solid #ffc000
+    border-right: 70px solid #062F4F
 }
 
 .item-service.top-left:hover::after {
-    border-left: 70px solid #ffc000
+    border-left: 70px solid #062F4F
 }
 
 .newsletter-form>form {
-    border: 1px solid #ffc000
+    border: 1px solid #062F4F
 }
 
 .submit-form::after {
-    color: #ffc000
+    color: #062F4F
 }
 
 .social-footer a {
-    color: #ffc000;
-    border: 1px solid #ffc000
+    color: #062F4F;
+    border: 1px solid #062F4F
 }
 
 .contact-footer>p .fa {
-    color: #ffc000
+    color: #062F4F
 }
 
 .scroll-top.round {
-    background: #ffc000;
+    background: #062F4F;
     color: #fff
 }
 
@@ -230,28 +230,28 @@ a:hover {
 }
 
 .nav-footer li a:hover {
-    color: #ffc000
+    color: #062F4F
 }
 
 .list-instagram a:hover img {
-    box-shadow: 0 0 0 1px #ffc000
+    box-shadow: 0 0 0 1px #062F4F
 }
 
 a.btn-circle:hover {
-    background: #ffc000
+    background: #062F4F
 }
 
 a.btn-circle {
-    color: #ffc000
+    color: #062F4F
 }
 
 .pagi-nav-bar .inline-block.current-page,
 .pagi-nav-bar .inline-block:hover {
-    border-color: #ffc000
+    border-color: #062F4F
 }
 
 .filter-default a.active::before {
-    color: #ffc000
+    color: #062F4F
 }
 
 .range-filter #slider-range .ui-widget-header {
@@ -264,37 +264,37 @@ a.btn-circle {
 
 .range-filter #slider-range .ui-slider-handle.ui-state-default.ui-corner-all,
 .range-filter .btn-filter {
-    background-color: #ffc000
+    background-color: #062F4F
 }
 
 .gallery-control .carousel li a.active {
-    border: 1px dashed #ffc000
+    border: 1px dashed #062F4F
 }
 
 .addcart-link.add-cart-detail:hover,
 .review-form>div>input[type=submit]:hover,
 .title-tab-detail li.active a::after,
 .title-tab-gal-detail .list-inline-block li.active a::after {
-    background: #ffc000
+    background: #062F4F
 }
 
 .btn-dashed {
-    border: 1px dashed #ffc000;
-    color: #ffc000
+    border: 1px dashed #062F4F;
+    color: #062F4F
 }
 
 .btn-dashed:hover,
 .social-footer a:hover,
 .widget-post-tags .list-inline-block a:hover {
-    background: #ffc000
+    background: #062F4F
 }
 
 .item-adv2 .banner-info::before {
-    color: #ffc000
+    color: #062F4F
 }
 
 .shopnow.fa-icon {
-    background: #ffc000
+    background: #062F4F
 }
 
 .shopnow.fa-icon:hover {
@@ -302,16 +302,16 @@ a.btn-circle {
 }
 
 .ef-lamp {
-    background: #ffc000
+    background: #062F4F
 }
 
 .item-massage-service .service-info .readmore::before,
 .item-massage-service .service-info .readmore:hover {
-    color: #ffc000
+    color: #062F4F
 }
 
 .blockquote::after {
-    background: #ffc000
+    background: #062F4F
 }
 
 .banner-button.bg-white,
@@ -319,11 +319,11 @@ a.btn-circle {
 .control-post .prev-post:hover,
 .single-post-info .desc a:hover,
 .single-tags a:hover {
-    color: #ffc000
+    color: #062F4F
 }
 
 .title-box3 {
-    border-bottom: 1px dashed #ffc000
+    border-bottom: 1px dashed #062F4F
 }
 
 .title-box3::before {
@@ -331,56 +331,56 @@ a.btn-circle {
 }
 
 .list-title-tab3 li.active a {
-    border-color: #ffc000;
-    background: #ffc000;
+    border-color: #062F4F;
+    background: #062F4F;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .1);
     color: #fff
 }
 
 .tab-cat-slider3 .thumb-gallery a.active::before {
-    background: #ffc000
+    background: #062F4F
 }
 
 .item-service4:hover .sevice-icon {
     color: #fff;
-    background: #ffc000;
-    border: 1px solid #ffc000
+    background: #062F4F;
+    border: 1px solid #062F4F
 }
 
 .item-service4:hover {
-    border-color: #ffc000
+    border-color: #062F4F
 }
 
 .meta-link6 .search-form:hover .submit-form::after,
 .title-tab5 li.active a,
 .week-countdown .countdown-section {
-    color: #ffc000
+    color: #062F4F
 }
 
 .week-countdown.day-countdown .countdown-section {
-    background: #ffc000
+    background: #062F4F
 }
 
 .vendor-contact .desc .fa,
 .widget-product-search .search-form .submit-form::after {
-    color: #ffc000
+    color: #062F4F
 }
 
 .header-general.header-border {
-    border-bottom: 5px solid #ffc000
+    border-bottom: 5px solid #062F4F
 }
 
 .blockquote {
-    border: 1px solid #ffc000
+    border: 1px solid #062F4F
 }
 
 .contact-accordion .item-toggle-tab.active .toggle-tab-title,
 .contact-accordion .toggle-tab-title::after {
-    color: #ffc000
+    color: #062F4F
 }
 
 @media (max-width:767px) {
     .main-nav>ul>li:hover>a {
-        color: #ffc000!important
+        color: #062F4F!important
     }
 }

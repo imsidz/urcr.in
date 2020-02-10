@@ -19,7 +19,7 @@ class CheckoutController extends Controller
     }
 
     public function checout(CheckOutRequest $request)
-    {
+    {   
         $order = new Order;
         $order->orderId = strtoupper(uniqid());
         $order->total = \Cart::getTotal();

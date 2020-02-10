@@ -24,7 +24,14 @@ class CheckOutRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'fname' => 'required|string|max:255',
+            'mobile' => 'required',
+            'address' => 'required|string',
+            'city' => 'required|string',
+            'state' => 'required|string',
+            'pincode' => 'required',
+            'notes' => 'nullable|string|max:1000',
+            'payment_method' => 'required'
         ];
     }
 }

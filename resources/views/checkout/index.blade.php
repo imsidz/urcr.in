@@ -4,7 +4,7 @@
 <div class="banner-slider banner-cart-slider bg-slider">
         <div class="wrap-item" data-pagination="false" data-itemscustom="[[0,1]]">
             <div class="item-slider">
-                <div class="banner-thumb"><a href="#"><img src="/images/pages/banner.jpg" alt="" /></a></div>
+                <div class="banner-thumb"><a href="#"><img src="/images/pages/banner.png" alt="" /></a></div>
             </div>
         </div>
     </div>
@@ -29,17 +29,30 @@
                                         <h2 class="title title18">Billing Details</h2>
                                         <p class="clearfix box-col1">
                                             <input type="text" name="fname" value="" placeholder="Full Name" />
+                                            @error('fname')
+                                               <span class="text-danger"> {{ $message }}</span>
+                                            @enderror
                                         </p>
                                         <p class="clearfix box-col1">
                                             <input type="text" name="mobile" value="" placeholder="Mobile *" />
+                                            @error('mobile')
+                                               <span class="text-danger"> {{ $message }}</span>
+                                            @enderror
                                         </p>
                                         <p>
                                             <select name="country" id="country">
                                                 <option disabled selected>Country*</option>
                                                 <option value="india">India</option>
                                             </select>
+                                            @error('country')
+                                               <span class="text-danger"> {{ $message }}</span>
+                                            @enderror
                                         </p>
-                                        <p><input type="text" name="address" value="" placeholder="Address *"  /></p>
+                                        <p><input type="text" name="address" value="" placeholder="Address *"  />
+                                            @error('address')
+                                               <span class="text-danger"> {{ $message }}</span>
+                                            @enderror
+                                        </p>
                                         <p class="clearfix box-col2">
                                             <input type="text" name="city" value="" placeholder="City *" />
                                             <input type="text" name="state" value="" placeholder="State *" />
@@ -115,7 +128,7 @@
                                         </div>
                                     </li> --}}
                                     <li class="payment_method_cod">
-                                        <input type="radio" data-order_button_text="" value="cod" name="payment_method" class="input-radio" id="payment_method_cod" aria-selected="true">
+                                        <input type="radio" data-order_button_text="" checked value="cod" name="payment_method" class="input-radio" id="payment_method_cod" aria-selected="true">
                                         <label for="payment_method_cod">Cash on Delivery 	</label>
                                         <div style="display:none;" class="payment_box payment_method_cod">
                                             <p>Pay with cash upon delivery.</p>

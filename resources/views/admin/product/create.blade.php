@@ -13,22 +13,13 @@
                   <label for="title">Title</label>
                   <input type="text" name="title" id="title" class="form-control" placeholder="Title" aria-describedby="titl">
                 </div>
-                
-                <div class="form-group">
-                    <label for="description">Short Description</label>
-                    <textarea class="ckeditor" name="short" id="description" rows="3"></textarea>
-                  </div>
+          
 
                 <div class="form-group">
                   <label for="description">Description</label>
                   <textarea class="ckeditor" name="description" id="description" rows="3"></textarea>
                 </div>
 
-                <div class="form-group">
-                  <label for="description">Full Details</label>
-                  <textarea class="ckeditor" name="full" id="description" rows="3"></textarea>
-                </div>
-              
                 
                 <div class="form-group">
                   <label for="mrp">MRP</label>
