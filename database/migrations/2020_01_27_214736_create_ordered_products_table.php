@@ -16,7 +16,7 @@ class CreateOrderedProductsTable extends Migration
         Schema::create('ordered_products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title')->nullable();
-            $table->string('slug')->unique()->nullable();
+            $table->string('slug')->nullable();
             $table->float('price')->nullable();
             $table->float('mrp')->nullable();
             $table->text('description')->nullable();

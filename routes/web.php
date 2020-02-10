@@ -26,7 +26,7 @@ Route::get('/checkout', 'CheckoutController@index')->middleware('auth');
 
 Route::post('/checkout', 'CheckoutController@checout')->middleware('auth');
 
-Route::get('/checkout/{orderid}', 'CheckOutController@success');
+Route::get('/checkout/{orderid}', 'CheckoutController@success');
 
 // Route::get('/login', 'Auth\LoginController@index')->name('login')->middleware('guest');
 
@@ -132,6 +132,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::post('/seller-request/approve', 'SellerController@sellerApprove');
 
     Route::post('/seller-request/decline', 'SellerController@sellerDecline');
+
+    Route::get('/orders', 'OrderController@adminIndex');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

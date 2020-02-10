@@ -57,8 +57,6 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->mrp = $request->mrp;
         $product->description = $request->description;
-        $product->short = $request->short;
-        $product->full = $request->full;
         $product->store = true;
         $product->active = true;
         $product->style_id = $request->style;
