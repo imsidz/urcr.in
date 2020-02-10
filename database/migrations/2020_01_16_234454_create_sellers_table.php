@@ -18,6 +18,7 @@ class CreateSellersTable extends Migration
             $table->string('name');
             $table->string('company');
             $table->string('email')->unique();
+            $table->string('mobile');
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('verify')->default(false);
             $table->string('password');
