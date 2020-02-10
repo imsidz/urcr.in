@@ -10,4 +10,9 @@ class Category extends Model
     {
         return $this->hasMany(SubCategory::class, 'category_id', 'id');
     }
+
+    public function sellers()
+    {
+        return $this->belongsToMany(Seller::class, 'seller_category', 'seller_id', 'category_id');
+    }
 }

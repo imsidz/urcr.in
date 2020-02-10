@@ -20,4 +20,14 @@ class Seller extends Model
     {
         return $query->where('verify', false);
     }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'seller_category', 'category_id', 'seller_id');
+    }
+
+    public function materials()
+    {
+        return $this->belongsToMany(Material::class, 'seller_material', 'material_id', 'seller_id');
+    }
 }
