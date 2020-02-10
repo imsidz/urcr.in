@@ -23,11 +23,11 @@ class Seller extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'seller_category', 'category_id', 'seller_id');
+        return $this->belongsToMany(Category::class, 'seller_category', 'seller_id', 'category_id');
     }
 
     public function materials()
     {
-        return $this->belongsToMany(Material::class, 'seller_material', 'material_id', 'seller_id');
+        return $this->belongsToMany(Material::class, 'seller_material', 'seller_id', 'material_id');
     }
 }
