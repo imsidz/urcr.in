@@ -27,6 +27,7 @@ class UsersTableSeeder extends Seeder
         $seller->email = 'seller@admin.com';
         $seller->email_verified_at = now();
         $seller->verify = true;
+        $seller->mobile = 9999999999;
         $seller->password = Hash::make('seller');
         $seller->save();
         

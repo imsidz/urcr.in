@@ -30,4 +30,9 @@ class Seller extends Model
     {
         return $this->belongsToMany(Material::class, 'seller_material', 'seller_id', 'material_id');
     }
+
+    public function childcategories()
+    {
+        return $this->belongsToMany(ChildCategory::class, 'seller_child_category', 'seller_id', 'child_category_id');
+    }
 }
