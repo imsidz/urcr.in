@@ -81,10 +81,11 @@ class ProductController extends Controller
     public function showChildCategories($categroy, $subcategory, $childcategory)
     {
         $styles = Style::latest()->get();
+        $materials = Material::latest()->get();
         $products = Product::whereHas('childcategories', function ($query) use ($childcategory) {
             $query->where('slug', $childcategory);
         })->paginate(20);
 
-        return view('products.index', compact('products', 'styles'));
+        return view('products.index', compact('products', 'styles', 'materials'));
     }
 }
