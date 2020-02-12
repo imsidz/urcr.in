@@ -40,6 +40,16 @@
           </li>
 
           <li class="nav-item">
+            <a href="/admin/subchildcategory" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                Sub Child Category
+                <span class="right badge badge-danger"></span>
+                </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="/admin/style" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
@@ -135,7 +145,7 @@
 
             </li>
 
-            
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

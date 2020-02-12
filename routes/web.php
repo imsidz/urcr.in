@@ -40,11 +40,11 @@ Route::get('/auth/{provider}', 'SocialloginController@login')->middleware('guest
 
 Route::get('/auth/{provider}/callback', 'SocialloginController@callback')->middleware('guest');
 
-Route::get('/privacy', function(){
+Route::get('/privacy', function () {
     return view('privacy.index');
 });
 
-Route::get('terms', function(){
+Route::get('terms', function () {
     return view('terms.index');
 });
 
@@ -88,6 +88,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::post('/childcategory/create', 'ChildCategoryController@adminPost');
 
     Route::delete('/childcategory/{slug}/delete', 'ChildCategoryController@adminDelete');
+
+    //Sub Child Category
+    Route::get('/subchildcategory', 'SubChildCategoryController@adminIndex');
+
+    Route::get('/subchildcategory/create', 'SubChildCategoryController@adminCreate');
+
+    Route::post('/subchildcategory/create', 'SubChildCategoryController@adminPost');
+
+    Route::delete('/subchildcategory/{slug}/delete', 'SubChildCategoryController@adminDelete');
 
     Route::get('/style', 'StyleController@adminIndex');
 
