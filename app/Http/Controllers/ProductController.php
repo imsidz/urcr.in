@@ -23,7 +23,7 @@ class ProductController extends Controller
     }
 
     public function show($slug)
-    {   
+    {
         $product = Product::where('slug', $slug)->firstorfail();
 
         $relateds = Product::whereNotIn('id', [$product->id])->store()->inRandomOrder()->paginate(10);
@@ -80,10 +80,11 @@ class ProductController extends Controller
 
     public function showChildCategories($categroy, $subcategory, $childcategory)
     {
+        $styles = Style::latest()->get();
         $products = Product::whereHas('childcategories', function ($query) use ($childcategory) {
             $query->where('slug', $childcategory);
         })->paginate(20);
 
-        return view('products.index', compact('products'));
+        return view('products.index', compact('products', 'styles'));
     }
 }
