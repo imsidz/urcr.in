@@ -96,6 +96,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
     Route::post('/subchildcategory/create', 'SubChildCategoryController@adminPost');
 
+    Route::get('/subchildcategory/{slug}/edit', 'SubChildCategoryController@adminEdit');
+
+    Route::put('/subchildcategory/{slug}/edit', 'SubChildCategoryController@adminPut');
+
     Route::delete('/subchildcategory/{slug}/delete', 'SubChildCategoryController@adminDelete');
 
     Route::get('/style', 'StyleController@adminIndex');
