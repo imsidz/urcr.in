@@ -35,4 +35,14 @@ class Product extends Model
     {
         return $this->belongsTo(Seller::class, 'seller_id', 'id');
     }
+
+    public function scopeApprove($query)
+    {
+        return $query->where('approve', true);
+    }
+
+    public function scoprDisapprove($query)
+    {
+        return $query->where('approve', false);
+    }
 }

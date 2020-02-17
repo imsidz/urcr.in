@@ -147,6 +147,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::post('/seller-request/decline', 'SellerController@sellerDecline');
 
     Route::get('/orders', 'OrderController@adminIndex');
+
+    Route::group(['prefix' => 'request'], function () {
+        Route::get('/product', 'RequestController@getProductRequests');
+    });
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
