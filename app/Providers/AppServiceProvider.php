@@ -16,15 +16,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        view()->composer('layouts.app.topmenu', function($view) {
-            $view->with('categories', Category::inRandomOrder()->paginate(7));
+        view()->composer('layouts.app.topmenu', function ($view) {
+            $view->with('categories', Category::paginate(7));
         });
 
-        view()->composer('layouts.app.topmenu', function($view) {
+        view()->composer('layouts.app.topmenu', function ($view) {
             $view->with('subcategories', SubCategory::inRandomOrder()->paginate(7));
         });
 
-        view()->composer('layouts.app.topmenu', function($view) {
+        view()->composer('layouts.app.topmenu', function ($view) {
             $view->with('products', Product::inRandomOrder()->paginate(7));
         });
 
