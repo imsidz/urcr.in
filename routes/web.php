@@ -150,6 +150,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
     Route::group(['prefix' => 'request'], function () {
         Route::get('/product', 'RequestController@getProductRequests');
+
+        Route::get('/product/{slug}', 'RequestController@showProductRequest');
+
+        Route::post('/product/{slug}/approve', 'RequestController@approveProductRequest');
     });
 });
 

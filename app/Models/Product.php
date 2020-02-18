@@ -41,8 +41,18 @@ class Product extends Model
         return $query->where('approve', true);
     }
 
-    public function scoprDisapprove($query)
+    public function scopeDisapprove($query)
     {
         return $query->where('approve', false);
+    }
+
+    public function subchildcategories()
+    {
+        return $this->belongsToMany(SubChildCategory::class, 'sub_child_category_products', 'product_id', 'sub_child_category_id')->withTimestamps();
+    }
+
+    public function style()
+    {
+        return $this->belongsTo(Style::class, 'style_id', 'id');
     }
 }
