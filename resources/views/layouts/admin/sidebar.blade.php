@@ -80,10 +80,20 @@
         </li>
 
         <li class="nav-item">
-            <a href="/admin/variant" class="nav-link">
+            <a href="/admin/size" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                    Variants
+                    Size
+                    <span class="right badge badge-danger"></span>
+                </p>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="/admin/color" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                    Colors
                     <span class="right badge badge-danger"></span>
                 </p>
             </a>

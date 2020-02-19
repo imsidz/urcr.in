@@ -126,6 +126,30 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
     Route::delete('/material/{slug}/delete', 'MaterialController@adminDelete');
 
+    Route::get('/size', 'SizeController@adminIndex');
+
+    Route::get('/size/create', 'SizeController@adminCreate');
+
+    Route::post('/size/create', 'SizeController@adminStore');
+
+    Route::get('/size/{slug}/edit', 'SizeController@adminEdit');
+
+    Route::put('/size/{slug}/edit', 'SizeController@adminPut');
+
+    Route::delete('/size/{slug}/delete', 'SizeController@adminDelete');
+
+    Route::get('/color', 'ColorController@adminIndex');
+
+    Route::get('/color/create', 'ColorController@adminCreate');
+
+    Route::post('/color/create', 'ColorController@adminStore');
+
+    Route::get('/color/{slug}/edit', 'ColorController@adminEdit');
+
+    Route::put('/color/{slug}/edit', 'ColorController@adminPut');
+
+    Route::delete('/color/{slug}/delete', 'ColorController@adminDelete');
+
     Route::get('/banners', 'BannerController@adminIndex');
 
     Route::get('/banners/create', 'BannerController@adminCreate');

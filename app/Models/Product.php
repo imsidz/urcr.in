@@ -55,4 +55,9 @@ class Product extends Model
     {
         return $this->belongsTo(Style::class, 'style_id', 'id');
     }
+
+    public function sizes()
+    {
+        return $this->belongsToMany(Size::class, 'product_size', 'product_id', 'size_id');
+    }
 }
