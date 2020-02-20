@@ -5,39 +5,43 @@
 
 </style>
 <div class="banner-slider banner-slider1 bg-slider">
-<div class="wrap-item" data-pagination="true" data-autoplay="true" data-transition="fade" data-navigation="false" data-itemscustom="[[0,1]]">
-    @forelse ($banners as $banner)
+    <div class="wrap-item" data-pagination="true" data-autoplay="true" data-transition="fade" data-navigation="false"
+        data-itemscustom="[[0,1]]">
+        @forelse ($banners as $banner)
 
-    <div class="item-slider">
-        <div class="banner-thumb"><a href="#"><img src="{{ $banner->image }}" alt="{{ $banner->title }}" /></a></div>
-        <div class="banner-info">
-            <div class="container">
-                <div class="banner-content-text white text-center">
-                    <h2 class="banner-title vibes-font animated" data-animated="flash">{{ $banner->title }}</h2>
-                    @if($banner->url)
-                    <a href="{{ $banner->url }}" class="banner-button bg-color animated" data-animated="bounceIn"><span>Shop Now</span></a>
-                    @endif
+        <div class="item-slider">
+            <div class="banner-thumb"><a href="#"><img src="{{ $banner->image }}" alt="{{ $banner->title }}" /></a>
+            </div>
+            <div class="banner-info">
+                <div class="container">
+                    <div class="banner-content-text white text-center">
+                        <h2 class="banner-title vibes-font animated" data-animated="flash">{{ $banner->title }}</h2>
+                        @if($banner->url)
+                        <a href="{{ $banner->url }}" class="banner-button bg-color animated"
+                            data-animated="bounceIn"><span>Shop Now</span></a>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    @empty
-    <div class="item-slider">
-        <div class="banner-thumb"><a href="#"><img src="images/home/slide1-3.jpg" alt="" /></a></div>
-        <div class="banner-info">
-            <div class="container">
-                <div class="banner-content-text white text-center">
-                    <h2 class="banner-title vibes-font animated" data-animated="flash">Collection</h2>
-                    <a href="#" class="banner-button bg-color animated" data-animated="bounceIn"><span>Shop Now</span></a>
+        @empty
+        <div class="item-slider">
+            <div class="banner-thumb"><a href="#"><img src="images/home/slide1-3.jpg" alt="" /></a></div>
+            <div class="banner-info">
+                <div class="container">
+                    <div class="banner-content-text white text-center">
+                        <h2 class="banner-title vibes-font animated" data-animated="flash">Collection</h2>
+                        <a href="#" class="banner-button bg-color animated" data-animated="bounceIn"><span>Shop
+                                Now</span></a>
+                    </div>
                 </div>
             </div>
         </div>
+        @endforelse
+
+
     </div>
-    @endforelse
-
-
-</div>
 </div>
 <div class="popular-category">
     <div class="container-fluid">
@@ -52,149 +56,159 @@
             @foreach ($chunk as $pro)
 
 
-        <div class="col-md-2 col-sm-6 col-xs-12">
-            <div class="panel">
+            <div class="col-md-2 col-sm-6 col-xs-12">
+                <div class="panel">
 
 
-            <div class="item-product item-product-grid panel-default">
-                <div class="product-thumb box-hover-dir p-img">
-                <a href="/products/{{ $pro->slug }}">
-                    <img src="{{ $pro->photos->first()['link'] }}" alt="">
-                </a>
-                    {{-- <div class="info-product-hover-dir">
+                    <div class="item-product item-product-grid panel-default">
+                        <div class="product-thumb box-hover-dir p-img">
+                            <a href="/products/{{ $pro->slug }}">
+                                <img src="{{ $pro->photos->first()['link'] }}" alt="">
+                            </a>
+                            {{-- <div class="info-product-hover-dir">
                         <div class="inner-product-hover-dir">
                             <div class="content-product-hover-dir">
-                                <a href="/products/{{ $product->slug }}" class="quickview-link fancybox.iframe">Quick view <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-                                <span class="product-total-sale">154</span>
-                                <div class="product-extra-link">
-                                    <a href="#" class="addcart-link"><i class="fa fa-shopping-basket" aria-hidden="true"></i><span>Add to cart</span></a>
-                                    <a href="#" class="wishlist-link"><i class="fa fa-heart" aria-hidden="true"></i><span>Wishlist</span></a>
-                                    <a href="#" class="compare-link"><i class="fa fa-stumbleupon" aria-hidden="true"></i><span>Compare</span></a>
-                                </div>
+                                <a href="/products/{{ $product->slug }}" class="quickview-link fancybox.iframe">Quick
+                            view <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+                            <span class="product-total-sale">154</span>
+                            <div class="product-extra-link">
+                                <a href="#" class="addcart-link"><i class="fa fa-shopping-basket"
+                                        aria-hidden="true"></i><span>Add to cart</span></a>
+                                <a href="#" class="wishlist-link"><i class="fa fa-heart"
+                                        aria-hidden="true"></i><span>Wishlist</span></a>
+                                <a href="#" class="compare-link"><i class="fa fa-stumbleupon"
+                                        aria-hidden="true"></i><span>Compare</span></a>
                             </div>
                         </div>
-                    </div> --}}
-                </div>
-                <div class="product-info" style="padding:15px;">
-                    <h3 class="product-title"><a href="/products/{{ $pro->slug }}">{{ $pro->title }}</a></h3>
-                    <div class="product-rate">
-                        <div class="product-rating" style="width:100%"></div>
                     </div>
-                    <div class="product-price">
-                        <ins><span>Rs {{ $pro->price }}</span></ins>
-                        <del><span>Rs {{ $pro->mrp }}</span></del>
-                        {{-- <span class="sale-label">-20<sup>%</sup></span> --}}
-                    </div>
-                </div>
+                </div> --}}
             </div>
-        </div>
-        </div>
-        @endforeach
-        </div>
-
-        @endforeach
-
-
-    </div>
-    <center> <a href="/products" class="btn btn-primary">View All</a>
-</div>
-<div class="view-collection">
-    <div class="container-fluid">
-        <div class="title-box text-uppercase text-center wow zoomIn">
-            <strong class="first-letter vibes-font">v</strong>
-            <span class="color">02</span>
-            <h2 class="title30 mont-font inline-block">Latest</h2>
-            <h2 class="title30 mont-font">Offers</h2>
-        </div>
-        <div class="list-collection">
-            <div class="row">
-                <div class="col-md-3 col-sm-3 col-xs-12">
-
-
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <a href="#" class="adv-thumb-link"><img src="/images/photos/collection/collection_02.jpg" alt=""></a>
-                            <center>
-                                <br>
-                            <h3 class="mont-font title18 underline-title"><a href="#">15% Discounts</a></h3>
-                                <br>
-                            <a href="#" class="shop-button">Shop Now</a>
-                            </center>
-                        </div>
-                    </div>
-
+            <div class="product-info" style="padding:15px;">
+                <h3 class="product-title"><a href="/products/{{ $pro->slug }}">{{ $pro->title }}</a></h3>
+                <div class="product-rate">
+                    <div class="product-rating" style="width:100%"></div>
                 </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12">
-
-
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <a href="#" class="adv-thumb-link"><img src="/images/photos/collection/collection_02.jpg" alt=""></a>
-                            <center>
-                                <br>
-                            <h3 class="mont-font title18 underline-title"><a href="#">15% Discounts</a></h3>
-                                <br>
-                            <a href="#" class="shop-button">Shop Now</a>
-                            </center>
-                        </div>
-                    </div>
-
+                <div class="product-price">
+                    <ins><span>Rs {{ $pro->price }}</span></ins>
+                    <del><span>Rs {{ $pro->mrp }}</span></del>
+                    {{-- <span class="sale-label">-20<sup>%</sup></span> --}}
                 </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12">
-
-
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <a href="#" class="adv-thumb-link"><img src="/images/photos/collection/collection_02.jpg" alt=""></a>
-                            <center>
-                                <br>
-                            <h3 class="mont-font title18 underline-title"><a href="#">15% Discounts</a></h3>
-                                <br>
-                            <a href="#" class="shop-button">Shop Now</a>
-                            </center>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3 col-sm-3 col-xs-12">
-
-
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <a href="#" class="adv-thumb-link"><img src="/images/photos/collection/collection_02.jpg" alt=""></a>
-                            <center>
-                                <br>
-                            <h3 class="mont-font title18 underline-title"><a href="#">15% Discounts</a></h3>
-                                <br>
-                            <a href="#" class="shop-button">Shop Now</a>
-                            </center>
-                        </div>
-                    </div>
-
-                </div>
-
             </div>
         </div>
     </div>
 </div>
-<div class="popular-category">
+@endforeach
+</div>
+
+@endforeach
+
+
+</div>
+<center> <a href="/products" class="btn btn-primary">View All</a>
+    </div>
+    <div class="view-collection">
+        <div class="container-fluid">
+            <div class="title-box text-uppercase text-center wow zoomIn">
+                <strong class="first-letter vibes-font">v</strong>
+                <span class="color">02</span>
+                <h2 class="title30 mont-font inline-block">Latest</h2>
+                <h2 class="title30 mont-font">Offers</h2>
+            </div>
+            <div class="list-collection">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <a href="#" class="adv-thumb-link"><img
+                                        src="/images/photos/collection/collection_02.jpg" alt=""></a>
+                                <center>
+                                    <br>
+                                    <h3 class="mont-font title18 underline-title"><a href="#">15% Discounts</a></h3>
+                                    <br>
+                                    <a href="#" class="shop-button">Shop Now</a>
+                                </center>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <a href="#" class="adv-thumb-link"><img
+                                        src="/images/photos/collection/collection_02.jpg" alt=""></a>
+                                <center>
+                                    <br>
+                                    <h3 class="mont-font title18 underline-title"><a href="#">15% Discounts</a></h3>
+                                    <br>
+                                    <a href="#" class="shop-button">Shop Now</a>
+                                </center>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <a href="#" class="adv-thumb-link"><img
+                                        src="/images/photos/collection/collection_02.jpg" alt=""></a>
+                                <center>
+                                    <br>
+                                    <h3 class="mont-font title18 underline-title"><a href="#">15% Discounts</a></h3>
+                                    <br>
+                                    <a href="#" class="shop-button">Shop Now</a>
+                                </center>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+
+
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <a href="#" class="adv-thumb-link"><img
+                                        src="/images/photos/collection/collection_02.jpg" alt=""></a>
+                                <center>
+                                    <br>
+                                    <h3 class="mont-font title18 underline-title"><a href="#">15% Discounts</a></h3>
+                                    <br>
+                                    <a href="#" class="shop-button">Shop Now</a>
+                                </center>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popular-category">
         <div class="container">
             <div class="title-box text-uppercase text-center">
                 <strong class="first-letter vibes-font">p</strong>
                 <span class="color">01</span>
-                <h2 class="title30 mont-font inline-block">Popular <strong class="hot-label"><span>Hot</span></strong></h2>
+                <h2 class="title30 mont-font inline-block">Popular <strong class="hot-label"><span>Hot</span></strong>
+                </h2>
                 <h2 class="title30 mont-font">catrgories</h2>
             </div>
             <div class="popcat-slider">
-                <div class="wrap-item" data-pagination="false" data-navigation="false" data-itemscustom="[[0,1],[560,2],[768,3]]">
+                <div class="wrap-item" data-pagination="false" data-navigation="false"
+                    data-itemscustom="[[0,1],[560,2],[768,3]]">
                     @foreach ($subcategories as $sub)
-                        <div class="popcat-item text-center">
-                            <h3 class="mont-font title18 underline-title"><a href="#">{{ $sub->name }}</a></h3>
-                            <div class="popcat-thumb"><a href="#"><img src="{{ $sub->image }}" alt="" /></a></div>
-                        </div>
+                    <div class="popcat-item text-center">
+                        <h3 class="mont-font title18 underline-title"><a href="#">{{ $sub->name }}</a></h3>
+                        <div class="popcat-thumb"><a href="#"><img src="{{ $sub->image }}" alt="" /></a></div>
+                    </div>
                     @endforeach
 
                     {{-- <div class="popcat-item text-center">
@@ -217,8 +231,8 @@
     <!-- End Popular Category -->
 
 
-                <!-- End Show Product -->
-		<div class="client-say">
+    <!-- End Show Product -->
+    {{-- <div class="client-say">
                 <div class="container">
                     <div class="title-box text-uppercase text-center">
                         <strong class="first-letter vibes-font">w</strong>
@@ -252,11 +266,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
 
-		<!-- End Client Say -->
-		{{-- <div class="latest-news">
+    <!-- End Client Say -->
+    {{-- <div class="latest-news">
                 <div class="container">
                     <div class="title-box text-uppercase text-center wow zoomIn">
                         <strong class="first-letter vibes-font">l</strong>
@@ -367,67 +381,71 @@
                 </div>
             </div> --}}
 
-		<!-- End Latest News -->
-		<div class="our-services">
-                <div class="container">
-                    <div class="title-box text-uppercase text-center">
-                        <strong class="first-letter vibes-font">o</strong>
-                        <span class="color">06</span>
-                        <h2 class="title30 mont-font">Our</h2>
-                        <h2 class="title30 mont-font">services</h2>
+    <!-- End Latest News -->
+    <div class="our-services">
+        <div class="container">
+            <div class="title-box text-uppercase text-center">
+                <strong class="first-letter vibes-font">o</strong>
+                <span class="color">06</span>
+                <h2 class="title30 mont-font">Our</h2>
+                <h2 class="title30 mont-font">services</h2>
+            </div>
+            <div class="list-our-service">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="item-service bottom-right">
+                            <div class="service-icon">
+                                <a href="#"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="service-info text-center">
+                                <h3 class="title14"><a href="#">FREE SHIPPING ON ALL ORDRES</a></h3>
+                                {{-- <p class="desc">Get Free Shipping on all orders over $75 and free returns to our UK returns centre! Items are dispatched from the US and will arrive in 5-8 days.</p> --}}
+                                <a href="#" class="viewall-button">Read more <i class="fa fa-arrow-circle-right"
+                                        aria-hidden="true"></i></a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="list-our-service">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <div class="item-service bottom-right">
-                                    <div class="service-icon">
-                                        <a href="#"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="service-info text-center">
-                                        <h3 class="title14"><a href="#">FREE SHIPPING ON ALL ORDRES</a></h3>
-                                        {{-- <p class="desc">Get Free Shipping on all orders over $75 and free returns to our UK returns centre! Items are dispatched from the US and will arrive in 5-8 days.</p> --}}
-                                        <a href="#" class="viewall-button">Read more <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="item-service bottom-left">
+                            <div class="service-icon">
+                                <a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
                             </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <div class="item-service bottom-left">
-                                    <div class="service-icon">
-                                        <a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="service-info text-center">
-                                        <h3 class="title14"><a href="#">FAQs</a></h3>
-                                        {{-- <p class="desc">Lorem ipsum dolor sit amet consectetuer adipi scing elit. Praesent vestibu lum molestie lacus. Aenean nonummyendrerit mauris</p> --}}
-                                        <a href="#" class="viewall-button">Read more <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
+                            <div class="service-info text-center">
+                                <h3 class="title14"><a href="#">FAQs</a></h3>
+                                {{-- <p class="desc">Lorem ipsum dolor sit amet consectetuer adipi scing elit. Praesent vestibu lum molestie lacus. Aenean nonummyendrerit mauris</p> --}}
+                                <a href="#" class="viewall-button">Read more <i class="fa fa-arrow-circle-right"
+                                        aria-hidden="true"></i></a>
                             </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <div class="item-service top-right">
-                                    <div class="service-icon">
-                                        <a href="#"><i class="fa fa-laptop" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="service-info text-center">
-                                        <h3 class="title14"><a href="#">AMAZING CUSTOMER SERVICE</a></h3>
-                                        {{-- <p class="desc">Get Free Shipping on all orders over $75 and free returns to our UK returns centre! Items are dispatched from the US and will arrive in 5-8 days.</p> --}}
-                                        <a href="#" class="viewall-button">Read more <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="item-service top-right">
+                            <div class="service-icon">
+                                <a href="#"><i class="fa fa-laptop" aria-hidden="true"></i></a>
                             </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <div class="item-service top-left">
-                                    <div class="service-icon">
-                                        <a href="#"><i class="fa  fa-volume-control-phone" aria-hidden="true"></i></a>
-                                    </div>
-                                    <div class="service-info text-center">
-                                        <h3 class="title14"><a href="#">Hot line</a></h3>
-                                        {{-- <p class="desc">Lorem ipsum dolor sit amet consectetuer adipi scing elit. Praesent vestibu lum molestie lacus. Aenean nonummyendrerit mauris</p> --}}
-                                        <a href="#" class="viewall-button">Read more <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
+                            <div class="service-info text-center">
+                                <h3 class="title14"><a href="#">AMAZING CUSTOMER SERVICE</a></h3>
+                                {{-- <p class="desc">Get Free Shipping on all orders over $75 and free returns to our UK returns centre! Items are dispatched from the US and will arrive in 5-8 days.</p> --}}
+                                <a href="#" class="viewall-button">Read more <i class="fa fa-arrow-circle-right"
+                                        aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="item-service top-left">
+                            <div class="service-icon">
+                                <a href="#"><i class="fa  fa-volume-control-phone" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="service-info text-center">
+                                <h3 class="title14"><a href="#">Hot line</a></h3>
+                                {{-- <p class="desc">Lorem ipsum dolor sit amet consectetuer adipi scing elit. Praesent vestibu lum molestie lacus. Aenean nonummyendrerit mauris</p> --}}
+                                <a href="#" class="viewall-button">Read more <i class="fa fa-arrow-circle-right"
+                                        aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-@endsection
+        </div>
+    </div>
+    @endsection
