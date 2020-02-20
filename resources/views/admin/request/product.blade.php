@@ -74,7 +74,7 @@
                         <td><button class="btn btn-sm btn-danger">Decline</button></td>
                     </tr>
                     @endforeach
-
+                    {{ $products->render() }}
                 </tbody>
             </table>
         </div>
