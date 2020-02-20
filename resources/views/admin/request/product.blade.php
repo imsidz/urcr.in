@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="">
-    <div class="card">
+    <div class="card">$
         <div class="card-header">
 
             <h3>Product Requests Lists</h3>
@@ -24,15 +24,49 @@
                     <tr>
                         <td scope="row">{{ $index + 1 }}</td>
                         <td>{{ $product->title }}</td>
-                        <td>{{ $product->seller->company }}</td>
+                        {{-- <td>{{ $product->seller->company }}</td> --}}
                         <td>
                             <!-- Button trigger modal -->
-                            <a href="/admin/request/product/{{ $product->slug }}"
-                                class="btn btn-primary btn-sm">Show</a>
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                                data-target="#show-{{ $product->id }}">
+                                Show
+                            </button>
 
+                            <!-- Modal -->
+                            <div class="modal fade" id="show-{{ $product->id }}" tabindex="-1" role="dialog"
+                                aria-labelledby="modelTitleId" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">{{ $product->title }}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5>Images</h5>
+                                            @foreach ($product->photos as $image)
+                                            <img src="{{ $image->link }}" alt="{{ $product->title }}" width="150">
+                                            @endforeach
+
+                                            <h5>Description</h5>
+                                            {!! $product->description !!}
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                            <form action="/admin/request/product/{{ $product->id }}/approve"
+                                                method="POST">
+                                                @csrf
+                                                <button class="btn btn-sm btn-success">Approve</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                         <td>
-                            <form action="/admin/request/product/{{ $product->slug }}/approve" method="POST">
+                            <form action="/admin/request/product/{{ $product->id }}/approve" method="POST">
                                 @csrf
                                 <button class="btn btn-sm btn-success">Approve</button>
                             </form>

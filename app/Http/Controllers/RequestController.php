@@ -28,25 +28,10 @@ class RequestController extends Controller
         return view('admin.request.show', compact('categories', 'styles', 'materials', 'product'));
     }
 
-    public function approveProductRequest($slug, Request $request)
+    public function approveProductRequest($id, Request $request)
     {
-        $product = Product::find(session('product_id'));
-        $product->title = $request->title;
-        $product->slug = Str::slug($request->title, '-') . Str::random(5);
-        $product->price = $request->price;
-        $product->mrp = $request->mrp;
-        $product->description = $request->description;
-        $product->store = true;
-        $product->active = true;
-        $product->style_id = $request->style;
-        $product->seller_id = Auth::user()->id;
+        $product = Product::where('id', $id)->first();
         $product->approve = true;
-        $product->save();
-
-        $product->subchildcategories()->sync($request->categories);
-        $product->materials()->sync($request->materials);
-        $request->session()->forget('product_id');
-
         $product->save();
 
         return redirect('/admin/request/product')->with('success', 'Product Approved Success');
