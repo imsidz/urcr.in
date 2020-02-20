@@ -14,7 +14,7 @@ class RequestController extends Controller
 {
     public function getProductRequests()
     {
-        $products = Product::disapprove()->paginate(25);
+        $products = Product::disapprove()->active()->paginate(25);
         return view('admin.request.product', compact('products'));
     }
 

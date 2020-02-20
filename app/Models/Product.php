@@ -65,4 +65,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Color::class, 'color_product', 'product_id', 'color_id')->withTimestamps();
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', true);
+    }
 }
