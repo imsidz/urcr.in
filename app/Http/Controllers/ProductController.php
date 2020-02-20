@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\ChildCategory;
+use App\Models\Color;
 use App\Models\Material;
 use App\Models\Photo;
 use App\Models\Product;
+use App\Models\Size;
 use App\Models\Style;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
@@ -18,8 +20,10 @@ class ProductController extends Controller
     {
         $styles = Style::latest()->get();
         $materials = Material::latest()->get();
+        $sizes = Size::latest()->get();
+        $colors = Color::latest()->get();
         $products = Product::latest()->store()->paginate(20);
-        return view('products.index', compact('products', 'styles', 'materials'));
+        return view('products.index', compact('products', 'styles', 'materials', 'sizes', 'colors'));
     }
 
     public function show($slug)
@@ -82,10 +86,12 @@ class ProductController extends Controller
     {
         $styles = Style::latest()->get();
         $materials = Material::latest()->get();
+        $sizes = Size::latest()->get();
+        $colors = Color::latest()->get();
         $products = Product::whereHas('childcategories', function ($query) use ($childcategory) {
             $query->where('slug', $childcategory);
         })->paginate(20);
 
-        return view('products.index', compact('products', 'styles', 'materials'));
+        return view('products.index', compact('products', 'styles', 'materials', 'colors', 'sizes'));
     }
 }

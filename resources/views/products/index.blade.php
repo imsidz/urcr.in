@@ -68,13 +68,13 @@
                     <div class="widget widget-filter-price">
                         <h2 class="widget-title title14 active">Price Per Item</h2>
                         <div class="widget-content" style="display:block">
-                            <ul class="list-none filter-default">
+                            {{-- <ul class="list-none filter-default">
                                 <li><a href="#">Under $250</a></li>
                                 <li><a href="#">$250 to $500</a></li>
                                 <li><a href="#">$500 to $1,000</a></li>
                                 <li><a href="#">$1,000 to $1,500</a></li>
                                 <li><a href="#">$1,500 to $2,500</a></li>
-                            </ul>
+                            </ul> --}}
                             <div class="range-filter">
                                 <div id="slider-range"></div>
                                 <div id="amount"></div>
@@ -90,6 +90,27 @@
                                 @foreach ($styles as $style)
 
                                 <li><a href="#">{{ $style->name }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="widget widget-filter-attr">
+                        <h2 class="widget-title title14">Size</h2>
+                        <div class="widget-content">
+                            <ul class="list-none filter-default">
+                                @foreach ($sizes as $size)
+
+                                <li><a href="#">{{ $size->name }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="widget widget-filter-attr">
+                        <h2 class="widget-title title14">Colors</h2>
+                        <div class="widget-content">
+                            <ul class="list-none filter-default">
+                                @foreach ($colors as $color)
+                                <li><a href="#">{{ $color->name }}</a></li>
                                 @endforeach
                             </ul>
                         </div>

@@ -9,23 +9,25 @@ class CartController extends Controller
 {
     public function index()
     {
-    // {   $carts = \Cart::get();
+        // {   $carts = \Cart::get();
         return view('cart.index');
     }
 
-    public function addToCart($slug)
+    public function addToCart($slug, Request $request)
     {
         $product = Product::where('slug', $slug)->firstorfail();
 
         $cart = \Cart::add(array(
-                    'id' => $product->id,
-                    'name' => $product->title,
-                    'price' => $product->price,
-                    'quantity' => 1,
-                    'attributes' => array(
-                        'image' => $product->photos->first()['link']
-                    )
-                ));
+            'id' => $product->id,
+            'name' => $product->title,
+            'price' => $product->price,
+            'quantity' => $request->qty,
+            'attributes' => array(
+                'image' => $product->photos->first()['link'],
+                'size' => $request->size,
+                'color' => $request->color
+            )
+        ));
 
         return back()->with('success', 'Product Added to Cart');
     }
