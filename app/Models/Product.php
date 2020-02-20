@@ -36,7 +36,7 @@ class Product extends Model
         return $this->belongsTo(Seller::class, 'seller_id', 'id');
     }
 
-    public function scopeApprove($query)
+    public function scopeApproved($query)
     {
         return $query->where('approve', true);
     }

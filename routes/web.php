@@ -54,11 +54,19 @@ Route::get('/search', 'SearchController@search');
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/', 'AdminController@index');
 
+    Route::post('/upload/images', 'ImageController@store');
+
     Route::get('/products', 'ProductController@adminIndex');
 
     Route::get('/products/create', 'ProductController@adminCreate');
 
     Route::post('/products/create', 'ProductController@adminPost');
+
+    Route::get('/products/{slug}/edit', 'ProductController@adminEdit');
+
+    Route::put('/products/{slug}/edit', 'ProductController@adminPut');
+
+    Route::delete('/product/image/{id}/delete', 'ImageController@adminDelete');
 
     Route::delete('/products/{slug}/delete', 'ProductController@adminDelete');
 

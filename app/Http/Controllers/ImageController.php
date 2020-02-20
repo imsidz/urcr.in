@@ -12,7 +12,7 @@ class ImageController extends Controller
 {
     public function store(Request $request)
     {
-        $product = Product::latest()->first();
+        $product = Product::find(session('product_id'));
         $photo = new Photo;
         $name = time() . Str::random(10);
         $image = Image::make($request->file)->save(public_path() . '/images/' . $name . '.png', 60);
@@ -26,5 +26,13 @@ class ImageController extends Controller
         $photo->save();
 
         return response()->json('success');
+    }
+
+    public function adminDelete($id)
+    {
+        $image = Photo::find($id);
+        $image->delete();
+
+        return back()->with('success', 'Image Delete Success');
     }
 }
