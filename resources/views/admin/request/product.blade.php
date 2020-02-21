@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="">
-    <div class="card">$
+    <div class="card">
         <div class="card-header">
 
             <h3>Product Requests Lists</h3>

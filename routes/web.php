@@ -20,6 +20,10 @@ Route::get('/cart', 'CartController@index');
 
 Route::post('/add-to-cart/{slug}', 'CartController@addToCart');
 
+Route::delete('/cart/product/{id}/delete', 'CartController@removeProductFromCart');
+
+Route::put('/cart/product/{id}/qty', 'CartController@updateCartQty');
+
 Route::get('/cat/{category}/{subcategory}/{childcategory}', 'ProductController@showChildCategories');
 
 Route::get('/checkout', 'CheckoutController@index')->middleware('auth');

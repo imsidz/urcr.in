@@ -98,7 +98,7 @@
                                     <option value="10">10</option>
                                 </select>
 
-                                <small id="helpId" class="text-muted">Help text</small>
+                                {{-- <small id="helpId" class="text-muted">Help text</small> --}}
                             </div>
                             {{-- <div class="detail-qty info-qty border radius form-group">
                                 <a href="#" class="qty-down"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
