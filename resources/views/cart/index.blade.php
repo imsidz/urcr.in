@@ -50,7 +50,7 @@
                                     {{ $cart->attributes->color }} </a>
                             </td>
                             <td class="product-price" data-title="Price">
-                                <span class="amount">Rs. {{ $cart->price }}</span>
+                                <span class="amount">₹{{ $cart->price }}</span>
                             </td>
                             <td class="product-quantity" data-title="Quantity">
                                 <form action="/cart/product/{{ $cart->id }}/qty" method="POST">
@@ -72,7 +72,7 @@
                                 </form>
                             </td>
                             <td class="product-subtotal" data-title="Total">
-                                <span class="amount">Rs. {{ $cart->price * $cart->quantity }}</span>
+                                <span class="amount">₹{{ $cart->price * $cart->quantity }}</span>
                             </td>
                         </tr>
                         @endforeach
@@ -100,7 +100,7 @@
                             <tbody>
                                 <tr class="cart-subtotal">
                                     <th>Subtotal</th>
-                                    <td><strong class="amount">Rs. {{ Cart::getSubTotal() }}</strong></td>
+                                    <td><strong class="amount">₹{{ Cart::getSubTotal() }}</strong></td>
                                 </tr>
                                 {{-- <tr class="shipping">
 											<th>Shipping</th>
@@ -123,7 +123,7 @@
 										</tr> --}}
                                 <tr class="order-total">
                                     <th>Total</th>
-                                    <td><strong><span class="amount">Rs. {{ Cart::getTotal() }}</span></strong> </td>
+                                    <td><strong><span class="amount">₹{{ Cart::getTotal() }}</span></strong> </td>
                                 </tr>
                             </tbody>
                         </table>
