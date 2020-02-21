@@ -46,7 +46,8 @@
                                 <a href="#"><img src="{{ $cart->attributes->image }}" alt="" /></a>
                             </td>
                             <td class="product-name" data-title="Product">
-                                <a href="#">{{ $cart->name }} </a>
+                                <a href="#">{{ $cart->name }} | {{ $cart->attributes->size }} |
+                                    {{ $cart->attributes->color }} </a>
                             </td>
                             <td class="product-price" data-title="Price">
                                 <span class="amount">Rs. {{ $cart->price }}</span>
