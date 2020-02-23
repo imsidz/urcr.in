@@ -31,12 +31,5 @@ class UsersTableSeeder extends Seeder
         $seller->mobile = 9999999999;
         $seller->password = Hash::make('seller');
         $seller->save();
-
-        $agent = new Agent;
-        $agent->name = 'sid';
-        $agent->email = 'sid@smile4miles.in';
-        $agent->username = 'sid';
-        $agent->password = Hash::make('password');
-        $agent->save();
     }
 }

@@ -188,6 +188,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
     Route::get('/orders', 'OrderController@adminIndex');
 
+    Route::get('/coupon', 'CouponController@adminIndex');
+
+    Route::post('/coupon', 'CouponController@adminStore');
+
     Route::group(['prefix' => 'request'], function () {
         Route::get('/product', 'RequestController@getProductRequests');
 
@@ -196,5 +200,3 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
         Route::post('/product/{slug}/approve', 'RequestController@approveProductRequest');
     });
 });
-
-Route::get('/home', 'HomeController@index')->name('home');
