@@ -23,7 +23,7 @@
 </div>
 <div class="bread-crumb">
     <div class="container">
-        <a href="#">Home</a> <a href="#">Shop</a> <span>Cosmetics</span>
+        <a href="/">Home</a> <a href="/products">Products</a> <span>{{ $product->title }}</span>
     </div>
 </div>
 
@@ -226,7 +226,9 @@
 
                     <div class="item-product item-product-grid">
                         <div class="product-thumb box-hover-dir">
-                            <img src="{{ $related->photos->first()['link'] }}" alt="">
+                            <a href="/products/{{ $related->slug }}">
+                                <img src="{{ $related->photos->first()['link'] }}" alt="">
+                            </a>
                             {{-- <div class="info-product-hover-dir">
 										<div class="inner-product-hover-dir">
 											<div class="content-product-hover-dir">
@@ -242,7 +244,8 @@
 									</div> --}}
                         </div>
                         <div class="product-info">
-                            <h3 class="product-title"><a href="#">{{ $related->title }}</a></h3>
+                            <h3 class="product-title"><a href="/products/{{ $related->slug }}">{{ $related->title }}</a>
+                            </h3>
                             <div class="product-rate">
                                 <div class="product-rating" style="width:100%"></div>
                             </div>
