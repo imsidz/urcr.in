@@ -19,7 +19,7 @@ class CheckoutController extends Controller
     }
 
     public function checout(CheckOutRequest $request)
-    {   
+    {
         $order = new Order;
         $order->orderId = strtoupper(uniqid());
         $order->total = \Cart::getTotal();
@@ -30,7 +30,6 @@ class CheckoutController extends Controller
         $address = Address::where('address', $request->address)->where('user_id', Auth::user()->id)->first();
 
         if (!$address) {
-
             $address = new Address;
             $address->address = $request->address;
             $address->name = $request->fname;
@@ -45,9 +44,9 @@ class CheckoutController extends Controller
         }
         $order->address_id = $address->id;
         $order->save();
-        $productIds = \Cart::getContent()->pluck('id');
-        foreach ($productIds as $index => $productid) {
-            $pro = Product::find($productid);
+
+        foreach (\Cart::getContent() as $cart) {
+            $pro = Product::find($cart->id);
             $product = new OrderedProduct;
             $product->title = $pro->title;
             $product->slug = $pro->slug;
@@ -56,9 +55,12 @@ class CheckoutController extends Controller
             $product->description = $pro->description;
             $product->seller_id = $pro->seller_id;
             $product->order_id = $order->id;
-            $product->image = $pro->photos->first()['link'];
+            $product->size = $cart->attributes->size;
+            $product->color = $cart->attributes->color;
+            $product->image = $cart->attributes->image;
             $product->save();
         }
+
         \Cart::clear();
         return redirect('/checkout/' . $order->orderId);
     }
