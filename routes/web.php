@@ -81,6 +81,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
     Route::post('/category/create', 'CategoryController@adminPost');
 
+    Route::get('/category/{slug}/edit', 'CategoryController@adminEdit');
+
+    Route::put('/category/{slug}/edit', 'CategoryController@adminPut');
+
     Route::delete('/category/{slug}/delete', 'CategoryController@adminDelete');
 
     //SubCategory
