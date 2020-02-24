@@ -91,6 +91,7 @@
                     <tr>
                         <th width="5%">#</th>
                         <th>Name</th>
+                        <th>Code</th>
                         <th width="5%">%</th>
                         <th width="5%">Max</th>
                         <th width="5%">Use</th>
@@ -105,6 +106,9 @@
                         </td>
                         <td>
                             {{ $coupon->name }}
+                        </td>
+                        <td>
+                            {{ $coupon->code }}
                         </td>
                         <td>
                             {{ $coupon->discount_percent }}%

@@ -33,7 +33,7 @@
                         </td>
                     </tr>
                     @endforeach
-
+                    {!! $colors->render() !!}
                 </tbody>
             </table>
         </div>

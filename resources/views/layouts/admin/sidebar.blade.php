@@ -169,6 +169,13 @@
                         <p>Product Requests</p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="/admin/request/customer" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Customer Requests</p>
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="nav-item">

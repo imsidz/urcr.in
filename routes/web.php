@@ -198,5 +198,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
         Route::get('/product/{slug}', 'RequestController@showProductRequest');
 
         Route::post('/product/{slug}/approve', 'RequestController@approveProductRequest');
+
+        Route::get('/customer', 'CustomerRequestController@index');
+
+        Route::get('/customer/create', 'CustomerRequestController@create');
+
+        Route::post('/customer/create', 'CustomerRequestController@store');
     });
 });
