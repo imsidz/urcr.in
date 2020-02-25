@@ -8,6 +8,7 @@
     <meta name="keywords" content="Smile 4 Miles" />
     <meta name="robots" content="noodp,index,follow" />
     <meta name='revisit-after' content='1 days' />
+    {{-- fevicon --}}
     <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
@@ -21,6 +22,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+
     <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
