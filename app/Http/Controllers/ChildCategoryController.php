@@ -39,6 +39,31 @@ class ChildCategoryController extends Controller
         return redirect('/admin/childcategory')->with('status', 'Added Success');
     }
 
+    public function adminEdit($slug)
+    {
+        $subcategories = SubCategory::latest()->get();
+        $child = ChildCategory::where('slug', $slug)->first();
+        return view('admin.childcategory.edit', compact('subcategories', 'child'));
+    }
+
+    public function adminPut($slug, Request $request)
+    {
+        $child = ChildCategory::where('slug', $slug)->first();
+        $child->name = $request->name;
+        $child->slug = Str::slug($request->name, '-');
+        $child->sub_category_id = $request->category;
+        if ($request->file('image')) {
+            $image = $request->file('image');
+            $name = time() . $image->getClientOriginalName();
+            $image->move(public_path() . '/images/', $name);
+            $url = url('/images/' . $name);
+            $child->image = $url;
+        }
+        $child->save();
+
+        return redirect('/admin/childcategory')->with('status', 'Added Success');
+    }
+
     public function adminDelete($slug)
     {
         $child = ChildCategory::where('slug', $slug)->first();

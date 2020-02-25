@@ -28,7 +28,9 @@
                         <td>
                             {{ $child->subcategory->name }}
                         </td>
-                        <td><a href="/admin/category/{{ $child->slug }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                        <td>
+                            <a href="/admin/childcategory/{{ $child->slug }}/edit"
+                                class="btn btn-warning btn-sm">Edit</a>
                         </td>
                         <td>
                             <form action="/admin/childcategory/{{ $child->slug }}/delete" method="POST">
