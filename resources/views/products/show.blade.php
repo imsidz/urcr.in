@@ -250,8 +250,8 @@
                                 <div class="product-rating" style="width:100%"></div>
                             </div>
                             <div class="product-price">
-                                <ins><span>Rs {{ $related->price }}</span></ins>
-                                <del><span>Rs {{ $related->mrp }}</span></del>
+                                <ins><span>₹{{ $related->price }}</span></ins>
+                                <del><span>₹{{ $related->mrp }}</span></del>
                                 <span class="sale-label">-20<sup>%</sup></span>
                             </div>
                         </div>

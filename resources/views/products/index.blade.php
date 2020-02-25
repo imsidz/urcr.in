@@ -285,8 +285,8 @@
                                 <div class="product-rating" style="width:100%"></div>
                             </div>
                             <div class="product-price">
-                                <ins><span>{{ $product->price }}</span></ins>
-                                <del><span>{{ $product->mrp }}</span></del>
+                                <ins><span>₹{{ $product->price }}</span></ins>
+                                <del><span>₹{{ $product->mrp }}</span></del>
                                 {{-- <span class="sale-label">-20<sup>%</sup></span> --}}
                             </div>
                         </div>
