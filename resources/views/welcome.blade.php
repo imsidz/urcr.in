@@ -209,7 +209,8 @@
                         <h3 class="mont-font title18 underline-title"><a
                                 href="/cat/{{ $sub->category->slug }}/{{ $sub->slug }}">{{ $sub->name }}</a>
                         </h3>
-                        <div class="popcat-thumb"><a href="#"><img src="{{ $sub->image }}" alt="" /></a></div>
+                        <div class="popcat-thumb"><a href="/cat/{{ $sub->category->slug }}/{{ $sub->slug }}""><img src="
+                                {{ $sub->image }}" alt="" /></a></div>
                     </div>
                     @endforeach
 
