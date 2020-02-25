@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ProductRequestByCustomer extends Model
 {
+    use SoftDeletes;
+
     public function materials()
     {
         return $this->belongsToMany(Material::class, 'product_request_material', 'product_request_by_customers_id', 'material_id')->withTimestamps();
