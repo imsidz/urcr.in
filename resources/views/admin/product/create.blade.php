@@ -1,89 +1,113 @@
-
 @extends('layouts.admin')
 
 @section('content')
 <link rel="stylesheet" href="https://unpkg.com/dropzone/dist/dropzone.css">
 <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css">
-    <div class="">
-        <div class="card">
-            <div class="card-body">
+<div class="">
+    <div class="card">
+        <div class="card-body">
             <form action="/admin/products/create" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                  <label for="title">Title</label>
-                  <input type="text" name="title" id="title" class="form-control" placeholder="Title" aria-describedby="titl">
-                </div>
-          
-
-                <div class="form-group">
-                  <label for="description">Description</label>
-                  <textarea class="ckeditor" name="description" id="description" rows="3"></textarea>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" class="form-control" placeholder="Title"
+                        aria-describedby="titl">
                 </div>
 
-                
-                <div class="form-group">
-                  <label for="mrp">MRP</label>
-                  <input type="text" name="mrp" id="mrp" class="form-control" placeholder="MRP" aria-describedby="mrp">
-                </div>
 
                 <div class="form-group">
-                  <label for="price">Selling Price</label>
-                  <input type="text" name="price" id="price" class="form-control" placeholder="Selling price" aria-describedby="helpId">
+                    <label for="description">Description</label>
+                    <textarea class="ckeditor" name="description" id="description" rows="3"></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="mrp">MRP</label>
+                    <input type="text" name="mrp" id="mrp" class="form-control" placeholder="MRP"
+                        aria-describedby="mrp">
                 </div>
 
                 <div class="form-group">
-                  <label for="">Select Child Categories</label>
-                  <select name="categories[]" class="subcategories form-control" multiple>
-                    @foreach ($categories as $category)
-                      <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                  </select>
+                    <label for="price">Selling Price</label>
+                    <input type="text" name="price" id="price" class="form-control" placeholder="Selling price"
+                        aria-describedby="helpId">
                 </div>
 
                 <div class="form-group">
-                  <label for="">Select Materials</label>
-                  <select name="materials[]" class="subcategories form-control" multiple>
-                    @foreach ($materials as $material)
-                      <option value="{{ $material->id }}">{{ $material->name }}</option>
-                    @endforeach
-                  </select>
+                    <label for="">Select Child Categories</label>
+                    <select name="categories[]" class="subcategories form-control" multiple>
+                        @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="form-group">
-                  <label for="">Select Style</label>
-                  <select name="style" class="subcategories form-control">
-                    @foreach ($styles as $style)
-                      <option value="{{ $style->id }}">{{ $style->name }}</option>
-                    @endforeach
-                  </select>
+                    <label for="">Select Size(Optional)</label>
+                    <select name="sizes[]" class="subcategories form-control" multiple>
+                        @foreach ($sizes as $size)
+                        <option value="{{ $size->id }}">{{ $size->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Select Colors(Optional)</label>
+                    <select name="colors[]" class="subcategories form-control" multiple>
+                        @foreach ($colors as $color)
+                        <option value="{{ $color->id }}">{{ $color->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Select Materials</label>
+                    <select name="materials[]" class="subcategories form-control" multiple>
+                        @foreach ($materials as $material)
+                        <option value="{{ $material->id }}">{{ $material->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Select Style</label>
+                    <select name="style" class="subcategories form-control">
+                        @foreach ($styles as $style)
+                        <option value="{{ $style->id }}">{{ $style->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
-                  <label for="image">Select Images</label>
-                  <div class="dropzone" id="myDropzone"></div>
-                  {{-- <input type="file" class="form-control-file" name="image[]" id="image" placeholder="" aria-describedby="fileHelpId" multiple> --}}
-                  <small id="fileHelpId" class="form-text text-muted">Help text</small>
+                    <label for="image">Select Images</label>
+                    <div class="dropzone" id="myDropzone"></div>
+                    {{-- <input type="file" class="form-control-file" name="image[]" id="image" placeholder="" aria-describedby="fileHelpId" multiple> --}}
+                    <small id="fileHelpId" class="form-text text-muted">Help text</small>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-            </div>
         </div>
-        
     </div>
+
+</div>
 @endsection
 
 @push('scripts')
-  <script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
-  <script>
+<script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+<script>
     $(document).ready(function() {
       $('.subcategories').select2();
   });
-  </script>
-  <script src="https://unpkg.com/dropzone"></script>
-  <script src="https://unpkg.com/cropperjs"></script>
-  <script>
-  Dropzone.options.myDropzone = {
-	url: '/api/images',
+</script>
+<script src="https://unpkg.com/dropzone"></script>
+<script src="https://unpkg.com/cropperjs"></script>
+<script>
+    Dropzone.options.myDropzone = {
+    url: '/admin/upload/images',
+    sending: function(file, xhr, formData) {
+        // Pass token. You can use the same method to pass any other values as well such as a id to associate the image with for example.
+        formData.append("_token", $('[name=_token').val()); // Laravel expect the token post value to be named _token by default
+    },
 	transformFile: function(file, done) {
 
 		var myDropZone = this;
@@ -122,7 +146,7 @@
 					myDropZone.options.thumbnailWidth,
 					myDropZone.options.thumbnailHeight,
 					myDropZone.options.thumbnailMethod,
-					false, 
+					false,
 					function(dataURL) {
 
 						// Update the Dropzone file thumbnail

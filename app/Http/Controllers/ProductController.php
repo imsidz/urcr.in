@@ -50,10 +50,12 @@ class ProductController extends Controller
         $categories = ChildCategory::latest()->get();
         $styles = Style::latest()->get();
         $materials = Material::latest()->get();
+        $sizes = Size::latest()->get();
+        $colors = Color::latest()->get();
         $product = new Product;
         $product->save();
         $request->session()->put('product_id', $product->id);
-        return view('admin.product.create', compact('categories', 'styles', 'materials'));
+        return view('admin.product.create', compact('categories', 'styles', 'materials', 'sizes', 'colors'));
     }
 
     public function adminPost(Request $request)
