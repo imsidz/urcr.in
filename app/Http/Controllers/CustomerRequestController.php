@@ -13,7 +13,8 @@ class CustomerRequestController extends Controller
 {
     public function index()
     {
-        return view('admin.request.customer.index');
+        $requests = ProductRequestByCustomer::latest()->paginate(20);
+        return view('admin.request.customer.index', compact('requests'));
     }
 
     public function create()
