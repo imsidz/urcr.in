@@ -35,7 +35,7 @@
                         </td>
                     </tr>
                     @endforeach
-
+                    {!! $orders->render() !!}
                 </tbody>
             </table>
         </div>

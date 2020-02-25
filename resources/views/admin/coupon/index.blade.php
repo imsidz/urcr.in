@@ -132,7 +132,7 @@
                         </td>
                     </tr>
                     @endforeach
-
+                    {!! $coupons->render() !!}
                 </tbody>
             </table>
         </div>

@@ -33,7 +33,7 @@
                         </td>
                     </tr>
                     @endforeach
-
+                    {!! $categories->render() !!}
                 </tbody>
             </table>
         </div>

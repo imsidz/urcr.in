@@ -33,7 +33,7 @@
                         </td>
                     </tr>
                     @endforeach
-
+                    {!! $sizes->render() !!}
                 </tbody>
             </table>
         </div>
