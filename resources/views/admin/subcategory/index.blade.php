@@ -14,6 +14,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Image</th>
+                        <th>Category</th>
                         <th width="5%">Edit</th>
                         <th width="5%">Delete</th>
                     </tr>
@@ -24,6 +25,7 @@
                         <td scope="row">{{ $index + 1 }}</td>
                         <td>{{ $sub->name }}</td>
                         <td><img src="{{ $sub->image }}" width="150"></td>
+                        <td>{{ $sub->category->name }}</td>
                         <td><a href="/admin/category/{{ $sub->slug }}/edit" class="btn btn-warning btn-sm">Edit</a></td>
                         <td>
                             <form action="/admin/subcategory/{{ $sub->slug }}/delete" method="POST">

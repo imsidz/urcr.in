@@ -14,6 +14,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Image</th>
+                        <th>Sub Category</th>
                         <th width="5%">Edit</th>
                         <th width="5%">Delete</th>
                     </tr>
@@ -24,6 +25,9 @@
                         <td scope="row">{{ $index + 1 }}</td>
                         <td>{{ $child->name }}</td>
                         <td><img src="{{ $child->image }}" width="150"></td>
+                        <td>
+                            {{ $child->subcategory->name }}
+                        </td>
                         <td><a href="/admin/category/{{ $child->slug }}/edit" class="btn btn-warning btn-sm">Edit</a>
                         </td>
                         <td>
