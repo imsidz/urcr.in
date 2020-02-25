@@ -206,7 +206,9 @@
                     data-itemscustom="[[0,1],[560,2],[768,3]]">
                     @foreach ($subcategories as $sub)
                     <div class="popcat-item text-center">
-                        <h3 class="mont-font title18 underline-title"><a href="#">{{ $sub->name }}</a></h3>
+                        <h3 class="mont-font title18 underline-title"><a
+                                href="/cat/{{ $sub->category->slug }}/{{ $sub->slug }}">{{ $sub->name }}</a>
+                        </h3>
                         <div class="popcat-thumb"><a href="#"><img src="{{ $sub->image }}" alt="" /></a></div>
                     </div>
                     @endforeach

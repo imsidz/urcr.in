@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\ChildCategory;
 use App\Models\Color;
 use App\Models\Material;
@@ -132,6 +133,44 @@ class ProductController extends Controller
         $products = Product::whereHas('childcategories', function ($query) use ($childcategory) {
             $query->where('slug', $childcategory);
         })->approved()->paginate(20);
+
+        return view('products.index', compact('products', 'styles', 'materials', 'colors', 'sizes'));
+    }
+
+    public function showCategories($category)
+    {
+        $styles = Style::latest()->get();
+        $materials = Material::latest()->get();
+        $sizes = Size::latest()->get();
+        $colors = Color::latest()->get();
+
+        $category = Category::where('slug', $category)->firstorfail();
+        $subcategories = SubCategory::where('category_id', $category->id)->get();
+        $childcategories = ChildCategory::whereIn('sub_category_id', $subcategories->pluck('id'))->get();
+        $subchildcategories = SubChildCategory::whereIn('child_category_id', $childcategories->pluck('id'))->get();
+
+        $products = Product::whereHas('subchildcategories', function ($query) use ($subchildcategories) {
+            $query->whereIn('sub_child_category_id', $subchildcategories->pluck('id'));
+        })->paginate(20);
+
+        return view('products.index', compact('products', 'styles', 'materials', 'colors', 'sizes'));
+    }
+
+    public function showSubCategories($category, $subcategory)
+    {
+        $styles = Style::latest()->get();
+        $materials = Material::latest()->get();
+        $sizes = Size::latest()->get();
+        $colors = Color::latest()->get();
+
+        $category = Category::where('slug', $category)->firstorfail();
+        $subcategory = SubCategory::where('slug', $subcategory)->first();
+        $childcategories = ChildCategory::where('sub_category_id', $subcategory->id)->get();
+        $subchildcategories = SubChildCategory::whereIn('child_category_id', $childcategories->pluck('id'))->get();
+
+        $products = Product::whereHas('subchildcategories', function ($query) use ($subchildcategories) {
+            $query->whereIn('sub_child_category_id', $subchildcategories->pluck('id'));
+        })->paginate(20);
 
         return view('products.index', compact('products', 'styles', 'materials', 'colors', 'sizes'));
     }

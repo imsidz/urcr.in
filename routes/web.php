@@ -26,6 +26,10 @@ Route::put('/cart/product/{id}/qty', 'CartController@updateCartQty');
 
 Route::get('/cat/{category}/{subcategory}/{childcategory}', 'ProductController@showChildCategories');
 
+Route::get('/cat/{category}', 'ProductController@showCategories');
+
+Route::get('/cat/{category}/{subcategory}', 'ProductController@showSubCategories');
+
 Route::get('/checkout', 'CheckoutController@index')->middleware('auth');
 
 Route::post('/checkout', 'CheckoutController@checout')->middleware('auth');
