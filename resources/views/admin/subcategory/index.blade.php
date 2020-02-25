@@ -26,7 +26,8 @@
                         <td>{{ $sub->name }}</td>
                         <td><img src="{{ $sub->image }}" width="150"></td>
                         <td>{{ $sub->category->name }}</td>
-                        <td><a href="/admin/category/{{ $sub->slug }}/edit" class="btn btn-warning btn-sm">Edit</a></td>
+                        <td><a href="/admin/subcategory/{{ $sub->slug }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                        </td>
                         <td>
                             <form action="/admin/subcategory/{{ $sub->slug }}/delete" method="POST">
                                 @csrf
