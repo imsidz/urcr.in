@@ -26,7 +26,7 @@ class ProductController extends Controller
         $materials = Material::latest()->get();
         $sizes = Size::latest()->get();
         $colors = Color::latest()->get();
-        $products = Product::latest()->approved()->store()->paginate(20);
+        $products = Product::latest()->approved()->store()->paginate(60);
         return view('products.index', compact('products', 'styles', 'materials', 'sizes', 'colors'));
     }
 

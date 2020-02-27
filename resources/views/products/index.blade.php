@@ -28,7 +28,7 @@
 <div class="content-pages">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3 col-sm-4 col-xs-12">
+            <div class="col-md-2 col-sm-4 col-xs-12">
                 <div class="sidebar-left sidebar-shop">
                     {{-- <div class="widget widget-product-cat">
                             <h2 class="widget-title title14 active">cosmetics</h2>
@@ -229,7 +229,7 @@
                     <!-- End Widget -->
                 </div>
             </div>
-            <div class="col-md-9 col-sm-8 col-xs-12">
+            <div class="col-md-10 col-sm-8 col-xs-12">
                 <div class="content-shop">
                     <div class="sort-pagi-bar clearfix">
                         <h2 class="title18 mont-font pull-left">Latest Products</h2>
