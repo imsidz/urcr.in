@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-
-</style>
 <div class="banner-slider banner-slider1 bg-slider">
     <div class="wrap-item" data-pagination="true" data-autoplay="true" data-transition="fade" data-navigation="false"
         data-itemscustom="[[0,1]]">

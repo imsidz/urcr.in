@@ -4,7 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require("./bootstrap");
+require("./admin-bootstrap");
 
 window.Vue = require("vue");
 
@@ -23,8 +23,6 @@ Vue.component(
     "example-component",
     require("./components/ExampleComponent.vue").default
 );
-
-Vue.component("mega-menu", require("./components/MegaMenu.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
