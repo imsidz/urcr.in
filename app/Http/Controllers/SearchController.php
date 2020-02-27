@@ -14,6 +14,8 @@ class SearchController extends Controller
         $products = Product::where('title', 'LIKE', '%' . $request->search . '%')->orWhere('description', 'LIKE', '%' . $request->search . '%')->latest()->paginate(20);
         $styles = Style::latest()->get();
         $materials = Material::latest()->get();
-        return view('products.index', compact('products', 'styles', 'materials'));
+        $sizes = Size::latest()->get();
+        $colors = Color::latest()->get();
+        return view('products.index', compact('products', 'styles', 'materials', 'sizes', 'colors'));
     }
 }
