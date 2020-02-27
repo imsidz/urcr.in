@@ -267,14 +267,15 @@
         src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v6.0&appId=439469729970582&autoLogAppEvents=1">
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159223311-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159241979-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-159223311-1');
+  gtag('config', 'UA-159241979-1');
     </script>
+
 
     @stack('scripts')
 </body>
