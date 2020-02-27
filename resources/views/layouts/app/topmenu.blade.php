@@ -13,7 +13,6 @@
                     <div class="row">
                         @foreach ($subchunk as $subcat)
 
-
                         <div class="col-sm-3">
                             <div class="mega-menu-box">
                                 <h2 class="title14 mont-font color">{{ ucfirst($subcat->name) }}</h2>
@@ -30,8 +29,9 @@
                         @endforeach
 
                         {{-- <div class="col-sm-3">
-			<div class="mega-menu-thumb"><img src="images/home/mega-menu.png" alt=""></div>
-		</div> --}}
+                                <div class="mega-menu-thumb"><img src="images/home/mega-menu.png" alt=""></div>
+                            </div> --}}
+
                     </div>
                     @endforeach
 

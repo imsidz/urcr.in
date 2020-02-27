@@ -26,7 +26,7 @@
 </div>
 <!-- End Bread Crumb -->
 <div class="content-pages">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-3 col-sm-4 col-xs-12">
                 <div class="sidebar-left sidebar-shop">
@@ -249,11 +249,11 @@
                             </div> --}}
                     </div>
                     <div class="content-grid-sidebar">
-                        @foreach($products->chunk(3) as $chunk)
+                        @foreach($products->chunk(6) as $chunk)
 
                         <div class="row">
                             @foreach ($chunk as $product)
-                            <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="col-md-3 col-sm-6 col-xs-12">
                                 <div class="item-product item-product-grid">
                                     <div class="product-thumb box-hover-dir">
                                         <a href="/products/{{ $product->slug }}">
