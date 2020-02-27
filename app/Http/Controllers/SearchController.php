@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Color;
 use App\Models\Material;
 use App\Models\Product;
+use App\Models\Size;
 use App\Models\Style;
 use Illuminate\Http\Request;
 
