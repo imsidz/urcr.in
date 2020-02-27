@@ -253,7 +253,7 @@
 
                         <div class="row">
                             @foreach ($chunk as $product)
-                            <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="col-md-2 col-sm-6 col-xs-12">
                                 <div class="item-product item-product-grid">
                                     <div class="product-thumb box-hover-dir">
                                         <a href="/products/{{ $product->slug }}">
