@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form autocomplete="off" action="/search" method="GET">
+    <form autocomplete="off" @submit.prevent="submitForm">
       <div class="autocomplete" style="width:100%;">
         <input
           id="myInput"
@@ -10,11 +10,13 @@
           placeholder="Search"
           @keyup="getProductIndex"
           v-model="form.search"
+          @focus="focus = true"
+          @blur="focus = false"
         />
-        <div id="myInputautocomplete-list" class="autocomplete-items">
-          <div>
+        <div id="myInputautocomplete-list" class="autocomplete-items" v-show="focus">
+          <div v-for="search in searches" :key="search.id">
             <a href="/search?search=india">
-              <strong>India</strong>
+              <strong>{{ search.name }}</strong>
             </a>
           </div>
         </div>
@@ -27,6 +29,8 @@ export default {
   props: ["search"],
   data() {
     return {
+      focus: false,
+      searches: [],
       form: {
         search: ""
       }
@@ -35,8 +39,11 @@ export default {
   methods: {
     getProductIndex() {
       axios.post("/search", this.form).then(response => {
-        console.log(response.data);
+        this.searches = response.data.results.data;
       });
+    },
+    submitForm() {
+      window.location.href = `/search?search=${this.searches[0].name}`;
     }
   }
 };

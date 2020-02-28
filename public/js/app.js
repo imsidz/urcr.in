@@ -2113,10 +2113,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["search"],
   data: function data() {
     return {
+      focus: false,
+      searches: [],
       form: {
         search: ""
       }
@@ -2124,9 +2128,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getProductIndex: function getProductIndex() {
+      var _this = this;
+
       axios.post("/search", this.form).then(function (response) {
-        console.log(response.data);
+        _this.searches = response.data.results.data;
       });
+    },
+    submitForm: function submitForm() {
+      window.location.href = "/search?search=".concat(this.searches[0].name);
     }
   }
 });
@@ -2164,7 +2173,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*the container must be positioned relative:*/\n.autocomplete {\n  position: relative;\n  display: inline-block;\n}\n.input-search {\n  border: 1px solid transparent;\n  background-color: #f1f1f1;\n  padding: 10px;\n  font-size: 16px;\n}\n.input-search {\n  background-color: #f1f1f1;\n  width: 100%;\n}\n.input-search[type=\"submit\"] {\n  background-color: DodgerBlue;\n  color: #fff;\n  cursor: pointer;\n}\n.autocomplete-items {\n  position: absolute;\n  border: 1px solid #d4d4d4;\n  border-bottom: none;\n  border-top: none;\n  z-index: 99;\n  /*position the autocomplete items to be the same width as the container:*/\n  top: 100%;\n  left: 0;\n  right: 0;\n}\n.autocomplete-items div {\n  padding: 10px;\n  cursor: pointer;\n  background-color: #fff;\n  border-bottom: 1px solid #d4d4d4;\n}\n\n/*when hovering an item:*/\n.autocomplete-items div:hover {\n  background-color: #e9e9e9;\n}\n\n/*when navigating through the items using the arrow keys:*/\n.autocomplete-active {\n  background-color: DodgerBlue !important;\n  color: #ffffff;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*the container must be positioned relative:*/\n.autocomplete {\n  position: relative;\n  display: inline-block;\n}\n.input-search {\n  border: 1px solid transparent;\n  background-color: #f1f1f1;\n  padding: 10px;\n  font-size: 16px;\n}\n.input-search {\n  background-color: #f1f1f1;\n  width: 100%;\n}\n.input-search[type=\"submit\"] {\n  background-color: DodgerBlue;\n  color: #fff;\n  cursor: pointer;\n}\n.autocomplete-items {\n  position: absolute;\n  border: 1px solid #d4d4d4;\n  border-bottom: none;\n  border-top: none;\n  z-index: 99;\n  /*position the autocomplete items to be the same width as the container:*/\n  top: 100%;\n  left: 0;\n  right: 0;\n}\n.autocomplete-items div {\n  padding: 10px;\n  cursor: pointer;\n  background-color: #fff;\n  border-bottom: 1px solid #d4d4d4;\n}\n\n/*when hovering an item:*/\n.autocomplete-items div:hover {\n  background-color: #e9e9e9;\n}\n\n/*when navigating through the items using the arrow keys:*/\n.autocomplete-active {\n  background-color: DodgerBlue !important;\n  color: #ffffff;\n}\n", ""]);
 
 // exports
 
@@ -34062,7 +34071,15 @@ var render = function() {
   return _c("div", [
     _c(
       "form",
-      { attrs: { autocomplete: "off", action: "/search", method: "GET" } },
+      {
+        attrs: { autocomplete: "off" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.submitForm($event)
+          }
+        }
+      },
       [
         _c(
           "div",
@@ -34087,6 +34104,12 @@ var render = function() {
               domProps: { value: _vm.form.search },
               on: {
                 keyup: _vm.getProductIndex,
+                focus: function($event) {
+                  _vm.focus = true
+                },
+                blur: function($event) {
+                  _vm.focus = false
+                },
                 input: function($event) {
                   if ($event.target.composing) {
                     return
@@ -34096,34 +34119,36 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _vm._m(0)
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.focus,
+                    expression: "focus"
+                  }
+                ],
+                staticClass: "autocomplete-items",
+                attrs: { id: "myInputautocomplete-list" }
+              },
+              _vm._l(_vm.searches, function(search) {
+                return _c("div", { key: search.id }, [
+                  _c("a", { attrs: { href: "/search?search=india" } }, [
+                    _c("strong", [_vm._v(_vm._s(search.name))])
+                  ])
+                ])
+              }),
+              0
+            )
           ]
         )
       ]
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "autocomplete-items",
-        attrs: { id: "myInputautocomplete-list" }
-      },
-      [
-        _c("div", [
-          _c("a", { attrs: { href: "/search?search=india" } }, [
-            _c("strong", [_vm._v("India")])
-          ])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
