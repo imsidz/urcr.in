@@ -36,6 +36,8 @@ Route::get('/checkout', 'CheckoutController@index')->middleware('auth');
 
 Route::post('/checkout', 'CheckoutController@checout')->middleware('auth');
 
+Route::get('/orders', 'OrderController@getOrderHistory')->middleware('auth');
+
 Route::get('/checkout/{orderid}', 'CheckoutController@success');
 
 // Route::get('/login', 'Auth\LoginController@index')->name('login')->middleware('guest');
@@ -65,6 +67,7 @@ Route::post('/search', 'SearchController@postSearch');
 //Admin Panel
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/', 'AdminController@index');
+
 
     Route::post('/upload/images', 'ImageController@store');
 
