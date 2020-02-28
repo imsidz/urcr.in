@@ -139,6 +139,19 @@ class ProductController extends Controller
         return view('products.index', compact('products', 'styles', 'materials', 'colors', 'sizes'));
     }
 
+    public function showSubChildCategories($category, $subcategory, $childcategory, $subchild)
+    {
+        $styles = Style::latest()->get();
+        $materials = Material::latest()->get();
+        $sizes = Size::latest()->get();
+        $colors = Color::latest()->get();
+        $products = Product::whereHas('subchildcategories', function ($query) use ($subchild) {
+            $query->where('slug', $subchild);
+        })->approved()->paginate(20);
+
+        return view('products.index', compact('products', 'styles', 'materials', 'colors', 'sizes'));
+    }
+
     public function showCategories($category)
     {
         $styles = Style::latest()->get();

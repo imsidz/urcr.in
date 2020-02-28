@@ -26,6 +26,8 @@ Route::put('/cart/product/{id}/qty', 'CartController@updateCartQty');
 
 Route::get('/cat/{category}/{subcategory}/{childcategory}', 'ProductController@showChildCategories');
 
+Route::get('/cat/{category}/[subcategory]/{childcategory}/{subchild}', 'ProductController@showSubChildCategories');
+
 Route::get('/cat/{category}', 'ProductController@showCategories');
 
 Route::get('/cat/{category}/{subcategory}', 'ProductController@showSubCategories');
