@@ -2033,6 +2033,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2079,7 +2090,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.w-100 {\n  width: 80%;\n}\n.navbar-nav {\n  width: 100%;\n  text-align: center;\n}\n.navbar-nav li {\n  float: none;\n  display: inline-block;\n}\n.subcategories {\n  background-color: rgb(253, 253, 253);\n  text-align: left;\n  cursor: pointer;\n  padding: 10px 10px 10px 20px;\n  font-size: 15px;\n  font-weight: bold;\n  text-transform: capitalize;\n}\n.subcategories:hover {\n  background-color: rgb(236, 236, 236);\n}\n.childcategory {\n  text-align: left;\n}\n.h-100 {\n  min-height: 250px;\n}\n.nopadding {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n.panel-category {\n  /* padding: 10px 0px; */\n}\n.panel-body-category {\n  padding: 0px 15px;\n}\n.subcategory {\n  padding: 15px 40px;\n}\n", ""]);
+exports.push([module.i, "\n.w-100 {\n  width: 80%;\n}\n.navbar-nav {\n  width: 100%;\n  text-align: center;\n}\n.navbar-nav li {\n  float: none;\n  display: inline-block;\n}\n.subcategories {\n  background-color: rgb(253, 253, 253);\n  text-align: left;\n  cursor: pointer;\n  padding: 10px 10px 10px 20px;\n  font-size: 15px;\n  font-weight: bold;\n  text-transform: capitalize;\n}\n.subcategories:hover {\n  background-color: rgb(236, 236, 236);\n}\n.childcategory {\n  text-align: center;\n}\n.h-100 {\n  min-height: 250px;\n}\n.nopadding {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n.panel-category {\n  /* padding: 10px 0px; */\n}\n.panel-body-category {\n  padding: 0px 15px;\n}\n.subcategory {\n  padding: 15px 40px;\n}\n", ""]);
 
 // exports
 
@@ -33621,7 +33632,7 @@ var render = function() {
                     "a",
                     {
                       staticStyle: { "text-transform": "capitalize" },
-                      attrs: { href: "#" },
+                      attrs: { href: "/cat/" + cat.slug },
                       on: {
                         mouseover: function($event) {
                           return _vm.hoverInCat(index)
@@ -33703,14 +33714,28 @@ var render = function() {
                                 }
                               },
                               [
-                                _vm._v(
-                                  "\n                " +
-                                    _vm._s(subcat.name) +
-                                    "\n                "
-                                ),
-                                _c("span", { staticClass: "pull-right" }, [
-                                  _vm._v(">")
-                                ])
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href:
+                                        "/cat/" +
+                                        category.slug +
+                                        "/" +
+                                        subcat.slug
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                  " +
+                                        _vm._s(subcat.name) +
+                                        "\n                  "
+                                    ),
+                                    _c("span", { staticClass: "pull-right" }, [
+                                      _vm._v(">")
+                                    ])
+                                  ]
+                                )
                               ]
                             )
                           }),
@@ -33765,7 +33790,7 @@ var render = function() {
                                         "div",
                                         {
                                           key: childcatindex,
-                                          staticClass: "col-md-2 nopadding"
+                                          staticClass: "col-md-3 nopadding"
                                         },
                                         [
                                           _c(
@@ -33777,12 +33802,26 @@ var render = function() {
                                                 {
                                                   staticStyle: {
                                                     "text-transform":
-                                                      "capitalize"
+                                                      "capitalize",
+                                                    "font-weight": "bold"
                                                   },
-                                                  attrs: { href: "#" }
+                                                  attrs: {
+                                                    align: "center",
+                                                    href:
+                                                      "/cat/" +
+                                                      category.slug +
+                                                      "/" +
+                                                      subcat.slug +
+                                                      "/" +
+                                                      childcat.slug
+                                                  }
                                                 },
                                                 [_vm._v(_vm._s(childcat.name))]
                                               ),
+                                              _vm._v(" "),
+                                              _c("hr", {
+                                                attrs: { width: "90%" }
+                                              }),
                                               _vm._v(" "),
                                               _vm._l(
                                                 childcat.subchildcategories,
@@ -33800,8 +33839,28 @@ var render = function() {
                                                       }
                                                     },
                                                     [
-                                                      _vm._v(
-                                                        _vm._s(subchild.name)
+                                                      _c(
+                                                        "a",
+                                                        {
+                                                          attrs: {
+                                                            href:
+                                                              "/cat/" +
+                                                              category.slug +
+                                                              "/" +
+                                                              subcat.slug +
+                                                              "/" +
+                                                              childcat.slug +
+                                                              "/" +
+                                                              subchild.slug
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              subchild.name
+                                                            )
+                                                          )
+                                                        ]
                                                       )
                                                     ]
                                                   )

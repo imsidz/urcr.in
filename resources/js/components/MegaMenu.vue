@@ -21,7 +21,7 @@
         <ul class="nav navbar-nav">
           <li v-for="(cat, index) in data" :key="index">
             <a
-              href="#"
+              :href="`/cat/${cat.slug}`"
               @mouseover="hoverInCat(index)"
               @mouseleave="hoverOutCat(index)"
               style="text-transform:capitalize;"
@@ -47,8 +47,10 @@
                   @mouseleave="hoverOutSubCat(catindex, subcatindex)"
                   class="subcategories"
                 >
-                  {{ subcat.name }}
-                  <span class="pull-right">></span>
+                  <a :href="`/cat/${category.slug}/${subcat.slug}`">
+                    {{ subcat.name }}
+                    <span class="pull-right">></span>
+                  </a>
                 </div>
               </div>
               <div class="col-md-10 nopadding">
@@ -63,17 +65,26 @@
                   >
                     <div class="w-100 h-100">
                       <div
-                        class="col-md-2 nopadding"
+                        class="col-md-3 nopadding"
                         v-for="(childcat, childcatindex) in subcat.childcategories"
                         :key="childcatindex"
                       >
                         <div class="childcategory">
-                          <a href="#" style="text-transform:capitalize;">{{ childcat.name }}</a>
+                          <a
+                            align="center"
+                            :href="`/cat/${category.slug}/${subcat.slug}/${childcat.slug}`"
+                            style="text-transform:capitalize; font-weight:bold;"
+                          >{{ childcat.name }}</a>
+                          <hr width="90%" />
                           <p
                             v-for="(subchild, subchildindex) in childcat.subchildcategories"
                             :key="subchildindex"
                             style="text-transform:capitalize;"
-                          >{{ subchild.name }}</p>
+                          >
+                            <a
+                              :href="`/cat/${category.slug}/${subcat.slug}/${childcat.slug}/${subchild.slug}`"
+                            >{{ subchild.name }}</a>
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -148,7 +159,7 @@ export default {
   background-color: rgb(236, 236, 236);
 }
 .childcategory {
-  text-align: left;
+  text-align: center;
 }
 .h-100 {
   min-height: 250px;
