@@ -48,12 +48,12 @@
             <h2 class="title30 mont-font inline-block">Latest <strong class="hot-label"><span>Hot</span></strong></h2>
             <h2 class="title30 mont-font">Products</h2>
         </div>
-        @foreach ($latests->chunk(8) as $chunk)
+        @foreach ($latests->chunk(6) as $chunk)
         <div class="row">
             @foreach ($chunk as $pro)
 
 
-            <div class="col">
+            <div class="col-md-2 col-sm-3 col-xs-12">
                 <div class="panel">
 
 
