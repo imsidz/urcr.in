@@ -36,10 +36,13 @@
         @mouseleave="hoverOutCat(catindex)"
         class="container"
       >
-        <div class="panel panel-category" v-show="category.active == true">
+        <div class="panel panel-category shadow" v-show="category.active == true">
           <div class="panel-body panel-body-category h-100">
             <div class="row">
               <div class="col-md-2 nopadding">
+                <h5>
+                  <a :href="`/cat/${category.slug}`">All {{ category.name }}</a>
+                </h5>
                 <div
                   v-for="(subcat, subcatindex) in category.subcategories"
                   :key="subcatindex"
@@ -71,7 +74,6 @@
                       >
                         <div class="childcategory">
                           <a
-                            align="center"
                             :href="`/cat/${category.slug}/${subcat.slug}/${childcat.slug}`"
                             style="text-transform:capitalize; font-weight:bold;"
                           >{{ childcat.name }}</a>
@@ -168,13 +170,14 @@ export default {
   padding: 0 !important;
   margin: 0 !important;
 }
-.panel-category {
-  /* padding: 10px 0px; */
-}
+
 .panel-body-category {
   padding: 0px 15px;
 }
 .subcategory {
   padding: 15px 40px;
+}
+.shadow {
+  box-shadow: 0px 7px 17px #25252540;
 }
 </style>

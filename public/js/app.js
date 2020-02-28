@@ -2044,6 +2044,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2090,7 +2092,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.w-100 {\n  width: 80%;\n}\n.navbar-nav {\n  width: 100%;\n  text-align: center;\n}\n.navbar-nav li {\n  float: none;\n  display: inline-block;\n}\n.subcategories {\n  background-color: rgb(253, 253, 253);\n  text-align: left;\n  cursor: pointer;\n  padding: 10px 10px 10px 20px;\n  font-size: 15px;\n  font-weight: bold;\n  text-transform: capitalize;\n}\n.subcategories:hover {\n  background-color: rgb(236, 236, 236);\n}\n.childcategory {\n  text-align: center;\n}\n.h-100 {\n  min-height: 250px;\n}\n.nopadding {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n.panel-category {\n  /* padding: 10px 0px; */\n}\n.panel-body-category {\n  padding: 0px 15px;\n}\n.subcategory {\n  padding: 15px 40px;\n}\n", ""]);
+exports.push([module.i, "\n.w-100 {\n  width: 80%;\n}\n.navbar-nav {\n  width: 100%;\n  text-align: center;\n}\n.navbar-nav li {\n  float: none;\n  display: inline-block;\n}\n.subcategories {\n  background-color: rgb(253, 253, 253);\n  text-align: left;\n  cursor: pointer;\n  padding: 10px 10px 10px 20px;\n  font-size: 15px;\n  font-weight: bold;\n  text-transform: capitalize;\n}\n.subcategories:hover {\n  background-color: rgb(236, 236, 236);\n}\n.childcategory {\n  text-align: center;\n}\n.h-100 {\n  min-height: 250px;\n}\n.nopadding {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n.panel-body-category {\n  padding: 0px 15px;\n}\n.subcategory {\n  padding: 15px 40px;\n}\n.shadow {\n  box-shadow: 0px 7px 17px #25252540;\n}\n", ""]);
 
 // exports
 
@@ -33678,7 +33680,7 @@ var render = function() {
                       expression: "category.active == true"
                     }
                   ],
-                  staticClass: "panel panel-category"
+                  staticClass: "panel panel-category shadow"
                 },
                 [
                   _c(
@@ -33689,57 +33691,69 @@ var render = function() {
                         _c(
                           "div",
                           { staticClass: "col-md-2 nopadding" },
-                          _vm._l(category.subcategories, function(
-                            subcat,
-                            subcatindex
-                          ) {
-                            return _c(
-                              "div",
-                              {
-                                key: subcatindex,
-                                staticClass: "subcategories",
-                                on: {
-                                  mouseover: function($event) {
-                                    return _vm.hoverInSubCat(
-                                      catindex,
-                                      subcatindex
-                                    )
-                                  },
-                                  mouseleave: function($event) {
-                                    return _vm.hoverOutSubCat(
-                                      catindex,
-                                      subcatindex
-                                    )
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "a",
-                                  {
-                                    attrs: {
-                                      href:
-                                        "/cat/" +
-                                        category.slug +
-                                        "/" +
-                                        subcat.slug
+                          [
+                            _c("h5", [
+                              _c(
+                                "a",
+                                { attrs: { href: "/cat/" + category.slug } },
+                                [_vm._v("All " + _vm._s(category.name))]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(category.subcategories, function(
+                              subcat,
+                              subcatindex
+                            ) {
+                              return _c(
+                                "div",
+                                {
+                                  key: subcatindex,
+                                  staticClass: "subcategories",
+                                  on: {
+                                    mouseover: function($event) {
+                                      return _vm.hoverInSubCat(
+                                        catindex,
+                                        subcatindex
+                                      )
+                                    },
+                                    mouseleave: function($event) {
+                                      return _vm.hoverOutSubCat(
+                                        catindex,
+                                        subcatindex
+                                      )
                                     }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                  " +
-                                        _vm._s(subcat.name) +
-                                        "\n                  "
-                                    ),
-                                    _c("span", { staticClass: "pull-right" }, [
-                                      _vm._v(">")
-                                    ])
-                                  ]
-                                )
-                              ]
-                            )
-                          }),
-                          0
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: {
+                                        href:
+                                          "/cat/" +
+                                          category.slug +
+                                          "/" +
+                                          subcat.slug
+                                      }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                  " +
+                                          _vm._s(subcat.name) +
+                                          "\n                  "
+                                      ),
+                                      _c(
+                                        "span",
+                                        { staticClass: "pull-right" },
+                                        [_vm._v(">")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            })
+                          ],
+                          2
                         ),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-md-10 nopadding" }, [
@@ -33806,7 +33820,6 @@ var render = function() {
                                                     "font-weight": "bold"
                                                   },
                                                   attrs: {
-                                                    align: "center",
                                                     href:
                                                       "/cat/" +
                                                       category.slug +
