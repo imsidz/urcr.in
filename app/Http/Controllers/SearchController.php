@@ -14,7 +14,10 @@ class SearchController extends Controller
 {
     public function search(Request $request)
     {
-        $products = Product::where('title', 'LIKE', '%' . $request->search . '%')->orWhere('description', 'LIKE', '%' . $request->search . '%')->latest()->paginate(20);
+        $products = Product::where('title', 'LIKE', '%' . $request->search . '%')->orWhere('description', 'LIKE', '%' . $request->search . '%')->orWhereHas('subchildcategories', function ($query) use ($request) {
+            $query->where('name', 'LIKE', '%' . $request->search . '%');
+        })->latest()->paginate(60);
+
         $styles = Style::latest()->get();
         $materials = Material::latest()->get();
         $sizes = Size::latest()->get();
