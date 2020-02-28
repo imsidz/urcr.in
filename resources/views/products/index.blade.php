@@ -21,7 +21,7 @@
 <!-- End Banner Slider -->
 <div class="bread-crumb">
     <div class="container">
-        <a href="#">Home</a> <a href="#">Shop</a> <span>Cosmetics</span>
+        <a href="/">Home</a> <span>Products</span>
     </div>
 </div>
 <!-- End Bread Crumb -->
@@ -232,7 +232,7 @@
             <div class="col-md-10 col-sm-8 col-xs-12">
                 <div class="content-shop">
                     <div class="sort-pagi-bar clearfix">
-                        <h2 class="title18 mont-font pull-left">Latest Products</h2>
+                        {{-- <h2 class="title18 mont-font pull-left">Latest Products</h2> --}}
                         {{-- <div class="sort-view pull-right">
                                 <div class="view-type pull-left">
                                     <a href="grid-with-sidebar.html" class="grid-view active"><i class="fa fa-th-large" aria-hidden="true"></i></a>
