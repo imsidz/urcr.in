@@ -81,11 +81,12 @@
                 </div> --}}
             </div>
             <div class="product-info" style="padding:15px;">
-                <h3 class="product-title"><a href="/products/{{ $pro->slug }}">{{ $pro->title }}</a></h3>
+                <h3 class="product-title" style="font-size: 10px;"><a
+                        href="/products/{{ $pro->slug }}">{{ $pro->title }}</a></h3>
                 <div class="product-rate">
                     <div class="product-rating" style="width:100%"></div>
                 </div>
-                <div class="product-price">
+                <div class="product-price" style="font-size: 10px;">
                     <ins><span>Rs {{ $pro->price }}</span></ins>
                     <del><span>Rs {{ $pro->mrp }}</span></del>
                     {{-- <span class="sale-label">-20<sup>%</sup></span> --}}
