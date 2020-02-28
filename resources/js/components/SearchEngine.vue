@@ -15,7 +15,7 @@
         />
         <div id="myInputautocomplete-list" class="autocomplete-items" v-show="focus">
           <div v-for="search in searches" :key="search.id">
-            <a href="/search?search=india">
+            <a :href="`/search?search=${search.name}`">
               <strong>{{ search.name }}</strong>
             </a>
           </div>
