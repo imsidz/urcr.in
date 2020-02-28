@@ -147,7 +147,7 @@ class ProductController extends Controller
         $colors = Color::latest()->get();
         $products = Product::whereHas('subchildcategories', function ($query) use ($subchild) {
             $query->where('slug', $subchild);
-        })->approved()->paginate(20);
+        })->approved()->paginate(24);
 
         return view('products.index', compact('products', 'styles', 'materials', 'colors', 'sizes'));
     }
