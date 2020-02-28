@@ -43,7 +43,11 @@ export default {
       });
     },
     submitForm() {
-      window.location.href = `/search?search=${this.searches[0].name}`;
+      if (this.searches.length) {
+        window.location.href = `/search?search=${this.searches[0].name}`;
+      } else {
+        window.location.href = `/search?search=${this.form.search}`;
+      }
     },
     blurInput() {
       setTimeout(() => {
