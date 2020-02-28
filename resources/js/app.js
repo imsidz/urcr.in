@@ -26,6 +26,11 @@ Vue.component(
 
 Vue.component("mega-menu", require("./components/MegaMenu.vue").default);
 
+Vue.component(
+    "search-engine",
+    require("./components/SearchEngine.vue").default
+);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

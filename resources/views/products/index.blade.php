@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="banner-slider banner-shop-slider bg-slider">
-    <div class="wrap-item" data-pagination="true" data-autoplay="true" data-transition="fade" data-navigation="true"
+    <div class="wrap-item" data-pagination="false" data-autoplay="true" data-transition="fade" data-navigation="false"
         data-itemscustom="[[0,1]]">
         <div class="item-slider">
             <div class="banner-thumb"><a href="#"><img src="/images/shop/shop-banner1.jpg" alt="" /></a></div>

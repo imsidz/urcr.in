@@ -63,66 +63,67 @@
                             <a href="/" class="pull-right"><img src="/images/logo.png" alt="" width="275"></a>
                         </div>
                         <div class="col-md-4">
-                            <div class="newsletter-form">
-                                <form action="/search" method="GET">
+                            <search-engine search="{{Request::get('search')}}"></search-engine>
+
+                            {{-- <div class="newsletter-form">
+                                <form >
                                     <input name="search" onblur="if (this.value=='') this.value = this.defaultValue"
                                         onfocus="if (this.value==this.defaultValue) this.value = ''"
                                         value="{{Request::get('search')}}" type="text">
-                                    <div class="submit-form">
-                                        <input value="" type="submit">
+                            <div class="submit-form">
+                                <input value="" type="submit">
+                            </div>
+                            </form>
+                        </div> --}}
+                    </div>
+                    <div class="col-md-4" style="margin-top: 10px;">
+                        <div class="pull-left">
+
+                            @include('layouts.app.cart')
+                            <div class="pull-right list-inline" style="margin-top: 15px;">
+                                @guest
+                                <li class="menu-item-has-children">
+                                    <a href="/login">Login</a>
+                                </li>
+                                @else
+                                <li class="menu-item-has-children">
+                                    <div class="dropdown">
+                                        <a href="#" type="button" data-toggle="dropdown">{{ Auth::user()->name }}</a>
+                                        <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/orders">My Orders</a></li>
+                                            <li><a href="/profile">My Profile</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="/logout">Logout</a></li>
+                                        </ul>
                                     </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-md-4" style="margin-top: 10px;">
-                            <div class="pull-left">
 
-                                @include('layouts.app.cart')
-                                <div class="pull-right list-inline" style="margin-top: 15px;">
-                                    @guest
-                                    <li class="menu-item-has-children">
-                                        <a href="/login">Login</a>
-                                    </li>
-                                    @else
-                                    <li class="menu-item-has-children">
-                                        <div class="dropdown">
-                                            <a href="#" type="button"
-                                                data-toggle="dropdown">{{ Auth::user()->name }}</a>
-                                            <span class="caret"></span></button>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="/orders">My Orders</a></li>
-                                                <li><a href="/profile">My Profile</a></li>
-                                                <li role="separator" class="divider"></li>
-                                                <li><a href="/logout">Logout</a></li>
-                                            </ul>
-                                        </div>
-
-                                    </li>
-                                    @endguest
-
-                                </div>
+                                </li>
+                                @endguest
 
                             </div>
+
                         </div>
                     </div>
-                    <div class="row">
+                </div>
+                <div class="row">
 
-                        @include('layouts.app.topmenu')
+                    @include('layouts.app.topmenu')
 
-
-                    </div>
 
                 </div>
 
             </div>
-            <!-- End Header -->
-            <div id="content">
-                @yield('content')
 
-
-            </div>
-            @include('layouts.app.footer')
         </div>
+        <!-- End Header -->
+        <div id="content">
+            @yield('content')
+
+
+        </div>
+        @include('layouts.app.footer')
+    </div>
     </div>
     <script src="/js/app.js"></script>
     <script type="text/javascript" src="/ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
