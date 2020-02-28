@@ -58,6 +58,8 @@ Route::get('terms', function () {
 
 Route::get('/search', 'SearchController@search');
 
+Route::post('/search', 'SearchController@postSearch');
+
 //Admin Panel
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('/', 'AdminController@index');
