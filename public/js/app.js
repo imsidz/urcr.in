@@ -33848,7 +33848,8 @@ var render = function() {
                                                       key: subchildindex,
                                                       staticStyle: {
                                                         "text-transform":
-                                                          "capitalize"
+                                                          "capitalize",
+                                                        "text-align": "left"
                                                       }
                                                     },
                                                     [

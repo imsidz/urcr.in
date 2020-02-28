@@ -81,7 +81,7 @@
                           <p
                             v-for="(subchild, subchildindex) in childcat.subchildcategories"
                             :key="subchildindex"
-                            style="text-transform:capitalize;"
+                            style="text-transform:capitalize;text-align: left;"
                           >
                             <a
                               :href="`/cat/${category.slug}/${subcat.slug}/${childcat.slug}/${subchild.slug}`"
