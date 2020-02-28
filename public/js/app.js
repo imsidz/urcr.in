@@ -2019,6 +2019,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2065,7 +2079,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.w-100 {\n  width: 90%;\n}\n.navbar-nav {\n  width: 100%;\n  text-align: center;\n}\n.navbar-nav li {\n  float: none;\n  display: inline-block;\n}\n.subcategories {\n  text-align: left;\n  cursor: pointer;\n}\n.childcategory {\n  text-align: left;\n}\n", ""]);
+exports.push([module.i, "\n.w-100 {\n  width: 80%;\n}\n.navbar-nav {\n  width: 100%;\n  text-align: center;\n}\n.navbar-nav li {\n  float: none;\n  display: inline-block;\n}\n.subcategories {\n  background-color: rgb(253, 253, 253);\n  text-align: left;\n  cursor: pointer;\n  padding: 10px 10px 10px 20px;\n  font-size: 15px;\n  font-weight: bold;\n  text-transform: capitalize;\n}\n.subcategories:hover {\n  background-color: rgb(236, 236, 236);\n}\n.childcategory {\n  text-align: left;\n}\n.h-100 {\n  min-height: 250px;\n}\n.nopadding {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n.panel-category {\n  /* padding: 10px 0px; */\n}\n.panel-body-category {\n  padding: 0px 15px;\n}\n.subcategory {\n  padding: 15px 40px;\n}\n", ""]);
 
 // exports
 
@@ -33606,6 +33620,7 @@ var render = function() {
                   _c(
                     "a",
                     {
+                      staticStyle: { "text-transform": "capitalize" },
                       attrs: { href: "#" },
                       on: {
                         mouseover: function($event) {
@@ -33630,6 +33645,7 @@ var render = function() {
             "div",
             {
               key: catindex,
+              staticClass: "container",
               on: {
                 mouseover: function($event) {
                   return _vm.hoverInCat(catindex)
@@ -33651,106 +33667,163 @@ var render = function() {
                       expression: "category.active == true"
                     }
                   ],
-                  staticClass: "panel"
+                  staticClass: "panel panel-category"
                 },
                 [
-                  _c("div", { staticClass: "panel-body" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c(
-                        "div",
-                        { staticClass: "col-md-3" },
-                        _vm._l(category.subcategories, function(
-                          subcat,
-                          subcatindex
-                        ) {
-                          return _c(
-                            "div",
-                            {
-                              key: subcatindex,
-                              staticClass: "subcategories",
-                              on: {
-                                mouseover: function($event) {
-                                  return _vm.hoverInSubCat(
-                                    catindex,
-                                    subcatindex
-                                  )
-                                },
-                                mouseleave: function($event) {
-                                  return _vm.hoverOutSubCat(
-                                    catindex,
-                                    subcatindex
-                                  )
-                                }
-                              }
-                            },
-                            [_vm._v(_vm._s(subcat.name))]
-                          )
-                        }),
-                        0
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-md-9" }, [
+                  _c(
+                    "div",
+                    { staticClass: "panel-body panel-body-category h-100" },
+                    [
+                      _c("div", { staticClass: "row" }, [
                         _c(
                           "div",
-                          { staticClass: "row" },
+                          { staticClass: "col-md-2 nopadding" },
                           _vm._l(category.subcategories, function(
                             subcat,
                             subcatindex
                           ) {
                             return _c(
                               "div",
-                              { key: subcatindex },
-                              _vm._l(subcat.childcategories, function(
-                                childcat,
-                                childcatindex
-                              ) {
-                                return _c(
-                                  "div",
-                                  {
-                                    directives: [
-                                      {
-                                        name: "show",
-                                        rawName: "v-show",
-                                        value: subcat.active == true,
-                                        expression: "subcat.active == true"
-                                      }
-                                    ],
-                                    key: childcatindex,
-                                    staticClass: "col-md-3"
-                                  },
-                                  [
-                                    _c(
-                                      "div",
-                                      { staticClass: "childcategory" },
-                                      [
-                                        _c("a", { attrs: { href: "#" } }, [
-                                          _vm._v(_vm._s(childcat.name))
-                                        ]),
-                                        _vm._v(" "),
-                                        _vm._l(
-                                          childcat.subchildcategories,
-                                          function(subchild, subchildindex) {
-                                            return _c(
-                                              "p",
-                                              { key: subchildindex },
-                                              [_vm._v(_vm._s(subchild.name))]
-                                            )
-                                          }
-                                        )
-                                      ],
-                                      2
+                              {
+                                key: subcatindex,
+                                staticClass: "subcategories",
+                                on: {
+                                  mouseover: function($event) {
+                                    return _vm.hoverInSubCat(
+                                      catindex,
+                                      subcatindex
                                     )
-                                  ]
-                                )
-                              }),
-                              0
+                                  },
+                                  mouseleave: function($event) {
+                                    return _vm.hoverOutSubCat(
+                                      catindex,
+                                      subcatindex
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                " +
+                                    _vm._s(subcat.name) +
+                                    "\n                "
+                                ),
+                                _c("span", { staticClass: "pull-right" }, [
+                                  _vm._v(">")
+                                ])
+                              ]
                             )
                           }),
                           0
-                        )
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-10 nopadding" }, [
+                          _c(
+                            "div",
+                            { staticClass: "row" },
+                            _vm._l(category.subcategories, function(
+                              subcat,
+                              subcatindex
+                            ) {
+                              return _c(
+                                "div",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: subcat.active == true,
+                                      expression: "subcat.active == true"
+                                    }
+                                  ],
+                                  key: subcatindex,
+                                  staticClass: "subcategory",
+                                  on: {
+                                    mouseover: function($event) {
+                                      return _vm.hoverInSubCat(
+                                        catindex,
+                                        subcatindex
+                                      )
+                                    },
+                                    mouseleave: function($event) {
+                                      return _vm.hoverOutSubCat(
+                                        catindex,
+                                        subcatindex
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    { staticClass: "w-100 h-100" },
+                                    _vm._l(subcat.childcategories, function(
+                                      childcat,
+                                      childcatindex
+                                    ) {
+                                      return _c(
+                                        "div",
+                                        {
+                                          key: childcatindex,
+                                          staticClass: "col-md-2 nopadding"
+                                        },
+                                        [
+                                          _c(
+                                            "div",
+                                            { staticClass: "childcategory" },
+                                            [
+                                              _c(
+                                                "a",
+                                                {
+                                                  staticStyle: {
+                                                    "text-transform":
+                                                      "capitalize"
+                                                  },
+                                                  attrs: { href: "#" }
+                                                },
+                                                [_vm._v(_vm._s(childcat.name))]
+                                              ),
+                                              _vm._v(" "),
+                                              _vm._l(
+                                                childcat.subchildcategories,
+                                                function(
+                                                  subchild,
+                                                  subchildindex
+                                                ) {
+                                                  return _c(
+                                                    "p",
+                                                    {
+                                                      key: subchildindex,
+                                                      staticStyle: {
+                                                        "text-transform":
+                                                          "capitalize"
+                                                      }
+                                                    },
+                                                    [
+                                                      _vm._v(
+                                                        _vm._s(subchild.name)
+                                                      )
+                                                    ]
+                                                  )
+                                                }
+                                              )
+                                            ],
+                                            2
+                                          )
+                                        ]
+                                      )
+                                    }),
+                                    0
+                                  )
+                                ]
+                              )
+                            }),
+                            0
+                          )
+                        ])
                       ])
-                    ])
-                  ])
+                    ]
+                  )
                 ]
               )
             ]
