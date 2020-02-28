@@ -11,7 +11,7 @@
           @keyup="getProductIndex"
           v-model="form.search"
           @focus="focus = true"
-          @blur="focus = false"
+          @blur="blurInput"
         />
         <div id="myInputautocomplete-list" class="autocomplete-items" v-show="focus">
           <div v-for="search in searches" :key="search.id">
@@ -44,6 +44,11 @@ export default {
     },
     submitForm() {
       window.location.href = `/search?search=${this.searches[0].name}`;
+    },
+    blurInput() {
+      setTimeout(() => {
+        this.focus = false;
+      }, 100);
     }
   }
 };
