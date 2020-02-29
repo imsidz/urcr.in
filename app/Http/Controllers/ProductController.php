@@ -175,7 +175,7 @@ class ProductController extends Controller
 
     public function showSubCategories($category, $subcategory, Request $request)
     {
-        $styles = Style::latest()->get();
+        // $styles = Style::latest()->get();
         $materials = Material::latest()->get();
         $sizes = Size::latest()->get();
         $colors = Color::latest()->get();
@@ -188,6 +188,11 @@ class ProductController extends Controller
         $products = Product::whereHas('subchildcategories', function ($query) use ($subchildcategories) {
             $query->whereIn('sub_child_category_id', $subchildcategories->pluck('id'));
         })->filter($request)->approved()->paginate(20);
+
+        $pluckProducts = $products->pluck('slug')->toArray();
+        $styles = Style::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
 
         return view('products.index', compact('products', 'styles', 'materials', 'colors', 'sizes'));
     }
