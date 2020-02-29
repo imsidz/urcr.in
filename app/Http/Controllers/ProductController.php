@@ -126,7 +126,7 @@ class ProductController extends Controller
         return back()->with('status', 'Product Deleted Success');
     }
 
-    public function showChildCategories($categroy, $subcategory, $childcategory)
+    public function showChildCategories($categroy, $subcategory, $childcategory, Request $request)
     {
         $styles = Style::latest()->get();
         $materials = Material::latest()->get();
@@ -136,12 +136,12 @@ class ProductController extends Controller
         $subchilds = $childcat->subchildcategories->pluck('slug')->toArray();
         $products = Product::whereHas('subchildcategories', function ($query) use ($subchilds) {
             $query->whereIn('slug', $subchilds);
-        })->approved()->paginate(20);
+        })->filter($request)->approved()->paginate(20);
 
         return view('products.index', compact('products', 'styles', 'materials', 'colors', 'sizes'));
     }
 
-    public function showSubChildCategories($category, $subcategory, $childcategory, $subchild)
+    public function showSubChildCategories($category, $subcategory, $childcategory, $subchild, Request $request)
     {
         $styles = Style::latest()->get();
         $materials = Material::latest()->get();
@@ -149,12 +149,12 @@ class ProductController extends Controller
         $colors = Color::latest()->get();
         $products = Product::whereHas('subchildcategories', function ($query) use ($subchild) {
             $query->where('slug', $subchild);
-        })->approved()->paginate(24);
+        })->filter($request)->approved()->paginate(24);
 
         return view('products.index', compact('products', 'styles', 'materials', 'colors', 'sizes'));
     }
 
-    public function showCategories($category)
+    public function showCategories($category, Request $request)
     {
         $styles = Style::latest()->get();
         $materials = Material::latest()->get();
@@ -168,12 +168,12 @@ class ProductController extends Controller
 
         $products = Product::whereHas('subchildcategories', function ($query) use ($subchildcategories) {
             $query->whereIn('sub_child_category_id', $subchildcategories->pluck('id'));
-        })->paginate(20);
+        })->filter($request)->approved()->paginate(20);
 
         return view('products.index', compact('products', 'styles', 'materials', 'colors', 'sizes'));
     }
 
-    public function showSubCategories($category, $subcategory)
+    public function showSubCategories($category, $subcategory, Request $request)
     {
         $styles = Style::latest()->get();
         $materials = Material::latest()->get();
@@ -187,7 +187,7 @@ class ProductController extends Controller
 
         $products = Product::whereHas('subchildcategories', function ($query) use ($subchildcategories) {
             $query->whereIn('sub_child_category_id', $subchildcategories->pluck('id'));
-        })->paginate(20);
+        })->filter($request)->approved()->paginate(20);
 
         return view('products.index', compact('products', 'styles', 'materials', 'colors', 'sizes'));
     }
