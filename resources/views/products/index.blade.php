@@ -50,7 +50,7 @@
                                     <li>
                                         <input type="checkbox" name="style" id="" value="{{ $style->name }}"
                                             onchange="javascript:this.form.submit()">
-                                        {{ $style->name }}
+                                        {{ $style->name }} <span>({{ $style->products->count() }})</span>
                                     </li>
                                     @endforeach
                                 </ul>
@@ -65,7 +65,7 @@
                                     <li>
                                         <input type="checkbox" name="size" id="" value="{{ $size->name }}"
                                             onchange="javascript:this.form.submit()">
-                                        {{ $size->name }}
+                                        {{ $size->name }} <span>({{ $size->products->count() }})</span>
                                     </li>
                                     @endforeach
                                 </ul>
@@ -79,7 +79,7 @@
                                     <li>
                                         <input type="checkbox" name="color" id="" value="{{ $color->name }}"
                                             onchange="javascript:this.form.submit()">
-                                        <a href="#">{{ $color->name }}</a>
+                                        {{ $color->name }} <span>({{ $color->products->count() }})</span>
                                     </li>
                                     @endforeach
                                 </ul>
