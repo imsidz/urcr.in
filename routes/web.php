@@ -14,6 +14,8 @@ Route::get('/contact', 'ContactController@index');
 
 Route::get('/products', 'ProductController@index');
 
+Route::post('/products', 'ProductController@index');
+
 Route::get('/products/{slug}', 'ProductController@show');
 
 Route::get('/cart', 'CartController@index');
