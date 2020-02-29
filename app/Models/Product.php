@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Filters\ProductFilter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Builder;
 
 class Product extends Model
 {
@@ -72,5 +74,10 @@ class Product extends Model
     public function scopeActive($query)
     {
         return $query->where('active', true);
+    }
+
+    public function scopeFilter(Builder $builder, $request)
+    {
+        return (new ProductFilter($request))->filter($builder);
     }
 }

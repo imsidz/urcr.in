@@ -20,13 +20,13 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $styles = Style::latest()->get();
         $materials = Material::latest()->get();
         $sizes = Size::latest()->get();
         $colors = Color::latest()->get();
-        $products = Product::latest()->approved()->store()->paginate(60);
+        $products = Product::latest()->filter($request)->approved()->store()->paginate(60);
         return view('products.index', compact('products', 'styles', 'materials', 'sizes', 'colors'));
     }
 
