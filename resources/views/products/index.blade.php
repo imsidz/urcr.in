@@ -48,7 +48,7 @@
                                 <ul class="list-none filter-default">
                                     @foreach ($styles as $style)
                                     <li>
-                                        <input type="checkbox" name="style" id="" value="{{ $style->name }}">
+                                        <input type="checkbox[]" name="style" id="" value="{{ $style->name }}">
                                         {{ $style->name }}
                                     </li>
                                     @endforeach
@@ -62,7 +62,7 @@
                                     @foreach ($sizes as $size)
 
                                     <li>
-                                        <input type="checkbox" name="size" id="" value="{{ $size->name }}">
+                                        <input type="checkbox" name="size[]" id="" value="{{ $size->name }}">
                                         {{ $size->name }}
                                     </li>
                                     @endforeach
@@ -75,7 +75,7 @@
                                 <ul class="list-none filter-default">
                                     @foreach ($colors as $color)
                                     <li>
-                                        <input type="checkbox" name="color" id="" value="{{ $color->name }}">
+                                        <input type="checkbox" name="color[]" id="" value="{{ $color->name }}">
                                         <a href="#">{{ $color->name }}</a>
                                     </li>
                                     @endforeach
@@ -91,7 +91,7 @@
                                     @foreach ($materials as $material)
 
                                     <li>
-                                        <input type="checkbox" name="material" id="" value="{{ $material->name }}">
+                                        <input type="checkbox" name="material[]" id="" value="{{ $material->name }}">
                                         {{ $material->name }} <span>({{ $material->products->count() }})</span>
                                     </li>
                                     @endforeach
