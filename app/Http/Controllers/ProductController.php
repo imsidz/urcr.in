@@ -22,11 +22,27 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $styles = Style::latest()->get();
-        $materials = Material::latest()->get();
-        $sizes = Size::latest()->get();
-        $colors = Color::latest()->get();
         $products = Product::latest()->filter($request)->approved()->store()->paginate(60);
+
+        $productWithoutFilter = Product::latest()->approved()->store()->paginate(60);
+
+        $pluckProducts = $productWithoutFilter->pluck('slug')->toArray();
+
+        $styles = Style::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
+        $materials = Material::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
+        $sizes = Size::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
+        $colors = Color::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
         return view('products.index', compact('products', 'styles', 'materials', 'sizes', 'colors'));
     }
 
@@ -128,38 +144,70 @@ class ProductController extends Controller
 
     public function showChildCategories($categroy, $subcategory, $childcategory, Request $request)
     {
-        $styles = Style::latest()->get();
-        $materials = Material::latest()->get();
-        $sizes = Size::latest()->get();
-        $colors = Color::latest()->get();
         $childcat = ChildCategory::where('slug', $childcategory)->first();
         $subchilds = $childcat->subchildcategories->pluck('slug')->toArray();
         $products = Product::whereHas('subchildcategories', function ($query) use ($subchilds) {
             $query->whereIn('slug', $subchilds);
-        })->filter($request)->approved()->paginate(20);
+        })->filter($request)->approved()->paginate(24);
+
+        $productWithoutFilter = Product::whereHas('subchildcategories', function ($query) use ($subchilds) {
+            $query->whereIn('slug', $subchilds);
+        })->approved()->paginate(24);
+
+        $pluckProducts = $productWithoutFilter->pluck('slug')->toArray();
+
+        $styles = Style::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
+        $materials = Material::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
+        $sizes = Size::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
+        $colors = Color::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
 
         return view('products.index', compact('products', 'styles', 'materials', 'colors', 'sizes'));
     }
 
     public function showSubChildCategories($category, $subcategory, $childcategory, $subchild, Request $request)
     {
-        $styles = Style::latest()->get();
-        $materials = Material::latest()->get();
-        $sizes = Size::latest()->get();
-        $colors = Color::latest()->get();
         $products = Product::whereHas('subchildcategories', function ($query) use ($subchild) {
             $query->where('slug', $subchild);
         })->filter($request)->approved()->paginate(24);
+
+        $productWithoutFilter = Product::whereHas('subchildcategories', function ($query) use ($subchild) {
+            $query->where('slug', $subchild);
+        })->approved()->paginate(24);
+
+        $pluckProducts = $productWithoutFilter->pluck('slug')->toArray();
+
+        $styles = Style::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
+        $materials = Material::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
+        $sizes = Size::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
+        $colors = Color::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
 
         return view('products.index', compact('products', 'styles', 'materials', 'colors', 'sizes'));
     }
 
     public function showCategories($category, Request $request)
     {
-        $styles = Style::latest()->get();
-        $materials = Material::latest()->get();
-        $sizes = Size::latest()->get();
-        $colors = Color::latest()->get();
 
         $category = Category::where('slug', $category)->firstorfail();
         $subcategories = SubCategory::where('category_id', $category->id)->get();
@@ -170,16 +218,33 @@ class ProductController extends Controller
             $query->whereIn('sub_child_category_id', $subchildcategories->pluck('id'));
         })->filter($request)->approved()->paginate(20);
 
+        $productWithoutFilter = Product::whereHas('subchildcategories', function ($query) use ($subchildcategories) {
+            $query->whereIn('sub_child_category_id', $subchildcategories->pluck('id'));
+        })->approved()->paginate(20);
+
+        $pluckProducts = $productWithoutFilter->pluck('slug')->toArray();
+
+        $styles = Style::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
+        $materials = Material::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
+        $sizes = Size::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
+        $colors = Color::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
         return view('products.index', compact('products', 'styles', 'materials', 'colors', 'sizes'));
     }
 
     public function showSubCategories($category, $subcategory, Request $request)
     {
-        // $styles = Style::latest()->get();
-        $materials = Material::latest()->get();
-        $sizes = Size::latest()->get();
-        $colors = Color::latest()->get();
-
         $category = Category::where('slug', $category)->firstorfail();
         $subcategory = SubCategory::where('slug', $subcategory)->first();
         $childcategories = ChildCategory::where('sub_category_id', $subcategory->id)->get();
@@ -189,8 +254,25 @@ class ProductController extends Controller
             $query->whereIn('sub_child_category_id', $subchildcategories->pluck('id'));
         })->filter($request)->approved()->paginate(20);
 
-        $pluckProducts = $products->pluck('slug')->toArray();
+        $productWithoutFilter = Product::whereHas('subchildcategories', function ($query) use ($subchildcategories) {
+            $query->whereIn('sub_child_category_id', $subchildcategories->pluck('id'));
+        })->approved()->paginate(20);
+
+        $pluckProducts = $productWithoutFilter->pluck('slug')->toArray();
+
         $styles = Style::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
+        $materials = Material::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
+        $sizes = Size::whereHas('products', function ($query) use ($pluckProducts) {
+            $query->whereIn('slug', $pluckProducts);
+        })->get();
+
+        $colors = Color::whereHas('products', function ($query) use ($pluckProducts) {
             $query->whereIn('slug', $pluckProducts);
         })->get();
 
