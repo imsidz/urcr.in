@@ -30,8 +30,7 @@
         <div class="row">
             <div class="col-md-2 col-sm-4 col-xs-12">
                 <div class="sidebar-left sidebar-shop">
-                    <form method="POST">
-                        @csrf
+                    <form method="GET">
                         <div class="widget widget-filter-price">
                             <h2 class="widget-title title14 active">Price Per Item</h2>
                             <div class="widget-content" style="display:block">
