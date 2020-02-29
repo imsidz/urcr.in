@@ -133,7 +133,7 @@ class ProductController extends Controller
         $sizes = Size::latest()->get();
         $colors = Color::latest()->get();
         $childcat = ChildCategory::where('slug', $childcategory)->first();
-        $subchilds = $childcat->subchildcategories->toArray();
+        $subchilds = $childcat->subchildcategories->pluck('slug')->toArray();
         $products = Product::whereHas('subchildcategories', function ($query) use ($subchilds) {
             $query->whereIn('slug', $subchilds);
         })->approved()->paginate(20);
