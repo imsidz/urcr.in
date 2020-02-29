@@ -48,7 +48,7 @@
                                 <ul class="list-none filter-default">
                                     @foreach ($styles as $style)
                                     <li>
-                                        <input type="checkbox[]" name="style" id="" value="{{ $style->name }}">
+                                        <input type="checkbox" name="style[]" id="" value="{{ $style->name }}">
                                         {{ $style->name }}
                                     </li>
                                     @endforeach
