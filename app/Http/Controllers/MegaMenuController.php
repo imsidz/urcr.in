@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Resources\MegaMenuCategoryResources;
 use App\Models\Category;
 use App\Models\CategoryMegaMenu;
+use App\Models\ChildCategory;
+use App\Models\ChildCategoryMegaMenu;
 use App\Models\MegaMenu;
 use App\Models\SubCategory;
 use App\Models\SubCategoryMegaMenu;
+use App\Models\SubChildCategory;
+use App\Models\SubChildCategoryMegaMenu;
 use Illuminate\Http\Request;
 
 class MegaMenuController extends Controller
@@ -63,6 +67,61 @@ class MegaMenuController extends Controller
             $sub->category_mega_menu_id = $category;
             $sub->sub_category_id = $subcat;
             $sub->save();
+        }
+
+        return back()->with('success', 'Save Success');
+    }
+
+    public function indexChildCategory($menu, $category_id, $subcategory_id)
+    {
+        $menu = MegaMenu::find($menu);
+        $category = CategoryMegaMenu::find($category_id);
+        $subcategory = SubCategoryMegaMenu::find($subcategory_id);
+        $childcategories = ChildCategory::latest()->get();
+        $childmenus = ChildCategoryMegaMenu::where('sub_category_id', $subcategory_id)->latest()->paginate();
+        return view('admin.megamenu.childcategory.index', compact('menu', 'category', 'subcategory', 'childcategories', 'childmenus'));
+    }
+
+    public function storeChildCategory($menu, $category_id, $subcategory_id, Request $request)
+    {
+        $menu = MegaMenu::find($menu);
+        $category = CategoryMegaMenu::find($category_id);
+        $subcategory = SubCategoryMegaMenu::find($subcategory_id);
+
+        foreach ($request->childcategories as $child) {
+            $childcat = new ChildCategoryMegaMenu;
+            $childcat->sub_category_id = $subcategory_id;
+            $childcat->child_category_id = $child;
+            $childcat->save();
+        }
+
+        return back()->with('success', 'ChildCategory Added');
+    }
+
+    public function indexSubChildCategory($menu, $category_id, $subcategory_id, $childcategory_id)
+    {
+        $menu = MegaMenu::find($menu);
+        $category = CategoryMegaMenu::find($category_id);
+        $subcategory = SubCategoryMegaMenu::find($subcategory_id);
+        $childcategory = ChildCategoryMegaMenu::find($childcategory_id);
+        $subchildcategories = SubChildCategory::latest()->get();
+        $subchildmenus = SubChildCategoryMegaMenu::where('child_category_id', $childcategory_id)->latest()->paginate();
+        // $childmenus = ChildCategoryMegaMenu::latest()->paginate();
+        return view('admin.megamenu.subchildcategory.index', compact('menu', 'category', 'subcategory', 'childcategory', 'subchildcategories', 'subchildmenus'));
+    }
+
+    public function storeSubChildCategory($menu, $category_id, $subcategory_id, $childcategory_id, Request $request)
+    {
+        $menu = MegaMenu::find($menu);
+        $category = CategoryMegaMenu::find($category_id);
+        $subcategory = SubCategoryMegaMenu::find($subcategory_id);
+        $childcategory = ChildCategoryMegaMenu::find($childcategory_id);
+
+        foreach($request->subchildcategories as $subchild){
+            $subch = new SubChildCategoryMegaMenu;
+            $subch->sub_child_category_id = $subchild;
+            $subch->child_category_id = $childcategory_id;
+            $subch->save();
         }
 
         return back()->with('success', 'Save Success');

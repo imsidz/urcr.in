@@ -6,7 +6,7 @@
         <div class="card-header">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#add">
-              Add SubCategories
+              Add Child Categories
             </button>
             
             <!-- Modal -->
@@ -14,18 +14,18 @@
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Add Sub Categories to {{ $category->name }}</h5>
+                            <h5 class="modal-title">Add Sub Child Categories to {{ $childcategory->childcategory->name }}</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                         </div>
                         <div class="modal-body">
-                            <form action="/admin/mega-menu/{{ $menu->id }}/{{ $category->id }}/subcategory" method="POST">
+                            <form action="/admin/mega-menu/{{ $menu->id }}/{{ $category->id }}/{{ $subcategory->id }}/{{ $childcategory->id }}/subchildcategory" method="POST">
                                 @csrf
-                                <label for="">Select SubCategories</label>
+                                <label for="">Select Sub Child Categories</label>
                                 <div class="form-group">
-                                    <select name="subcategories[]" id="" class="select2 w-100" multiple>
-                                        @foreach ($subcategories as $sub)
+                                    <select name="subchildcategories[]" id="" class="select2 w-100" multiple>
+                                        @foreach ($subchildcategories as $sub)
                                             <option value="{{ $sub->id }}">{{ $sub->name }}</option>
                                         @endforeach
                                     </select>
@@ -41,7 +41,7 @@
                 </div>
             </div>
             {{-- <a href="/admin/mega-menu/3/1/subcategory" class="btn btn-info float-right">Add New Mega Menu</a> --}}
-            <h3>SubCategory Lists to {{ $menu->name }} || {{ $category->category->name }}</h3>
+            <h3>ChildCategory Lists to {{ $category->category->name }} || {{ $subcategory->subcategory->name }} || {{ $childcategory->childcategory->name }}</h3>
         </div>
         <div class="card-body">
             <table class="table">
@@ -49,26 +49,24 @@
                     <tr>
                         <th width="5%">#</th>
                         <th>SubCategory Name</th>
-                        <th>Child Category</th>
                         <th width="5%">Remove</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($subcatmegamenus as $index => $subm)
+                    @foreach ($subchildmenus as $index => $subc)
                         <tr>
                             <td>
                                 {{ $index + 1 }}
                             </td>
                             <td>
-                                {{ $subm->subcategory->name }}
+                                {{ $subc->subchildcategory->name }}
                             </td>
-                            <td>
-                                <a href="/admin/mega-menu/{{ $menu->id }}/{{ $category->id }}/{{ $subm->id }}/childsubcategory" class="btn btn-sm btn-primary">Add Child Categories</a>
-                            </td>
+                            
+                            <td></td>
                         </tr>
                     @endforeach
                     
-                    {!! $subcatmegamenus->render() !!}
+                    {!! $subchildmenus->render() !!}
                 </tbody>
             </table>
         </div>

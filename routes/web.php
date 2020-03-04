@@ -236,5 +236,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
         Route::get('/{id}/{category_id}/subcategory', 'MegaMenuController@indexSubCategories');
 
         Route::post('/{menu}/{category_id}/subcategory', 'MegaMenuController@storeSubCategories');
+
+        Route::get('/{menu}/{category_id}/{subcategory_id}/childsubcategory', 'MegaMenuController@indexChildCategory');
+
+        Route::post('/{menu}/{category_id}/{subcategory_id}/childsubcategory', 'MegaMenuController@storeChildCategory');
+
+        Route::get('/{menu}/{category_id}/{subcategory_id}/{childcategory_id}/subchildcategory', 'MegaMenuController@indexSubChildCategory');
+        
+        Route::post('/{menu}/{category_id}/{subcategory_id}/{childcategory_id}/subchildcategory', 'MegaMenuController@storeSubChildCategory');
     });
 });
