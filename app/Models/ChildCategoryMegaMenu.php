@@ -15,4 +15,10 @@ class ChildCategoryMegaMenu extends Model
     {
         return $this->belongsTo(ChildCategory::class, 'child_category_id', 'id');
     }
+
+    public function subchildcategories()
+    {
+        return $this->hasMany(SubChildCategoryMegaMenu::class, 'sub_child_category_id', 'id');
+    }
+
 }
