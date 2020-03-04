@@ -18,4 +18,9 @@ class Category extends Model
     {
         return $this->belongsToMany(Seller::class, 'seller_category', 'seller_id', 'category_id');
     }
+
+    public function menucategories()
+    {
+        return $this->hasMany(CategoryMegaMenu::class, 'category_id', 'id');
+    }
 }

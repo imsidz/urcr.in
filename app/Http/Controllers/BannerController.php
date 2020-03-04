@@ -26,11 +26,11 @@ class BannerController extends Controller
         $banner->title = $request->title;
         $banner->url = $request->url;
 
-        $name = time() . Str::random(10);
+        $name = time() . Str::random(10) . $request->image->getClientOriginalExtension();
         $image = Image::make($request->image)->save(public_path() . '/images/' . $name . '.png', 60);
 
         // $image->move(public_path().'/images/', $name);
-        $url = url('/images/' . $name . '.png');
+        $url = url('/images/' . $name);
         $banner->image = $url;
         $banner->active = true;
         $banner->save();

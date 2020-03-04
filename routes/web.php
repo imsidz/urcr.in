@@ -224,4 +224,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
         Route::post('/customer/create', 'CustomerRequestController@store');
     });
+
+    Route::group(['prefix' => 'mega-menu'], function () {
+
+        Route::get('/', 'MegaMenuController@index');
+
+        Route::get('/create', 'MegaMenuController@create');
+
+        Route::post('/create', 'MegaMenuController@store');
+        Route::get('/category', 'MegaMenuCategory@categoryIndex'); 
+    });
 });
