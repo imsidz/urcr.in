@@ -177,7 +177,7 @@ export default {
 }
 .navbar-nav {
     width: 100%;
-    text-align: left;
+    text-align: center;
 }
 .navbar-nav li {
     float: none;
