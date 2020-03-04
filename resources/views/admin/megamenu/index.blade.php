@@ -15,6 +15,7 @@
                         <th>Name</th>
                         <th>Categories</th>
                         <th>Add Sub Category</th>
+                        <th width="5%">Status</th>
                         <th width="5%">Edit</th>
                         <th width="5%">Delete</th>
                     </tr>
@@ -33,9 +34,17 @@
                         </td>
                         <td>
                             @foreach ($menu->categorymegamenus as $m)
-                                    <a href="" class="btn btn-sm btn-primary">Add Sub Category to {{ $m->category->name }}</a>
-                                    <br>                                    
+                            <a href="/admin/mega-menu/{{ $menu->id }}/{{ $m->id }}/subcategory" class="btn btn-sm btn-primary">Add Sub Category to {{ $m->category->name }}</a>
+                                    <br>  
+                                    <br>                                  
                             @endforeach
+                        </td>
+                        <td>
+                            @if($menu->active)
+                                Active
+                            @else
+                                Deactive
+                            @endif
                         </td>
                         <td><a href="/admin/mega-menu/{{ $menu->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
                         </td>

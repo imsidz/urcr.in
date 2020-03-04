@@ -232,6 +232,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
         Route::get('/create', 'MegaMenuController@create');
 
         Route::post('/create', 'MegaMenuController@store');
-        Route::get('/category', 'MegaMenuCategory@categoryIndex'); 
+
+        Route::get('/{id}/{category_id}/subcategory', 'MegaMenuController@indexSubCategories');
+
+        Route::post('/{menu}/{category_id}/subcategory', 'MegaMenuController@storeSubCategories');
     });
 });

@@ -18,7 +18,7 @@ class MegaMenuSubCategoryResources extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'active' => false,
-            'childcategories' => MegaMenuChildCategoryResources::collection($this->childcategories)
+            // 'childcategories' => MegaMenuChildCategoryResources::collection($this->childcategories)
         ];
     }
 }
