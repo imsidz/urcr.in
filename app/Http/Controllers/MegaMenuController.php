@@ -38,9 +38,10 @@ class MegaMenuController extends Controller
 
         return redirect('/admin/mega-menu')->with('success', 'Added new Megamenu');
     }
-    // public function index()
-    // {
-    //     $categories = Category::get();
-    //     return MegaMenuCategoryResources::collection($categories);
-    // }
+    public function getMenuData()
+    {   
+        $menus = MegaMenu::where('active', true)->first();
+        $categories = $menus->categorymegamenus;
+        return MegaMenuCategoryResources::collection($categories);
+    }
 }
