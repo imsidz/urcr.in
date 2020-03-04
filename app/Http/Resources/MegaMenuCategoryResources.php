@@ -15,10 +15,10 @@ class MegaMenuCategoryResources extends JsonResource
     public function toArray($request)
     {
         return [
-            'name' => $this->name,
-            'slug' => $this->slug,
+            'name' => $this->category->name,
+            'slug' => $this->category->slug,
             'active' => false,
-            'subcategories' => MegaMenuSubCategoryResources::collection($this->subcategories)
+            // 'subcategories' => MegaMenuSubCategoryResources::collection($this->subcategories)
         ];
     }
 }

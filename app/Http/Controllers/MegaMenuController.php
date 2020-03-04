@@ -41,7 +41,7 @@ class MegaMenuController extends Controller
     public function getMenuData()
     {   
         $menus = MegaMenu::where('active', true)->first();
-        $categories = $menus->categorymegamenus;
+        $categories = $menus->categorymegamenu;
         return MegaMenuCategoryResources::collection($categories);
     }
 }
