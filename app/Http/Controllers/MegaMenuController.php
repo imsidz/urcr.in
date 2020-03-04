@@ -42,7 +42,6 @@ class MegaMenuController extends Controller
     {   
         $menus = MegaMenu::where('active', true)->first();
         $categories = $menus->categorymegamenus;
-        dd($categories);
         return MegaMenuCategoryResources::collection($categories);
     }
 }
