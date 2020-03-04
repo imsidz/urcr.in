@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class CategoryController extends Controller
 {
     public function adminIndex()
-    {   
+    {
         $categories = Category::latest()->paginate(20);
         return view('admin.category.index', compact('categories'));
     }
@@ -35,5 +35,22 @@ class CategoryController extends Controller
         $category->delete();
 
         return back()->with('status', 'Deleted Successs');
+    }
+
+    public function adminPut($slug, Request $request)
+    {
+        $category = Category::where('slug', $slug)->first();
+        $category->name = $request->name;
+        $category->slug = Str::slug($request->name, '-');
+        $category->save();
+
+        return redirect('/admin/category')->with('status', 'Category Added Success');
+    }
+
+    public function adminEdit($slug)
+    {
+        $category = Category::where('slug', $slug)->first();
+
+        return view('admin.category.edit', compact('category'));
     }
 }

@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/images', 'ImageController@store');
+
+Route::get('/get-mega-menu-data', 'MegaMenuController@index');

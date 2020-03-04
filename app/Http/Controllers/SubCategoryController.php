@@ -10,13 +10,13 @@ use Illuminate\Support\Str;
 class SubCategoryController extends Controller
 {
     public function adminIndex()
-    {   
+    {
         $subs = SubCategory::latest()->paginate(20);
         return view('admin.subcategory.index', compact('subs'));
     }
 
     public function adminCreate()
-    {   
+    {
         $categories = Category::latest()->get();
         return view('admin.subcategory.create', compact('categories'));
     }
@@ -27,17 +27,41 @@ class SubCategoryController extends Controller
         $sub->name = $request->name;
         $sub->slug = Str::slug($request->name, '-');
         $sub->category_id = $request->category;
-        if($request->file('image'))
-        {
+        if ($request->file('image')) {
             $image = $request->file('image');
-            $name = time().$image->getClientOriginalName();
-            $image->move(public_path().'/images/', $name);
+            $name = time() . $image->getClientOriginalName();
+            $image->move(public_path() . '/images/', $name);
             $url = url('/images/' . $name);
             $sub->image = $url;
         }
         $sub->save();
 
         return redirect('/admin/subcategory')->with('status', 'SubCategory Added Success');
+    }
+
+    public function adminEdit($slug)
+    {
+        $sub = SubCategory::where('slug', $slug)->first();
+        $categories = Category::latest()->get();
+        return view('admin.subcategory.edit', compact('sub', 'categories'));
+    }
+
+    public function adminUpdate($slug, Request $request)
+    {
+        $sub = SubCategory::where('slug', $slug)->first();
+        $sub->name = $request->name;
+        $sub->slug = Str::slug($request->name, '-');
+        $sub->category_id = $request->category;
+        if ($request->file('image')) {
+            $image = $request->file('image');
+            $name = time() . $image->getClientOriginalName();
+            $image->move(public_path() . '/images/', $name);
+            $url = url('/images/' . $name);
+            $sub->image = $url;
+        }
+        $sub->save();
+
+        return redirect('/admin/subcategory')->with('status', 'SubCategory Updated Success');
     }
 
     public function adminDelete($slug)

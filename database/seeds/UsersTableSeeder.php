@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use App\Models\Seller;
+use App\Models\Agent;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -20,7 +21,7 @@ class UsersTableSeeder extends Seeder
         $user->password = Hash::make('admin');
         $user->email = 'admin@admin.com';
         $user->save();
-    
+
         $seller = new Seller;
         $seller->name = 'admin';
         $seller->company = 'smile4miles';
@@ -30,6 +31,5 @@ class UsersTableSeeder extends Seeder
         $seller->mobile = 9999999999;
         $seller->password = Hash::make('seller');
         $seller->save();
-        
     }
 }

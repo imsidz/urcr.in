@@ -12,11 +12,11 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-        $latests = Product::latest()->store()->paginate('8');
+        $latests = Product::latest()->approved()->store()->paginate('12');
         $banners = Banner::where('active', true)->latest()->paginate(5);
         $subcategories = SubCategory::latest()->whereNotNull('image')->paginate(6);
-        $collection1 = Product::inRandomOrder()->store()->paginate(2);
-        $collection2 = Product::inRandomOrder()->store()->paginate(2);
+        $collection1 = Product::inRandomOrder()->approved()->store()->paginate(2);
+        $collection2 = Product::inRandomOrder()->approved()->store()->paginate(2);
         return view('welcome', compact('subcategories', 'collection1', 'collection2', 'latests', 'banners'));
     }
 }

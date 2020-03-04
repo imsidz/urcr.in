@@ -2,10 +2,15 @@
 
 namespace App\Models;
 
+use App\Filters\ProductFilter;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Builder;
 
 class Product extends Model
 {
+    use SoftDeletes;
+
     public function photos()
     {
         return $this->hasMany(Photo::class, 'product_id', 'id');
@@ -34,5 +39,45 @@ class Product extends Model
     public function seller()
     {
         return $this->belongsTo(Seller::class, 'seller_id', 'id');
+    }
+
+    public function scopeApproved($query)
+    {
+        return $query->where('approve', true);
+    }
+
+    public function scopeDisapprove($query)
+    {
+        return $query->where('approve', false);
+    }
+
+    public function subchildcategories()
+    {
+        return $this->belongsToMany(SubChildCategory::class, 'sub_child_category_products', 'product_id', 'sub_child_category_id')->withTimestamps();
+    }
+
+    public function style()
+    {
+        return $this->belongsTo(Style::class, 'style_id', 'id');
+    }
+
+    public function sizes()
+    {
+        return $this->belongsToMany(Size::class, 'product_size', 'product_id', 'size_id')->withTimestamps();
+    }
+
+    public function colors()
+    {
+        return $this->belongsToMany(Color::class, 'color_product', 'product_id', 'color_id')->withTimestamps();
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', true);
+    }
+
+    public function scopeFilter(Builder $builder, $request)
+    {
+        return (new ProductFilter($request))->filter($builder);
     }
 }
