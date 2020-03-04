@@ -15,8 +15,8 @@ class MegaMenuSubCategoryResources extends JsonResource
     public function toArray($request)
     {
         return [
-            'name' => $this->name,
-            'slug' => $this->slug,
+            'name' => $this->subcategory->name,
+            'slug' => $this->subcategory->slug,
             'active' => false,
             // 'childcategories' => MegaMenuChildCategoryResources::collection($this->childcategories)
         ];
