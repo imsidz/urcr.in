@@ -178,37 +178,16 @@
                 </li>
             </ul>
         </li>
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-copy"></i>
+        <li class="nav-item">
+            <a href="/admin/mega-menu/" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
                 <p>
                     Mega Menu
-                    <i class="fas fa-angle-left right"></i>
-                    <span class="badge badge-info right"></span>
+                    <span class="right badge badge-danger"></span>
                 </p>
             </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="/admin/mega-menu/" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Mega Menu Lists</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/admin/mega-menu/category" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Category</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/admin/mega-menu/subcategory" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Sub Category</p>
-                    </a>
-                </li>
-            </ul>
         </li>
+
         <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
