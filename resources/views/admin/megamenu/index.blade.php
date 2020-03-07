@@ -16,7 +16,7 @@
                         <th>Categories</th>
                         <th>Add Sub Category</th>
                         <th width="5%">Status</th>
-                        <th width="5%">Edit</th>
+                        {{-- <th width="5%">Edit</th> --}}
                         <th width="5%">Delete</th>
                     </tr>
                 </thead>
@@ -27,27 +27,30 @@
                         <td>{{ $menu->name }}</td>
                         <td>
                             @foreach ($menu->categorymegamenus as $m)
-                                <li>
-                                    {{$m->category->name}}
-                                </li>
+                            <li>
+                                {{$m->category->name}}
+                            </li>
                             @endforeach
                         </td>
                         <td>
-                            @foreach ($menu->categorymegamenus as $m)
-                            <a href="/admin/mega-menu/{{ $menu->id }}/{{ $m->id }}/subcategory" class="btn btn-sm btn-primary">Add Sub Category to {{ $m->category->name }}</a>
-                                    <br>  
-                                    <br>                                  
-                            @endforeach
+                            <a href="/admin/mega-menu/{{ $menu->id }}/category" class="btn btn-sm btn-primary">Manage
+                                Category</a>
                         </td>
                         <td>
                             @if($menu->active)
-                                Active
+                            <form action="/admin/mega-menu/{{ $menu->id}}/deactivate" method="POST">
+                                @csrf
+                                <button class="btn btn-danger btn-sm">Deactivate</button>
+                            </form>
                             @else
-                                Deactive
+                            <form action="/admin/mega-menu/{{ $menu->id}}/activate" method="POST">
+                                @csrf
+                                <button class="btn btn-success btn-sm">Activate</button>
+                            </form>
                             @endif
                         </td>
-                        <td><a href="/admin/mega-menu/{{ $menu->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
-                        </td>
+                        {{-- <td><a href="/admin/mega-menu/{{ $menu->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                        </td> --}}
                         <td>
                             <form action="/admin/mega-menu/{{ $menu->id }}/delete" method="POST">
                                 @csrf

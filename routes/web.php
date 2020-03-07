@@ -233,6 +233,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
         Route::post('/create', 'MegaMenuController@store');
 
+        Route::post('/{menu}/activate', 'MegaMenuController@activeMenu');
+
+        Route::post('/{menu}/deactivate', 'MegaMenuController@deactivateMenu');
+
+        Route::get('/{id}/category', 'MegaMenuCategory@categoryIndex');
+
+        Route::post('/{id}/category', 'MegaMenuCategory@categoryStore');
+
         Route::get('/{id}/{category_id}/subcategory', 'MegaMenuController@indexSubCategories');
 
         Route::post('/{menu}/{category_id}/subcategory', 'MegaMenuController@storeSubCategories');
@@ -242,7 +250,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
         Route::post('/{menu}/{category_id}/{subcategory_id}/childsubcategory', 'MegaMenuController@storeChildCategory');
 
         Route::get('/{menu}/{category_id}/{subcategory_id}/{childcategory_id}/subchildcategory', 'MegaMenuController@indexSubChildCategory');
-        
+
         Route::post('/{menu}/{category_id}/{subcategory_id}/{childcategory_id}/subchildcategory', 'MegaMenuController@storeSubChildCategory');
+
+        //Remove
+
+        Route::delete('/{menu}/{category}/remove', 'MegaMenuController@removeCategory');
+
+        Route::delete('/{menu}/{category}/{subm}/remove', 'MegaMenuController@removeSubCategory');
+
+        Route::delete('/{menu}/{category}/{subm}/{childcat}/remove', 'MegaMenuController@removeChildCategory');
+
+        Route::delete('/{menu}/{category}/{subcategory}/{childcateogry}/{subchildcategory}/remove', 'MegaMenuController@removeSubChildCategory');
     });
 });

@@ -6,35 +6,37 @@
         <div class="card-header">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#add">
-              Add SubCategories
+                Add SubCategories
             </button>
-            
+
             <!-- Modal -->
-            <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+                aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Add Sub Categories to {{ $category->name }}</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         <div class="modal-body">
-                            <form action="/admin/mega-menu/{{ $menu->id }}/{{ $category->id }}/subcategory" method="POST">
+                            <form action="/admin/mega-menu/{{ $menu->id }}/{{ $category->id }}/subcategory"
+                                method="POST">
                                 @csrf
                                 <label for="">Select SubCategories</label>
                                 <div class="form-group">
                                     <select name="subcategories[]" id="" class="select2 w-100" multiple>
                                         @foreach ($subcategories as $sub)
-                                            <option value="{{ $sub->id }}">{{ $sub->name }}</option>
+                                        <option value="{{ $sub->id }}">{{ $sub->name }}</option>
                                         @endforeach
                                     </select>
-                                  {{-- <small id="helpId" class="text-muted">Help text</small> --}}
+                                    {{-- <small id="helpId" class="text-muted">Help text</small> --}}
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                             </form>
                         </div>
                     </div>
@@ -55,19 +57,28 @@
                 </thead>
                 <tbody>
                     @foreach ($subcatmegamenus as $index => $subm)
-                        <tr>
-                            <td>
-                                {{ $index + 1 }}
-                            </td>
-                            <td>
-                                {{ $subm->subcategory->name }}
-                            </td>
-                            <td>
-                                <a href="/admin/mega-menu/{{ $menu->id }}/{{ $category->id }}/{{ $subm->id }}/childsubcategory" class="btn btn-sm btn-primary">Add Child Categories</a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            {{ $index + 1 }}
+                        </td>
+                        <td>
+                            {{ $subm->subcategory->name }}
+                        </td>
+                        <td>
+                            <a href="/admin/mega-menu/{{ $menu->id }}/{{ $category->id }}/{{ $subm->id }}/childsubcategory"
+                                class="btn btn-sm btn-primary">Manage ChildCategories</a>
+                        </td>
+                        <td>
+                            <form action="/admin/mega-menu/{{ $menu->id }}/{{ $category->id }}/{{ $subm->id }}/remove"
+                                method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
                     @endforeach
-                    
+
                     {!! $subcatmegamenus->render() !!}
                 </tbody>
             </table>
