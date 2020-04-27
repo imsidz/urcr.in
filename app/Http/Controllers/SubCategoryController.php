@@ -71,4 +71,11 @@ class SubCategoryController extends Controller
 
         return back();
     }
+
+    public function getSubCategories(Request $request)
+    {
+        $subcat = SubCategory::where('category_id', $request->categoryid)->latest()->get();
+
+        return response()->json($subcat);
+    }
 }

@@ -20,3 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/images', 'ImageController@store');
 
 Route::get('/get-mega-menu-data', 'MegaMenuController@getMenuData');
+
+Route::post('/child-category/image-upload', 'ImageController@imageUpload');
+
+Route::post('/sub-child-category/image-upload', 'ImageController@imageSubChildCategoryUpload');

@@ -53,4 +53,11 @@ class CategoryController extends Controller
 
         return view('admin.category.edit', compact('category'));
     }
+
+    public function getCategories()
+    {
+        $categories = Category::latest()->get();
+
+        return response()->json($categories);
+    }
 }

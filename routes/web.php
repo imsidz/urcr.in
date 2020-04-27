@@ -263,4 +263,20 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
         Route::delete('/{menu}/{category}/{subcategory}/{childcateogry}/{subchildcategory}/remove', 'MegaMenuController@removeSubChildCategory');
     });
+
+    //Vue Requests
+
+    Route::get('/get-catgories', 'CategoryController@getCategories');
+
+    Route::post('/get-subcategory', 'SubCategoryController@getSubCategories');
+
+    Route::post('/get-childcategory', 'ChildCategoryController@getChildCategories');
+
+    Route::post('/get-subchildcategory', 'SubChildCategoryController@getSubChildCategories');
+
+    Route::get('/create-child-category', 'ChildCategoryController@createChildCategory');
+
+    Route::get('/create-sub-child-category', 'SubChildCategoryController@createSubChildCategory');
 });
+
+//Image Uploader through vue to anyone

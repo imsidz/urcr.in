@@ -24,6 +24,16 @@ Vue.component(
     require("./components/ExampleComponent.vue").default
 );
 
+Vue.component(
+    "childcategorycreate",
+    require("./components/admin/childcategory/Create.vue").default
+);
+
+Vue.component(
+    "subchildcategorycreate",
+    require("./components/admin/subchildcategory/Create.vue").default
+);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

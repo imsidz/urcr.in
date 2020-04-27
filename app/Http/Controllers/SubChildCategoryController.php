@@ -11,7 +11,7 @@ class SubChildCategoryController extends Controller
 {
     public function adminIndex()
     {
-        $subchilds = SubChildCategory::latest()->paginate(20);
+        $subchilds = SubChildCategory::latest()->where('submited', true)->paginate(20);
         return view('admin.subchildcategory.index', compact('subchilds'));
     }
 
@@ -23,20 +23,14 @@ class SubChildCategoryController extends Controller
 
     public function adminPost(Request $request)
     {
-        $sub = new SubChildCategory;
+        $sub = SubChildCategory::find($request->subchild);
         $sub->name = $request->name;
-        $sub->slug = Str::slug($request->name, '-');
-        $sub->child_category_id = $request->category;
-        if ($request->file('image')) {
-            $image = $request->file('image');
-            $name = time() . $image->getClientOriginalName();
-            $image->move(public_path() . '/images/', $name);
-            $url = url('/images/' . $name);
-            $sub->image = $url;
-        }
+        $sub->slug = Str::slug($request->name, '-') . Str::random(6);
+        $sub->child_category_id = $request->child;
+        $sub->submited = true;
         $sub->save();
 
-        return redirect('/admin/subchildcategory')->with('status', 'Added Success');
+        return response()->json('success');
     }
 
     public function adminEdit($slug)
@@ -69,5 +63,20 @@ class SubChildCategoryController extends Controller
         $child->delete();
 
         return back();
+    }
+
+    public function getSubChildCategories(Request $request)
+    {
+        $subchilds = SubChildCategory::where('child_category_id', $request->childid)->latest()->get();
+
+        return response()->json($subchilds);
+    }
+
+    public function createSubChildCategory()
+    {
+        $child = new SubChildCategory;
+        $child->save();
+
+        return response()->json($child);
     }
 }
