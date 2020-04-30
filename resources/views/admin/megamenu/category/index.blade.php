@@ -25,17 +25,16 @@
                                 @csrf
                                 <label for="">Select Categories</label>
                                 <div class="form-group">
-                                    <select name="categories[]" id="" class="select2 w-100" multiple>
+                                    <select name="categories[]" id="" class="select2 w-100 form-control" multiple>
                                         @foreach ($categories as $cat)
                                         <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                         @endforeach
                                     </select>
                                     {{-- <small id="helpId" class="text-muted">Help text</small> --}}
                                 </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-warning float-right"
+                                    data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                             </form>
                         </div>
                     </div>

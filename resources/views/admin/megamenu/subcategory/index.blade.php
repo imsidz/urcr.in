@@ -33,12 +33,12 @@
                                     </select>
                                     {{-- <small id="helpId" class="text-muted">Help text</small> --}}
                                 </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-warning float-right"
+                                    data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
                             </form>
                         </div>
+
                     </div>
                 </div>
             </div>

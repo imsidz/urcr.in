@@ -77,7 +77,7 @@ class MegaMenuController extends Controller
         $menu = MegaMenu::find($menu);
         $category = CategoryMegaMenu::find($category_id);
         $subcategory = SubCategoryMegaMenu::find($subcategory_id);
-        $childcategories = ChildCategory::latest()->get();
+        $childcategories = ChildCategory::where('submited', true)->latest()->get();
         $childmenus = ChildCategoryMegaMenu::where('sub_category_id', $subcategory_id)->latest()->paginate();
         return view('admin.megamenu.childcategory.index', compact('menu', 'category', 'subcategory', 'childcategories', 'childmenus'));
     }
@@ -104,7 +104,7 @@ class MegaMenuController extends Controller
         $category = CategoryMegaMenu::find($category_id);
         $subcategory = SubCategoryMegaMenu::find($subcategory_id);
         $childcategory = ChildCategoryMegaMenu::find($childcategory_id);
-        $subchildcategories = SubChildCategory::latest()->get();
+        $subchildcategories = SubChildCategory::where('submited', true)->latest()->get();
         $subchildmenus = SubChildCategoryMegaMenu::where('child_category_id', $childcategory_id)->latest()->paginate();
         // $childmenus = ChildCategoryMegaMenu::latest()->paginate();
         return view('admin.megamenu.subchildcategory.index', compact('menu', 'category', 'subcategory', 'childcategory', 'subchildcategories', 'subchildmenus'));
